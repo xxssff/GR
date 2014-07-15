@@ -4,12 +4,16 @@
 #include <QtGui/QImage>
 #include <QtGui/QPixmap>
 #include <QtGui/QGraphicsPixmapItem>
+#include <QtGui/QMatrix>
+#include <QtGui/QWheelEvent>
+#include <QtGui/QScrollBar>
 
 MapCanvas::MapCanvas( QWidget *parent /*= 0 */ )
     : QGraphicsView( parent )
 {
     poDataset = NULL;
     m_scaleFactor = 1.0;
+    m_showColor = true;
     imgMetaModel = new QStandardItemModel;
     imgMetaModel->setColumnCount( 2 );
     fileListModel = new QStandardItemModel;
@@ -18,7 +22,7 @@ MapCanvas::MapCanvas( QWidget *parent /*= 0 */ )
 }
 
 /// <summary>
-/// Finalizes an instance of the <see cref="MapCanvas"/> class.
+/// Finalizes an instance of the <see cref="MapCanvas" /> class.
 /// </summary>
 MapCanvas::~MapCanvas()
 {
@@ -44,11 +48,13 @@ void MapCanvas::ReadImg( const QString imgPath )
     // 如果图像文件并非三个波段，则默认只显示第一波段灰度图像
     if ( poDataset->GetRasterCount() != 3 )
     {
+        m_showColor = false;
         ShowBand( poDataset->GetRasterBand( 1 ) );
     }
     // 如果图像正好三个波段，则默认以RGB的顺序显示彩色图
     else
     {
+        m_showColor = true;
         QList<GDALRasterBand*> bandList;
         bandList.append( poDataset->GetRasterBand( 1 ) );
         bandList.append( poDataset->GetRasterBand( 2 ) );
@@ -69,9 +75,9 @@ void MapCanvas::CloseCurrentImg()
 }
 
 /// <summary>
-/// Shows the band.
+/// 显示单波段图像
 /// </summary>
-/// <param name="band">The band.</param>
+/// <param name="band">图像波段</param>
 void MapCanvas::ShowBand( GDALRasterBand* band )
 {
     if ( band == NULL )
@@ -102,8 +108,10 @@ void MapCanvas::ShowImg( QList<GDALRasterBand*> *imgBand )
     int imgWidth = imgBand->at( 0 )->GetXSize();
     int imgHeight = imgBand->at( 0 )->GetYSize();
     
-    int iScaleWidth = imgWidth;
-    int iScaleHeight = imgHeight;
+    m_scaleFactor = this->height() * 1.0 / imgHeight;
+    
+    int iScaleWidth = ( int )( imgWidth * m_scaleFactor - 1 );
+    int iScaleHeight = ( int )( imgHeight * m_scaleFactor - 1 );
     
     GDALDataType dataType = imgBand->at( 0 )->GetRasterDataType();
     
@@ -111,105 +119,42 @@ void MapCanvas::ShowImg( QList<GDALRasterBand*> *imgBand )
     float* rBand = new float[iScaleWidth * iScaleHeight];
     float* gBand = new float[iScaleWidth * iScaleHeight];
     float* bBand = new float[iScaleWidth * iScaleHeight];
-    imgBand->at( 0 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, rBand , iScaleWidth, iScaleHeight, GDT_Float32, 0, 0 );
-    imgBand->at( 1 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, gBand, iScaleWidth, iScaleHeight, GDT_Float32, 0, 0 );
-    imgBand->at( 2 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, bBand, iScaleWidth, iScaleHeight, GDT_Float32, 0, 0 );
     
-    //// 分别拉伸每个波段
-    //unsigned char* rBandUC = ImgSketch( rBand, imgWidth, imgHeight, 1, imgBand->at( 0 )->GetNoDataValue() );
-    //unsigned char* gBandUC = ImgSketch( gBand, imgWidth, imgHeight, 1, imgBand->at( 1 )->GetNoDataValue() );
-    //unsigned char* bBandUC = ImgSketch( bBand, imgWidth, imgHeight, 1, imgBand->at( 2 )->GetNoDataValue() );
-    //
-    //// 将三个波段组合起来
+    unsigned char *rBandUC, *gBandUC, *bBandUC;
+    
+    // 根据是否显示彩色图像，判断RGB三个波段的组成方式，并分别读取
+    if ( m_showColor == true )
+    {
+        imgBand->at( 0 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, rBand , iScaleWidth, iScaleHeight, GDT_Float32, 0, 0 );
+        imgBand->at( 1 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, gBand, iScaleWidth, iScaleHeight, GDT_Float32, 0, 0 );
+        imgBand->at( 2 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, bBand, iScaleWidth, iScaleHeight, GDT_Float32, 0, 0 );
+        
+        // 分别拉伸每个波段并将Float转换为unsigned char
+        rBandUC = ImgSketch( rBand, imgBand->at( 0 ), iScaleWidth * iScaleHeight, imgBand->at( 0 )->GetNoDataValue() );
+        gBandUC = ImgSketch( gBand, imgBand->at( 1 ), iScaleWidth * iScaleHeight, imgBand->at( 1 )->GetNoDataValue() );
+        bBandUC = ImgSketch( bBand, imgBand->at( 2 ), iScaleWidth * iScaleHeight, imgBand->at( 2 )->GetNoDataValue() );
+    }
+    else
+    {
+        imgBand->at( 0 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, rBand , iScaleWidth, iScaleHeight, GDT_Float32, 0, 0 );
+        
+        rBandUC = ImgSketch( rBand, imgBand->at( 0 ), iScaleWidth * iScaleHeight, imgBand->at( 0 )->GetNoDataValue() );
+        gBandUC = rBandUC;
+        bBandUC = rBandUC;
+    }
+    
+    // 将三个波段组合起来
     int bytePerLine = ( iScaleWidth * 24 + 31 ) / 8;
     unsigned char* allBandUC = new unsigned char[bytePerLine * iScaleHeight * 3];
-    //for( int h = 0; h < iScaleHeight; h++ )
-    //{
-    //    for( int w = 0; w < iScaleWidth; w++ )
-    //    {
-    //        allBandUC[h * imgWidth + w * 3 + 0] = rBandUC[h * iScaleWidth + w];
-    //        allBandUC[h * imgWidth + w * 3 + 1] = gBandUC[h * iScaleWidth + w];
-    //        allBandUC[h * imgWidth + w * 3 + 2] = bBandUC[h * iScaleWidth + w];
-    //    }
-    //}
-    
-    
-    double rminmax[2], gminmax[2], bminmax[2];
-    double rmin, gmin, bmin, rmax, gmax, bmax;
-    GDALComputeRasterMinMax( imgBand->at( 0 ), 1, rminmax );
-    rmin = rminmax[0];
-    rmax = rminmax[1];
-    GDALComputeRasterMinMax( imgBand->at( 1 ), 1, gminmax );
-    gmin = gminmax[0];
-    gmax = gminmax[1];
-    GDALComputeRasterMinMax( imgBand->at( 2 ), 1, bminmax );
-    bmin = bminmax[0];
-    bmax = bminmax[1];
-    double rnovalue = GDALGetRasterNoDataValue( imgBand->at( 0 ), NULL );
-    double gnovalue = GDALGetRasterNoDataValue( imgBand->at( 1 ), NULL );
-    double bnovalue = GDALGetRasterNoDataValue( imgBand->at( 2 ), NULL );
-    rmin = rmin <= rnovalue && rnovalue < rmax ? 0 : rmin;
-    gmin = gmin <= gnovalue && gnovalue < gmax ? 0 : gmin;
-    bmin = bmin <= bnovalue && bnovalue < bmax ? 0 : bmin;
-    
     for( int h = 0; h < iScaleHeight; h++ )
     {
         for( int w = 0; w < iScaleWidth; w++ )
         {
-            uchar rvalue = 0, gvalue = 0, bvalue = 0;
-            int i = h * iScaleWidth + w;
-            
-            if( rBand[i] <= rmax && rBand[i] >= rmin )
-            {
-                rvalue = static_cast<uchar>( 255 - 255 * ( rmax - rBand[i] ) / ( rmax - rmin ) );
-                
-            }
-            else if( rBand[i] > rmax )
-            {
-                rvalue = 255;
-                
-            }
-            else
-            {
-                rvalue = 0;
-            }
-            
-            if( gBand[i] <= gmax && gBand[i] >= gmin )
-            {
-                gvalue = static_cast<uchar>( 255 - 255 * ( gmax - gBand[i] ) / ( gmax - gmin ) );
-                
-            }
-            else if( gBand[i] > gmax )
-            {
-                gvalue = 255;
-                
-            }
-            else
-            {
-                gvalue = 0;
-            }
-            
-            if( bBand[i] <= bmax && bBand[i] >= bmin )
-            {
-                bvalue = static_cast<uchar>( 255 - 255 * ( bmax - bBand[i] ) / ( bmax - bmin ) );
-                
-            }
-            else if( bBand[i] > bmax )
-            {
-                bvalue = 255;
-                
-            }
-            else
-            {
-                bvalue = 0;
-            }
-            
-            allBandUC[h * bytePerLine + w * 3 + 0] = rvalue;
-            allBandUC[h * bytePerLine + w * 3 + 1] = gvalue;
-            allBandUC[h * bytePerLine + w * 3 + 2] = bvalue;
+            allBandUC[h * bytePerLine + w * 3 + 0] = rBandUC[h * iScaleWidth + w];
+            allBandUC[h * bytePerLine + w * 3 + 1] = gBandUC[h * iScaleWidth + w];
+            allBandUC[h * bytePerLine + w * 3 + 2] = bBandUC[h * iScaleWidth + w];
         }
     }
-    
     
     // 构造图像并显示
     QGraphicsPixmapItem *imgItem = new QGraphicsPixmapItem(  QPixmap::fromImage( QImage( allBandUC, iScaleWidth, iScaleHeight, bytePerLine, QImage::Format_RGB888  ) ) );
@@ -289,46 +234,110 @@ void MapCanvas::ShowFileList( const QString filename )
 /// 图像线性拉伸
 /// </summary>
 /// <param name="buffer">图像缓存</param>
-/// <param name="row">行数</param>
-/// <param name="colum">列数</param>
-/// <param name="bands">波段数</param>
+/// <param name="currentBand">当前波段</param>
+/// <param name="size">The size.</param>
+/// <param name="noValue">图像中的异常值</param>
 /// <returns>经过拉伸的8位图像缓存</returns>
-unsigned char* MapCanvas::ImgSketch( float* buffer , int row, int column, int bands, double noValue )
+unsigned char* MapCanvas::ImgSketch( float* buffer , GDALRasterBand* currentBand, int bandSize, double noValue )
 {
-    unsigned char* resBuffer = new unsigned char[row * column * bands];
-    float max, min;
+    unsigned char* resBuffer = new unsigned char[bandSize];
+    double max, min;
     double minmax[2];
     
-    for ( int b = 0; b < bands; b++ )
+    
+    currentBand->ComputeRasterMinMax( 1, minmax );
+    min = minmax[0];
+    max = minmax[1];
+    if( min <= noValue && noValue <= max )
     {
-        poDataset->GetRasterBand( b + 1 )->ComputeRasterMinMax( b + 1, minmax );
-        min = minmax[0];
-        max = minmax[1];
-        if( min <= noValue && noValue < max )
+        min = 0;
+    }
+    for ( int i = 0; i < bandSize; i++ )
+    {
+        if ( buffer[i] > max )
         {
-            min = 0;
+            resBuffer[i] = 255;
         }
-        for ( int i = 0; i < row * column * bands; i++ )
+        else if ( buffer[i] <= max && buffer[i] >= min )
         {
-            if ( buffer[i] > max )
-            {
-                resBuffer[i] = 255;
-            }
-            else if ( buffer[i] < max && buffer[i] > min )
-            {
-                resBuffer[i] = static_cast<uchar>( 255 - 255 * ( max - buffer[i] ) / ( max - min ) );
-            }
-            else
-            {
-                resBuffer[i] = 0;
-            }
+            resBuffer[i] = static_cast<uchar>( 255 - 255 * ( max - buffer[i] ) / ( max - min ) );
+        }
+        else
+        {
+            resBuffer[i] = 0;
         }
     }
     
     return resBuffer;
 }
 
+/// <summary>
+/// 控件大小
+/// </summary>
+/// <returns>QSize.</returns>
 QSize MapCanvas::sizeHint() const
 {
     return QSize( 1024, 768 );
 }
+
+/// <summary>
+/// 鼠标滚轮事件，实现图像缩放
+/// </summary>
+/// <param name="event">滚轮事件</param>
+void MapCanvas::wheelEvent( QWheelEvent *event )
+{
+    // 滚轮向上滑动，放大图像
+    if ( event->delta() > 0 )
+    {
+        ZoomIn();
+    }
+    // 滚轮向下滑动，缩小图像
+    if ( event->delta() < 0 )
+    {
+        ZoomOut();
+    }
+}
+
+/// <summary>
+/// 鼠标按键按下事件
+/// </summary>
+/// <param name="event">鼠标事件.</param>
+void MapCanvas::mousePressEvent( QMouseEvent *event )
+{
+    // 滚轮键按下，平移图像
+    if ( event->button() == Qt::MidButton )
+    {
+        this->setDragMode( QGraphicsView::ScrollHandDrag );
+        this->setInteractive( false );
+        lastEventCursorPos = event->pos();
+    }
+}
+
+/// <summary>
+/// 鼠标移动事件
+/// </summary>
+/// <param name="event">鼠标事件</param>
+void MapCanvas::mouseMoveEvent( QMouseEvent *event )
+{
+    if ( this->dragMode() == QGraphicsView::ScrollHandDrag )
+    {
+        QPoint delta = ( event->pos() - lastEventCursorPos ) / 10;
+        this->horizontalScrollBar()->setValue( this->horizontalScrollBar()->value() + ( isRightToLeft() ? delta.x() : -delta.x() ) );
+        this->verticalScrollBar()->setValue( this->verticalScrollBar()->value() - delta.y() );
+        this->viewport()->setCursor( Qt::ClosedHandCursor );
+    }
+    
+}
+
+/// <summary>
+/// 鼠标按键释放事件
+/// </summary>
+/// <param name="event">鼠标事件</param>
+void MapCanvas::mouseReleaseEvent( QMouseEvent *event )
+{
+    if ( event->button() == Qt::MidButton )
+    {
+        this->setDragMode( QGraphicsView::NoDrag );
+    }
+}
+

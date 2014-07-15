@@ -26,6 +26,10 @@
    </attribute>
    <addaction name="actionImage"/>
    <addaction name="actionClose"/>
+   <addaction name="actionZoom_Out"/>
+   <addaction name="actionZoom_In"/>
+   <addaction name="actionFit_Window"/>
+   <addaction name="actionNormal_Size"/>
    <addaction name="actionAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -95,7 +99,17 @@
     </property>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menuView_Operation">
+    <property name="title">
+     <string>View Operation</string>
+    </property>
+    <addaction name="actionZoom_Out"/>
+    <addaction name="actionZoom_In"/>
+    <addaction name="actionFit_Window"/>
+    <addaction name="actionNormal_Size"/>
+   </widget>
    <addaction name="menuOpen"/>
+   <addaction name="menuView_Operation"/>
    <addaction name="menuWindow"/>
    <addaction name="menuAbout"/>
   </widget>
@@ -136,6 +150,26 @@
   <action name="actionClose">
    <property name="text">
     <string>Close</string>
+   </property>
+  </action>
+  <action name="actionZoom_Out">
+   <property name="text">
+    <string>Zoom Out</string>
+   </property>
+  </action>
+  <action name="actionZoom_In">
+   <property name="text">
+    <string>Zoom In</string>
+   </property>
+  </action>
+  <action name="actionFit_Window">
+   <property name="text">
+    <string>Fit Window</string>
+   </property>
+  </action>
+  <action name="actionNormal_Size">
+   <property name="text">
+    <string>Normal Size</string>
    </property>
   </action>
  </widget>

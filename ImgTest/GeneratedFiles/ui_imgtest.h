@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'imgtest.ui'
 **
-** Created: Mon Jul 14 22:19:55 2014
+** Created: Tue Jul 15 20:13:10 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -37,6 +37,10 @@ public:
     QAction *actionFile_List;
     QAction *actionAbout;
     QAction *actionClose;
+    QAction *actionZoom_Out;
+    QAction *actionZoom_In;
+    QAction *actionFit_Window;
+    QAction *actionNormal_Size;
     QWidget *centralWidget;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -52,6 +56,7 @@ public:
     QMenu *menuOpen;
     QMenu *menuWindow;
     QMenu *menuAbout;
+    QMenu *menuView_Operation;
 
     void setupUi(QMainWindow *ImgTestClass)
     {
@@ -71,6 +76,14 @@ public:
         actionAbout->setObjectName(QString::fromUtf8("actionAbout"));
         actionClose = new QAction(ImgTestClass);
         actionClose->setObjectName(QString::fromUtf8("actionClose"));
+        actionZoom_Out = new QAction(ImgTestClass);
+        actionZoom_Out->setObjectName(QString::fromUtf8("actionZoom_Out"));
+        actionZoom_In = new QAction(ImgTestClass);
+        actionZoom_In->setObjectName(QString::fromUtf8("actionZoom_In"));
+        actionFit_Window = new QAction(ImgTestClass);
+        actionFit_Window->setObjectName(QString::fromUtf8("actionFit_Window"));
+        actionNormal_Size = new QAction(ImgTestClass);
+        actionNormal_Size->setObjectName(QString::fromUtf8("actionNormal_Size"));
         centralWidget = new QWidget(ImgTestClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         ImgTestClass->setCentralWidget(centralWidget);
@@ -122,12 +135,19 @@ public:
         menuWindow->setObjectName(QString::fromUtf8("menuWindow"));
         menuAbout = new QMenu(menuBar);
         menuAbout->setObjectName(QString::fromUtf8("menuAbout"));
+        menuView_Operation = new QMenu(menuBar);
+        menuView_Operation->setObjectName(QString::fromUtf8("menuView_Operation"));
         ImgTestClass->setMenuBar(menuBar);
 
         mainToolBar->addAction(actionImage);
         mainToolBar->addAction(actionClose);
+        mainToolBar->addAction(actionZoom_Out);
+        mainToolBar->addAction(actionZoom_In);
+        mainToolBar->addAction(actionFit_Window);
+        mainToolBar->addAction(actionNormal_Size);
         mainToolBar->addAction(actionAbout);
         menuBar->addAction(menuOpen->menuAction());
+        menuBar->addAction(menuView_Operation->menuAction());
         menuBar->addAction(menuWindow->menuAction());
         menuBar->addAction(menuAbout->menuAction());
         menuOpen->addAction(actionImage);
@@ -137,6 +157,10 @@ public:
         menuWindow->addAction(actionFile_List);
         menuWindow->addAction(actionInformation);
         menuAbout->addAction(actionAbout);
+        menuView_Operation->addAction(actionZoom_Out);
+        menuView_Operation->addAction(actionZoom_In);
+        menuView_Operation->addAction(actionFit_Window);
+        menuView_Operation->addAction(actionNormal_Size);
 
         retranslateUi(ImgTestClass);
 
@@ -159,9 +183,14 @@ public:
         actionFile_List->setText(QApplication::translate("ImgTestClass", "File List", 0, QApplication::UnicodeUTF8));
         actionAbout->setText(QApplication::translate("ImgTestClass", "About", 0, QApplication::UnicodeUTF8));
         actionClose->setText(QApplication::translate("ImgTestClass", "Close", 0, QApplication::UnicodeUTF8));
+        actionZoom_Out->setText(QApplication::translate("ImgTestClass", "Zoom Out", 0, QApplication::UnicodeUTF8));
+        actionZoom_In->setText(QApplication::translate("ImgTestClass", "Zoom In", 0, QApplication::UnicodeUTF8));
+        actionFit_Window->setText(QApplication::translate("ImgTestClass", "Fit Window", 0, QApplication::UnicodeUTF8));
+        actionNormal_Size->setText(QApplication::translate("ImgTestClass", "Normal Size", 0, QApplication::UnicodeUTF8));
         menuOpen->setTitle(QApplication::translate("ImgTestClass", "Open", 0, QApplication::UnicodeUTF8));
         menuWindow->setTitle(QApplication::translate("ImgTestClass", "Window", 0, QApplication::UnicodeUTF8));
         menuAbout->setTitle(QApplication::translate("ImgTestClass", "Help", 0, QApplication::UnicodeUTF8));
+        menuView_Operation->setTitle(QApplication::translate("ImgTestClass", "View Operation", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

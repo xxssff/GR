@@ -29,6 +29,8 @@ UIImgTest::UIImgTest( QWidget *parent, Qt::WFlags flags )
     connect( ui.actionExit, SIGNAL( triggered() ), this, SLOT( Exit() ) );
     connect( ui.actionFile_List, SIGNAL( triggered() ), this, SLOT( ShowFileListWindow() ) );
     connect( ui.actionInformation, SIGNAL( triggered() ), this, SLOT( ShowInforWindow() ) );
+    connect( ui.actionZoom_In, SIGNAL( triggered() ), this->myMap, SLOT( ZoomIn() ) );
+    connect( ui.actionZoom_Out, SIGNAL( triggered() ), this->myMap, SLOT( ZoomOut() ) );
 }
 
 /// <summary>
