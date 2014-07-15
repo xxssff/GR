@@ -28,6 +28,7 @@ MapCanvas::~MapCanvas()
 void MapCanvas::ReadImg( const QString imgPath )
 {
     GDALAllRegister();
+    CPLSetConfigOption( "GDAL_FILENAME_IS_UTF8", "NO" );
     poDataset = ( GDALDataset* )GDALOpen( imgPath.toStdString().c_str(), GA_ReadOnly );
     if ( poDataset == NULL )
     {
@@ -54,7 +55,7 @@ void MapCanvas::ReadImg( const QString imgPath )
 }
 
 /// <summary>
-/// Closes the current img.
+/// 关闭当前图像文件
 /// </summary>
 void MapCanvas::CloseCurrentImg()
 {
@@ -69,22 +70,57 @@ void MapCanvas::CloseCurrentImg()
 /// <param name="band">The band.</param>
 void MapCanvas::ShowBand( GDALRasterBand* band )
 {
-
+    if ( band == NULL )
+    {
+        return;
+    }
+    int bandWidth = band->GetXSize();
+    int bandHeight = band->GetYSize();
+    
+    int iScaleWidth = bandWidth;
+    int iScaleHeight = bandHeight;
+    
+    GDALDataType dataType = band->GetRasterDataType();
+    
+    float* pData = new float[bandWidth * bandHeight];
+    band->RasterIO( GF_Read, 0, 0, bandWidth, bandHeight, pData, iScaleWidth, iScaleHeight, dataType, 0, 0 );
 }
 
 /// <summary>
-/// Shows the img.
+/// 显示彩色图像
 /// </summary>
-/// <param name="imgBand">The img band.</param>
+/// <param name="imgBand">图像波段</param>
 void MapCanvas::ShowColorImg( QList<GDALRasterBand*> *imgBand )
 {
-
+    if ( imgBand->size() != 3 )
+    {
+        return;
+    }
+    // 首先分别读取RGB三个波段
+    int imgWidth = imgBand->at( 0 )->GetXSize();
+    int imgHeight = imgBand->at( 0 )->GetYSize();
+    
+    int iScaleWidth = imgWidth;
+    int iScaleHeight = imgHeight;
+    
+    GDALDataType dataType = imgBand->at( 0 )->GetRasterDataType();
+    
+    float* rBand = new float[imgWidth * imgHeight];
+    float* gBand = new float[imgWidth * imgHeight];
+    float* bBand = new float[imgWidth * imgHeight];
+    imgBand->at( 0 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, rBand , iScaleWidth, iScaleHeight, dataType, 0, 0 );
+    imgBand->at( 1 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, gBand, iScaleWidth, iScaleHeight, dataType, 0, 0 );
+    imgBand->at( 2 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, bBand, iScaleWidth, iScaleHeight, dataType, 0, 0 );
+    
+    unsigned char* rBandUC = ImgSketch( rBand, imgWidth, imgHeight, 1 );
+    unsigned char* gBandUC = ImgSketch( gBand, imgWidth, imgHeight, 1 );
+    unsigned char* bBandUC = ImgSketch( bBand, imgWidth, imgHeight, 1 );
 }
 
 /// <summary>
-/// Shows the img infor.
+/// 显示图像基本信息
 /// </summary>
-/// <param name="filename">The filename.</param>
+/// <param name="filename">文件名</param>
 void MapCanvas::ShowImgInfor( const QString filename )
 {
     if ( filename == "" || poDataset == NULL )
@@ -98,7 +134,7 @@ void MapCanvas::ShowImgInfor( const QString filename )
     imgMetaModel->setItem( row++, 1, new QStandardItem( poDataset->GetDriver()->GetDescription() ) );
     imgMetaModel->setItem( row, 0, new QStandardItem( tr( "Meta Infor" ) ) );
     imgMetaModel->setItem( row++, 1, new QStandardItem( poDataset->GetDriver()->GetMetadataItem( GDAL_DMD_LONGNAME ) ) ) ;
-    imgMetaModel->setItem( row, 0, new QStandardItem( tr( "GDAL Data Type" ) ) );
+    imgMetaModel->setItem( row, 0, new QStandardItem( tr( "Data Type" ) ) );
     imgMetaModel->setItem( row++, 1, new QStandardItem( GDALGetDataTypeName( ( poDataset->GetRasterBand( 1 )->GetRasterDataType() ) ) ) );
     
     // 图像的大小和波段个数
@@ -129,9 +165,9 @@ void MapCanvas::ShowImgInfor( const QString filename )
 }
 
 /// <summary>
-/// Shows the file list.
+/// 显示文件结构树
 /// </summary>
-/// <param name="filename">The filename.</param>
+/// <param name="filename">文件名</param>
 void MapCanvas::ShowFileList( const QString filename )
 {
     if ( filename == "" || poDataset == NULL )
@@ -149,17 +185,28 @@ void MapCanvas::ShowFileList( const QString filename )
 }
 
 /// <summary>
-/// Imgs the sketch.
+/// 图像线性拉伸
 /// </summary>
-/// <param name="buffer">The buffer.</param>
-/// <param name="row">The row.</param>
-/// <param name="colum">The colum.</param>
-/// <param name="bands">The bands.</param>
-/// <returns>unsigned char *.</returns>
+/// <param name="buffer">图像缓存</param>
+/// <param name="row">行数</param>
+/// <param name="colum">列数</param>
+/// <param name="bands">波段数</param>
+/// <returns>经过拉伸的8位图像缓存</returns>
 unsigned char* MapCanvas::ImgSketch( float* buffer , int row, int column, int bands )
 {
     unsigned char* resBuffer = new unsigned char[row * column, bands];
+    float max, min, minmax[2];
     
+    for ( int b = 0; b < bands; b++ )
+    {
+        poDataset->GetRasterBand( b + 1 )->ComputeRasterMinMax( b + 1, minmax );
+        min = minmax[0];
+        max = minmax[1];
+        for ( int i = 0; i < row * column * bands; i++ )
+        {
+            resBuffer[i] = ( buffer[i] - min ) / ( max - min ) * 255;
+        }
+    }
     return resBuffer;
 }
 
