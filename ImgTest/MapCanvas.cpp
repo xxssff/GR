@@ -1,11 +1,15 @@
 #include "MapCanvas.h"
 #include <QtGui/QMessageBox>
 #include <QtCore/QFileInfo>
+#include <QtGui/QImage>
+#include <QtGui/QPixmap>
+#include <QtGui/QGraphicsPixmapItem>
 
 MapCanvas::MapCanvas( QWidget *parent /*= 0 */ )
     : QGraphicsView( parent )
 {
     poDataset = NULL;
+    m_scaleFactor = 1.0;
     imgMetaModel = new QStandardItemModel;
     imgMetaModel->setColumnCount( 2 );
     fileListModel = new QStandardItemModel;
@@ -49,7 +53,7 @@ void MapCanvas::ReadImg( const QString imgPath )
         bandList.append( poDataset->GetRasterBand( 1 ) );
         bandList.append( poDataset->GetRasterBand( 2 ) );
         bandList.append( poDataset->GetRasterBand( 3 ) );
-        ShowColorImg( &bandList );
+        ShowImg( &bandList );
     }
     GDALClose( poDataset );
 }
@@ -74,29 +78,27 @@ void MapCanvas::ShowBand( GDALRasterBand* band )
     {
         return;
     }
-    int bandWidth = band->GetXSize();
-    int bandHeight = band->GetYSize();
     
-    int iScaleWidth = bandWidth;
-    int iScaleHeight = bandHeight;
+    QList<GDALRasterBand*> myBand;
+    myBand.append( band );
+    myBand.append( band );
+    myBand.append( band );
     
-    GDALDataType dataType = band->GetRasterDataType();
+    ShowImg( &myBand );
     
-    float* pData = new float[bandWidth * bandHeight];
-    band->RasterIO( GF_Read, 0, 0, bandWidth, bandHeight, pData, iScaleWidth, iScaleHeight, dataType, 0, 0 );
 }
 
 /// <summary>
-/// 显示彩色图像
+/// 显示图像
 /// </summary>
 /// <param name="imgBand">图像波段</param>
-void MapCanvas::ShowColorImg( QList<GDALRasterBand*> *imgBand )
+void MapCanvas::ShowImg( QList<GDALRasterBand*> *imgBand )
 {
     if ( imgBand->size() != 3 )
     {
         return;
     }
-    // 首先分别读取RGB三个波段
+    
     int imgWidth = imgBand->at( 0 )->GetXSize();
     int imgHeight = imgBand->at( 0 )->GetYSize();
     
@@ -105,16 +107,115 @@ void MapCanvas::ShowColorImg( QList<GDALRasterBand*> *imgBand )
     
     GDALDataType dataType = imgBand->at( 0 )->GetRasterDataType();
     
-    float* rBand = new float[imgWidth * imgHeight];
-    float* gBand = new float[imgWidth * imgHeight];
-    float* bBand = new float[imgWidth * imgHeight];
-    imgBand->at( 0 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, rBand , iScaleWidth, iScaleHeight, dataType, 0, 0 );
-    imgBand->at( 1 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, gBand, iScaleWidth, iScaleHeight, dataType, 0, 0 );
-    imgBand->at( 2 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, bBand, iScaleWidth, iScaleHeight, dataType, 0, 0 );
+    // 首先分别读取RGB三个波段
+    float* rBand = new float[iScaleWidth * iScaleHeight];
+    float* gBand = new float[iScaleWidth * iScaleHeight];
+    float* bBand = new float[iScaleWidth * iScaleHeight];
+    imgBand->at( 0 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, rBand , iScaleWidth, iScaleHeight, GDT_Float32, 0, 0 );
+    imgBand->at( 1 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, gBand, iScaleWidth, iScaleHeight, GDT_Float32, 0, 0 );
+    imgBand->at( 2 )->RasterIO( GF_Read, 0, 0, imgWidth, imgHeight, bBand, iScaleWidth, iScaleHeight, GDT_Float32, 0, 0 );
     
-    unsigned char* rBandUC = ImgSketch( rBand, imgWidth, imgHeight, 1 );
-    unsigned char* gBandUC = ImgSketch( gBand, imgWidth, imgHeight, 1 );
-    unsigned char* bBandUC = ImgSketch( bBand, imgWidth, imgHeight, 1 );
+    //// 分别拉伸每个波段
+    //unsigned char* rBandUC = ImgSketch( rBand, imgWidth, imgHeight, 1, imgBand->at( 0 )->GetNoDataValue() );
+    //unsigned char* gBandUC = ImgSketch( gBand, imgWidth, imgHeight, 1, imgBand->at( 1 )->GetNoDataValue() );
+    //unsigned char* bBandUC = ImgSketch( bBand, imgWidth, imgHeight, 1, imgBand->at( 2 )->GetNoDataValue() );
+    //
+    //// 将三个波段组合起来
+    int bytePerLine = ( iScaleWidth * 24 + 31 ) / 8;
+    unsigned char* allBandUC = new unsigned char[bytePerLine * iScaleHeight * 3];
+    //for( int h = 0; h < iScaleHeight; h++ )
+    //{
+    //    for( int w = 0; w < iScaleWidth; w++ )
+    //    {
+    //        allBandUC[h * imgWidth + w * 3 + 0] = rBandUC[h * iScaleWidth + w];
+    //        allBandUC[h * imgWidth + w * 3 + 1] = gBandUC[h * iScaleWidth + w];
+    //        allBandUC[h * imgWidth + w * 3 + 2] = bBandUC[h * iScaleWidth + w];
+    //    }
+    //}
+    
+    
+    double rminmax[2], gminmax[2], bminmax[2];
+    double rmin, gmin, bmin, rmax, gmax, bmax;
+    GDALComputeRasterMinMax( imgBand->at( 0 ), 1, rminmax );
+    rmin = rminmax[0];
+    rmax = rminmax[1];
+    GDALComputeRasterMinMax( imgBand->at( 1 ), 1, gminmax );
+    gmin = gminmax[0];
+    gmax = gminmax[1];
+    GDALComputeRasterMinMax( imgBand->at( 2 ), 1, bminmax );
+    bmin = bminmax[0];
+    bmax = bminmax[1];
+    double rnovalue = GDALGetRasterNoDataValue( imgBand->at( 0 ), NULL );
+    double gnovalue = GDALGetRasterNoDataValue( imgBand->at( 1 ), NULL );
+    double bnovalue = GDALGetRasterNoDataValue( imgBand->at( 2 ), NULL );
+    rmin = rmin <= rnovalue && rnovalue < rmax ? 0 : rmin;
+    gmin = gmin <= gnovalue && gnovalue < gmax ? 0 : gmin;
+    bmin = bmin <= bnovalue && bnovalue < bmax ? 0 : bmin;
+    
+    for( int h = 0; h < iScaleHeight; h++ )
+    {
+        for( int w = 0; w < iScaleWidth; w++ )
+        {
+            uchar rvalue = 0, gvalue = 0, bvalue = 0;
+            int i = h * iScaleWidth + w;
+            
+            if( rBand[i] <= rmax && rBand[i] >= rmin )
+            {
+                rvalue = static_cast<uchar>( 255 - 255 * ( rmax - rBand[i] ) / ( rmax - rmin ) );
+                
+            }
+            else if( rBand[i] > rmax )
+            {
+                rvalue = 255;
+                
+            }
+            else
+            {
+                rvalue = 0;
+            }
+            
+            if( gBand[i] <= gmax && gBand[i] >= gmin )
+            {
+                gvalue = static_cast<uchar>( 255 - 255 * ( gmax - gBand[i] ) / ( gmax - gmin ) );
+                
+            }
+            else if( gBand[i] > gmax )
+            {
+                gvalue = 255;
+                
+            }
+            else
+            {
+                gvalue = 0;
+            }
+            
+            if( bBand[i] <= bmax && bBand[i] >= bmin )
+            {
+                bvalue = static_cast<uchar>( 255 - 255 * ( bmax - bBand[i] ) / ( bmax - bmin ) );
+                
+            }
+            else if( bBand[i] > bmax )
+            {
+                bvalue = 255;
+                
+            }
+            else
+            {
+                bvalue = 0;
+            }
+            
+            allBandUC[h * bytePerLine + w * 3 + 0] = rvalue;
+            allBandUC[h * bytePerLine + w * 3 + 1] = gvalue;
+            allBandUC[h * bytePerLine + w * 3 + 2] = bvalue;
+        }
+    }
+    
+    
+    // 构造图像并显示
+    QGraphicsPixmapItem *imgItem = new QGraphicsPixmapItem(  QPixmap::fromImage( QImage( allBandUC, iScaleWidth, iScaleHeight, bytePerLine, QImage::Format_RGB888  ) ) );
+    QGraphicsScene *myScene = new QGraphicsScene();
+    myScene->addItem( imgItem );
+    this->setScene( myScene );
 }
 
 /// <summary>
@@ -192,21 +293,38 @@ void MapCanvas::ShowFileList( const QString filename )
 /// <param name="colum">列数</param>
 /// <param name="bands">波段数</param>
 /// <returns>经过拉伸的8位图像缓存</returns>
-unsigned char* MapCanvas::ImgSketch( float* buffer , int row, int column, int bands )
+unsigned char* MapCanvas::ImgSketch( float* buffer , int row, int column, int bands, double noValue )
 {
-    unsigned char* resBuffer = new unsigned char[row * column, bands];
-    float max, min, minmax[2];
+    unsigned char* resBuffer = new unsigned char[row * column * bands];
+    float max, min;
+    double minmax[2];
     
     for ( int b = 0; b < bands; b++ )
     {
         poDataset->GetRasterBand( b + 1 )->ComputeRasterMinMax( b + 1, minmax );
         min = minmax[0];
         max = minmax[1];
+        if( min <= noValue && noValue < max )
+        {
+            min = 0;
+        }
         for ( int i = 0; i < row * column * bands; i++ )
         {
-            resBuffer[i] = ( buffer[i] - min ) / ( max - min ) * 255;
+            if ( buffer[i] > max )
+            {
+                resBuffer[i] = 255;
+            }
+            else if ( buffer[i] < max && buffer[i] > min )
+            {
+                resBuffer[i] = static_cast<uchar>( 255 - 255 * ( max - buffer[i] ) / ( max - min ) );
+            }
+            else
+            {
+                resBuffer[i] = 0;
+            }
         }
     }
+    
     return resBuffer;
 }
 

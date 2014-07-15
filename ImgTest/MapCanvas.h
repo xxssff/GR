@@ -67,10 +67,10 @@ public:
     QSize sizeHint() const;
 private:
     void ShowBand( GDALRasterBand* band );
-    void ShowColorImg( QList<GDALRasterBand*> *imgBand );
+    void ShowImg( QList<GDALRasterBand*> *imgBand );
     void ShowImgInfor( const QString filename );
     void ShowFileList( const QString filename );
-    unsigned char* ImgSketch( float* buffer , int row, int colum, int bands );
+    unsigned char* ImgSketch( float* buffer , int row, int colum, int bands, double noValue );
     
     /// <summary>
     /// 图像元数据模型
@@ -85,6 +85,11 @@ private:
     /// 文件列表数据模型
     /// </summary>
     QStandardItemModel *fileListModel;
+    
+    /// <summary>
+    /// 缩放系数
+    /// </summary>
+    float m_scaleFactor;
 };
 
 #endif // MAPCANVAS_H
