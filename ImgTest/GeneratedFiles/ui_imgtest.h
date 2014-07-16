@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'imgtest.ui'
 **
-** Created: Tue Jul 15 20:13:10 2014
+** Created: Wed Jul 16 16:49:26 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -63,7 +63,13 @@ public:
         if (ImgTestClass->objectName().isEmpty())
             ImgTestClass->setObjectName(QString::fromUtf8("ImgTestClass"));
         ImgTestClass->resize(1024, 768);
-        ImgTestClass->setStyleSheet(QString::fromUtf8(""));
+        ImgTestClass->setStyleSheet(QString::fromUtf8("#MapView,#ImgTestClass,#FileListDockWidget,#mainToolBar,#inforDockWidget,#statusBar{\n"
+"background: gray;\n"
+"}\n"
+"#fileTreeView,#tableView{\n"
+"background:rgb(189, 189, 189);\n"
+"}\n"
+""));
         actionImage = new QAction(ImgTestClass);
         actionImage->setObjectName(QString::fromUtf8("actionImage"));
         actionExit = new QAction(ImgTestClass);

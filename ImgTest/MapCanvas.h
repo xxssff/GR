@@ -82,6 +82,27 @@ public slots:
         ScaleImg( 0.8 );
     };
     
+    /// <summary>
+    /// 缩放图像到适合窗口大小
+    /// </summary>
+    void ZoomToFitWindow()
+    {
+        QRectF bounds = this->scene()->itemsBoundingRect();
+        this->fitInView( bounds, Qt::KeepAspectRatio );
+        this->centerOn( 0, 0 );
+        m_scaleFactor = 1;
+    };
+    
+    /// <summary>
+    /// 缩放图像到原始大小 .
+    /// </summary>
+    void ZoomToNormalSize()
+    {
+        m_scaleFactor = 1;
+        ScaleImg( m_scaleFactor );
+    };
+    
+    
 protected:
     void wheelEvent( QWheelEvent *event );
     void mousePressEvent( QMouseEvent *event );
@@ -94,6 +115,7 @@ private:
     void ShowImgInfor( const QString filename );
     void ShowFileList( const QString filename );
     unsigned char* ImgSketch( float* buffer , GDALRasterBand* currentBand, int size, double noValue );
+    
     /// <summary>
     /// 图像缩放
     /// </summary>

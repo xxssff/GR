@@ -14,7 +14,8 @@
    <string>ImgTest</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">
+</string>
   </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QToolBar" name="mainToolBar">
