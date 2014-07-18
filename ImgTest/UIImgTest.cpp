@@ -3,6 +3,7 @@
 #include <QtGui/QMessageBox>
 #include "MapCanvas.h"
 #include <QtGui/QHBoxLayout>
+#include "DistanceAlgorithmClient.h"
 
 /// <summary>
 /// Initializes a new instance of the <see cref="ImgTest"/> class.
@@ -13,6 +14,8 @@ UIImgTest::UIImgTest( QWidget *parent, Qt::WFlags flags )
 {
     ui.setupUi( this );
     this->showMaximized();
+    
+    this->myDisAlgClient = NULL;
     
     myMap = new MapCanvas( this );
     myMap->setMinimumSize( 1024, 768 );
@@ -33,6 +36,8 @@ UIImgTest::UIImgTest( QWidget *parent, Qt::WFlags flags )
     connect( ui.actionZoom_Out, SIGNAL( triggered() ), this->myMap, SLOT( ZoomOut() ) );
     connect( ui.actionFit_Window, SIGNAL( triggered() ), this->myMap, SLOT( ZoomToFitWindow() ) );
     connect( ui.actionNormal_Size, SIGNAL( triggered() ), this->myMap, SLOT( ZoomToNormalSize() ) );
+    connect( ui.actionFrechet_Distance, SIGNAL( triggered() ), this, SLOT( CalculateEuclieanDistance() ) );
+    connect( ui.actionEuclidean_Distance, SIGNAL( triggered() ), this, SLOT( CalculateFrechetDistance() ) );
 }
 
 /// <summary>
@@ -82,4 +87,16 @@ void UIImgTest::ShowFileListWindow()
 void UIImgTest::ShowInforWindow()
 {
     ui.inforDockWidget->toggleViewAction();
+}
+
+void UIImgTest::CalculateEuclieanDistance()
+{
+    this->myDisAlgClient = new DistanceAlgorithmClient( this->myMap, "Euclidean" );
+    this->myDisAlgClient->RunDisAlg( myMap->GetDataset() );
+}
+
+void UIImgTest::CalculateFrechetDistance()
+{
+    this->myDisAlgClient = new DistanceAlgorithmClient( this->myMap, "Frechet" );
+    this->myDisAlgClient->RunDisAlg( myMap->GetDataset() );
 }

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'UIImgTest.h'
 **
-** Created: Mon Jul 14 22:19:53 2014
+** Created: Fri Jul 18 21:10:28 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_UIImgTest[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -35,6 +35,8 @@ static const uint qt_meta_data_UIImgTest[] = {
       26,   10,   10,   10, 0x0a,
       33,   10,   10,   10, 0x0a,
       54,   10,   10,   10, 0x0a,
+      72,   10,   10,   10, 0x0a,
+     100,   10,   10,   10, 0x0a,
 
        0        // eod
 };
@@ -42,6 +44,8 @@ static const uint qt_meta_data_UIImgTest[] = {
 static const char qt_meta_stringdata_UIImgTest[] = {
     "UIImgTest\0\0PickOpenFile()\0Exit()\0"
     "ShowFileListWindow()\0ShowInforWindow()\0"
+    "CalculateEuclieanDistance()\0"
+    "CalculateFrechetDistance()\0"
 };
 
 void UIImgTest::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -54,6 +58,8 @@ void UIImgTest::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 1: _t->Exit(); break;
         case 2: _t->ShowFileListWindow(); break;
         case 3: _t->ShowInforWindow(); break;
+        case 4: _t->CalculateEuclieanDistance(); break;
+        case 5: _t->CalculateFrechetDistance(); break;
         default: ;
         }
     }
@@ -92,9 +98,9 @@ int UIImgTest::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     }
     return _id;
 }

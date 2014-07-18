@@ -18,6 +18,7 @@
 #include "ui_imgtest.h"
 
 class MapCanvas;
+class DistanceAlgorithmClient;
 
 /// <summary>
 /// Class ImgTest.
@@ -34,6 +35,8 @@ public slots:
     void Exit();
     void ShowFileListWindow();
     void ShowInforWindow();
+    void CalculateEuclieanDistance();
+    void CalculateFrechetDistance();
 private:
     /// <summary>
     /// 主窗口UI
@@ -43,6 +46,11 @@ private:
     /// 图像显示窗口控件
     /// </summary>
     MapCanvas *myMap;
+    
+    /// <summary>
+    /// 距离算法对象
+    /// </summary>
+    DistanceAlgorithmClient *myDisAlgClient;
 };
 
 #endif // IMGTEST_H

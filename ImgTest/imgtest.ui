@@ -14,8 +14,7 @@
    <string>ImgTest</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QToolBar" name="mainToolBar">
@@ -109,8 +108,16 @@
     <addaction name="actionFit_Window"/>
     <addaction name="actionNormal_Size"/>
    </widget>
+   <widget class="QMenu" name="menuAlgorithm">
+    <property name="title">
+     <string>Algorithm</string>
+    </property>
+    <addaction name="actionEuclidean_Distance"/>
+    <addaction name="actionFrechet_Distance"/>
+   </widget>
    <addaction name="menuOpen"/>
    <addaction name="menuView_Operation"/>
+   <addaction name="menuAlgorithm"/>
    <addaction name="menuWindow"/>
    <addaction name="menuAbout"/>
   </widget>
@@ -171,6 +178,16 @@
   <action name="actionNormal_Size">
    <property name="text">
     <string>Normal Size</string>
+   </property>
+  </action>
+  <action name="actionEuclidean_Distance">
+   <property name="text">
+    <string>Euclidean Distance</string>
+   </property>
+  </action>
+  <action name="actionFrechet_Distance">
+   <property name="text">
+    <string>Frechet Distance</string>
    </property>
   </action>
  </widget>

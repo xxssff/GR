@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'imgtest.ui'
 **
-** Created: Wed Jul 16 16:49:26 2014
+** Created: Fri Jul 18 15:12:38 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -41,6 +41,8 @@ public:
     QAction *actionZoom_In;
     QAction *actionFit_Window;
     QAction *actionNormal_Size;
+    QAction *actionEuclidean_Distance;
+    QAction *actionFrechet_Distance;
     QWidget *centralWidget;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -57,19 +59,14 @@ public:
     QMenu *menuWindow;
     QMenu *menuAbout;
     QMenu *menuView_Operation;
+    QMenu *menuAlgorithm;
 
     void setupUi(QMainWindow *ImgTestClass)
     {
         if (ImgTestClass->objectName().isEmpty())
             ImgTestClass->setObjectName(QString::fromUtf8("ImgTestClass"));
         ImgTestClass->resize(1024, 768);
-        ImgTestClass->setStyleSheet(QString::fromUtf8("#MapView,#ImgTestClass,#FileListDockWidget,#mainToolBar,#inforDockWidget,#statusBar{\n"
-"background: gray;\n"
-"}\n"
-"#fileTreeView,#tableView{\n"
-"background:rgb(189, 189, 189);\n"
-"}\n"
-""));
+        ImgTestClass->setStyleSheet(QString::fromUtf8(""));
         actionImage = new QAction(ImgTestClass);
         actionImage->setObjectName(QString::fromUtf8("actionImage"));
         actionExit = new QAction(ImgTestClass);
@@ -90,6 +87,10 @@ public:
         actionFit_Window->setObjectName(QString::fromUtf8("actionFit_Window"));
         actionNormal_Size = new QAction(ImgTestClass);
         actionNormal_Size->setObjectName(QString::fromUtf8("actionNormal_Size"));
+        actionEuclidean_Distance = new QAction(ImgTestClass);
+        actionEuclidean_Distance->setObjectName(QString::fromUtf8("actionEuclidean_Distance"));
+        actionFrechet_Distance = new QAction(ImgTestClass);
+        actionFrechet_Distance->setObjectName(QString::fromUtf8("actionFrechet_Distance"));
         centralWidget = new QWidget(ImgTestClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         ImgTestClass->setCentralWidget(centralWidget);
@@ -143,6 +144,8 @@ public:
         menuAbout->setObjectName(QString::fromUtf8("menuAbout"));
         menuView_Operation = new QMenu(menuBar);
         menuView_Operation->setObjectName(QString::fromUtf8("menuView_Operation"));
+        menuAlgorithm = new QMenu(menuBar);
+        menuAlgorithm->setObjectName(QString::fromUtf8("menuAlgorithm"));
         ImgTestClass->setMenuBar(menuBar);
 
         mainToolBar->addAction(actionImage);
@@ -154,6 +157,7 @@ public:
         mainToolBar->addAction(actionAbout);
         menuBar->addAction(menuOpen->menuAction());
         menuBar->addAction(menuView_Operation->menuAction());
+        menuBar->addAction(menuAlgorithm->menuAction());
         menuBar->addAction(menuWindow->menuAction());
         menuBar->addAction(menuAbout->menuAction());
         menuOpen->addAction(actionImage);
@@ -167,6 +171,8 @@ public:
         menuView_Operation->addAction(actionZoom_In);
         menuView_Operation->addAction(actionFit_Window);
         menuView_Operation->addAction(actionNormal_Size);
+        menuAlgorithm->addAction(actionEuclidean_Distance);
+        menuAlgorithm->addAction(actionFrechet_Distance);
 
         retranslateUi(ImgTestClass);
 
@@ -193,10 +199,13 @@ public:
         actionZoom_In->setText(QApplication::translate("ImgTestClass", "Zoom In", 0, QApplication::UnicodeUTF8));
         actionFit_Window->setText(QApplication::translate("ImgTestClass", "Fit Window", 0, QApplication::UnicodeUTF8));
         actionNormal_Size->setText(QApplication::translate("ImgTestClass", "Normal Size", 0, QApplication::UnicodeUTF8));
+        actionEuclidean_Distance->setText(QApplication::translate("ImgTestClass", "Euclidean Distance", 0, QApplication::UnicodeUTF8));
+        actionFrechet_Distance->setText(QApplication::translate("ImgTestClass", "Frechet Distance", 0, QApplication::UnicodeUTF8));
         menuOpen->setTitle(QApplication::translate("ImgTestClass", "Open", 0, QApplication::UnicodeUTF8));
         menuWindow->setTitle(QApplication::translate("ImgTestClass", "Window", 0, QApplication::UnicodeUTF8));
         menuAbout->setTitle(QApplication::translate("ImgTestClass", "Help", 0, QApplication::UnicodeUTF8));
         menuView_Operation->setTitle(QApplication::translate("ImgTestClass", "View Operation", 0, QApplication::UnicodeUTF8));
+        menuAlgorithm->setTitle(QApplication::translate("ImgTestClass", "Algorithm", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

@@ -64,6 +64,15 @@ public:
         this->fileListModel = model;
     };
     
+    /// <summary>
+    /// 返回栅格数据集指针
+    /// </summary>
+    /// <returns>GDALDataset *.</returns>
+    GDALDataset* GetDataset()
+    {
+        return this->poDataset;
+    };
+    
     QSize sizeHint() const;
     
 public slots:

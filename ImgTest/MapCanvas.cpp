@@ -61,7 +61,7 @@ void MapCanvas::ReadImg( const QString imgPath )
         bandList.append( poDataset->GetRasterBand( 3 ) );
         ShowImg( &bandList );
     }
-    GDALClose( poDataset );
+    // GDALClose( poDataset );
 }
 
 /// <summary>

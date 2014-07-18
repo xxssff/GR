@@ -59,6 +59,15 @@
     <ClCompile Include="MapCanvas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DistanceAlgorithmClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DistanceAlgorithmClient.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_DistanceAlgorithmClient.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="imgtest.ui">
@@ -71,6 +80,9 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="MapCanvas.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DistanceAlgorithmClient.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
