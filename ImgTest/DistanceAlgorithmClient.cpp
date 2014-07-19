@@ -4,6 +4,7 @@
 #include "../DistanceCalculate/EuclideanDisntance.h"
 #include "../DistanceCalculate/FrechetDistance.h"
 #include "../DistanceCalculate/SpectralCurve.h"
+#include <QtGui/QFileDialog>
 
 DistanceAlgorithmClient::DistanceAlgorithmClient( QObject *parent )
     : QObject( parent )
@@ -87,8 +88,20 @@ void DistanceAlgorithmClient::RunDisAlg( GDALDataset* poDataset )
     SpectralCurve pixelCurve;// 一个像素的光谱曲线
     SpectralCurve targetCurve;// 用于匹配的目标光谱
     
-    float *poData = new float[bandCount];
+    //.....just for test
+    for ( int i = 0; i < bandCount; i++ )
+    {
+        curvePoint p;
+        p.x = 1;
+        p.y = 1;
+        targetCurve.scVec.push_back( p );
+    }
+    this->disAlg->curve2 = &targetCurve;
+    //.....just for test
     
+    float *poData = new float[bandCount];
+    float *poResultData = new float[dataWidth * dataHeight];// 距离计算结果数组
+    int index = 0;
     for ( int width = 0; width < dataWidth; width++ )
     {
         for ( int height = 0; height < dataHeight; height++ )
@@ -106,8 +119,20 @@ void DistanceAlgorithmClient::RunDisAlg( GDALDataset* poDataset )
             // 做了以上处理，现在pixelCurve就是一个像素的光谱曲线了
             // 接下来将读取的数据进行组织，做相应的距离计算
             this->disAlg->curve1 = &pixelCurve;
-            this->disAlg->curve2 = &pixelCurve;
+            
             float disValue = this->disAlg->CalculateDistance();
+            pixelCurve.scVec.clear();
+            poResultData[index++] = disValue;
         }
     }
+    // now create the result image
+    GDALDataset *pResultDataset;
+    int *resultBandList = new int[1];
+    resultBandList[0] = 1;
+    
+    GDALDriver *pDriver = GetGDALDriverManager()->GetDriverByName( "GTiff" );
+    QString dstFileName = "E:\\result.tif";
+    pResultDataset = pDriver->Create( dstFileName.toStdString().c_str(), dataWidth, dataHeight, 1, GDT_Float32, NULL );
+    pResultDataset->RasterIO( GF_Write, 0, 0, dataWidth, dataHeight, poResultData, dataWidth, dataHeight, GDT_Float32, 1, resultBandList, 0, 0, 0 );
+    GDALClose( pResultDataset );
 }

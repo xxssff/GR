@@ -94,9 +94,13 @@ void UIImgTest::ShowInforWindow()
 /// </summary>
 void UIImgTest::CalculateEuclieanDistance()
 {
-    QDialog
     this->myDisAlgClient = new DistanceAlgorithmClient( this->myMap, "Euclidean" );
     this->myDisAlgClient->RunDisAlg( myMap->GetDataset() );
+    if ( QMessageBox::information( this, tr( "show result?" ), tr( "show result?" ) ) )
+    {
+        PickOpenFile();
+    }
+    
 }
 
 /// <summary>
