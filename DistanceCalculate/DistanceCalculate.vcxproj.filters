@@ -32,9 +32,6 @@
     <ClCompile Include="EuclideanDisntance.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SpectralCurve.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="FrechetDistance.cpp">
       <Filter>源文件</Filter>
     </ClCompile>

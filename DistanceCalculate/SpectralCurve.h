@@ -11,22 +11,22 @@ struct curvePoint
     /// <summary>
     /// The x
     /// </summary>
-    double x;
+    float x;
     /// <summary>
     /// The y
     /// </summary>
-    double y;
+    float y;
 };
 
 class SpectralCurve
 {
 public:
-    SpectralCurve( void );
-    ~SpectralCurve( void );
+    SpectralCurve( void ) {} ;
+    ~SpectralCurve( void ) {};
     
     /// <summary>
     /// 光谱曲线向量
     /// </summary>
-    vector<curvePoint> *scVec;
+    vector<curvePoint> scVec;
 };
 

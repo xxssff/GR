@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImgTest", "ImgTest\ImgTest.vcxproj", "{A28489BB-82D5-4AB1-88F6-D30447241B16}"
+	ProjectSection(ProjectDependencies) = postProject
+		{10DBDDEB-A319-47F7-B71A-BD9F04DCFB93} = {10DBDDEB-A319-47F7-B71A-BD9F04DCFB93}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DistanceCalculate", "DistanceCalculate\DistanceCalculate.vcxproj", "{10DBDDEB-A319-47F7-B71A-BD9F04DCFB93}"
 EndProject

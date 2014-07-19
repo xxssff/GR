@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'MapCanvas.h'
 **
-** Created: Fri Jul 18 21:10:44 2014
+** Created: Sat Jul 19 15:19:30 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!

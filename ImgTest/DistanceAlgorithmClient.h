@@ -48,6 +48,8 @@ private:
     /// 距离算法的抽象类对象
     /// </summary>
     DistanceAlg *disAlg;
+    
+    
 };
 
 #endif // DISTANCEALGORITHMCLIENT_H

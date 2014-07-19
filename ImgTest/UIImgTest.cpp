@@ -36,8 +36,8 @@ UIImgTest::UIImgTest( QWidget *parent, Qt::WFlags flags )
     connect( ui.actionZoom_Out, SIGNAL( triggered() ), this->myMap, SLOT( ZoomOut() ) );
     connect( ui.actionFit_Window, SIGNAL( triggered() ), this->myMap, SLOT( ZoomToFitWindow() ) );
     connect( ui.actionNormal_Size, SIGNAL( triggered() ), this->myMap, SLOT( ZoomToNormalSize() ) );
-    connect( ui.actionFrechet_Distance, SIGNAL( triggered() ), this, SLOT( CalculateEuclieanDistance() ) );
-    connect( ui.actionEuclidean_Distance, SIGNAL( triggered() ), this, SLOT( CalculateFrechetDistance() ) );
+    connect( ui.actionEuclidean_Distance, SIGNAL( triggered() ), this, SLOT( CalculateEuclieanDistance() ) );
+    connect( ui.actionFrechet_Distance, SIGNAL( triggered() ), this, SLOT( CalculateFrechetDistance() ) );
 }
 
 /// <summary>
@@ -89,12 +89,19 @@ void UIImgTest::ShowInforWindow()
     ui.inforDockWidget->toggleViewAction();
 }
 
+/// <summary>
+/// Calculates the eucliean distance.
+/// </summary>
 void UIImgTest::CalculateEuclieanDistance()
 {
+    QDialog
     this->myDisAlgClient = new DistanceAlgorithmClient( this->myMap, "Euclidean" );
     this->myDisAlgClient->RunDisAlg( myMap->GetDataset() );
 }
 
+/// <summary>
+/// Calculates the frechet distance.
+/// </summary>
 void UIImgTest::CalculateFrechetDistance()
 {
     this->myDisAlgClient = new DistanceAlgorithmClient( this->myMap, "Frechet" );

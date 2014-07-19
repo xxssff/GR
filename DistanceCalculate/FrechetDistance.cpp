@@ -61,7 +61,7 @@ float FrechetDistance::Calculate ( float **cal, int i, int j )
     }
     else
     {
-        cal[i][j] = 0xFFFFFFFF;
+        cal[i][j] = -1.0;
     }
     
     return cal[i][j];
@@ -75,7 +75,7 @@ float FrechetDistance::Calculate ( float **cal, int i, int j )
 /// <returns>double.</returns>
 float FrechetDistance::Distance ( int i, int j )
 {
-    return ( float )sqrt ( pow ( curve1->scVec->at( i ).x - curve2->scVec->at( j ).x, 2 ) + pow ( curve1->scVec->at( i ).y - curve2->scVec->at( j ).y, 2 ) );
+    return ( float )sqrt ( pow ( curve1->scVec.at( i ).x - curve2->scVec.at( j ).x, 2 ) + pow ( curve1->scVec.at( i ).y - curve2->scVec.at( j ).y, 2 ) );
 }
 
 /// <summary>
@@ -107,25 +107,25 @@ float FrechetDistance::CalculateDistance()
     // Here is your Frechet distance algoritm codes
     
     // init cal[][]
-    float **cal = new float *[curve1->scVec->size()];
-    for ( unsigned int i = 0; i < curve2->scVec->size(); i++ )
+    float **cal = new float *[curve1->scVec.size()];
+    for ( unsigned int i = 0; i < curve2->scVec.size(); i++ )
     {
-        cal[i] = new float[curve2->scVec->size()];
+        cal[i] = new float[curve2->scVec.size()];
     }
     
-    for ( unsigned int i = 0; i < curve1->scVec->size(); i++ )
+    for ( unsigned int i = 0; i < curve1->scVec.size(); i++ )
     {
-        for ( unsigned int j = 0; j < curve2->scVec->size(); j++ )
+        for ( unsigned int j = 0; j < curve2->scVec.size(); j++ )
         {
             cal[i][j] = -1.0;
         }
     }
     
     //calculate distance
-    disValue = Calculate ( cal, curve1->scVec->size() - 1, curve2->scVec->size() - 1 );
+    disValue = Calculate ( cal, curve1->scVec.size() - 1, curve2->scVec.size() - 1 );
     
     //delete cal[][] pointer
-    for ( unsigned int i = 0 ; i < curve1->scVec->size(); i++ )
+    for ( unsigned int i = 0 ; i < curve1->scVec.size(); i++ )
     {
         delete []cal[i];
     }

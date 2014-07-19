@@ -22,9 +22,10 @@ float EuclideanDisntance::CalculateDistance()
 {
     float disValue = 0;
     float tempdis = 0;
-    for ( int i = 0; i < curve1->scVec->size(); i++ )
+    float y = this->curve1->scVec.at( 0 ).y;
+    for ( unsigned int i = 0; i < curve1->scVec.size(); i++ )
     {
-        tempdis += pow ( curve1->scVec->at( i ).y - curve2->scVec->at( i ).y, 2 );
+        tempdis += pow ( this->curve1->scVec[i].y - this->curve2->scVec[i].y, 2 );
     }
     disValue = sqrt ( tempdis );
     

@@ -3,6 +3,7 @@
 #include "MapCanvas.h"
 #include "../DistanceCalculate/EuclideanDisntance.h"
 #include "../DistanceCalculate/FrechetDistance.h"
+#include "../DistanceCalculate/SpectralCurve.h"
 
 DistanceAlgorithmClient::DistanceAlgorithmClient( QObject *parent )
     : QObject( parent )
@@ -26,7 +27,6 @@ DistanceAlgorithmClient::DistanceAlgorithmClient( MapCanvas* map, QString algNam
     {
         this->disAlg = new FrechetDistance;
     }
-    //this->RunDisAlg( map->GetDataset() );
 }
 
 /// <summary>
@@ -84,8 +84,8 @@ void DistanceAlgorithmClient::RunDisAlg( GDALDataset* poDataset )
         bandList[band - 1] = band;
     }
     
-    SpectralCurve pixelCurve;
-    pixelCurve.scVec->clear();
+    SpectralCurve pixelCurve;// 一个像素的光谱曲线
+    SpectralCurve targetCurve;// 用于匹配的目标光谱
     
     float *poData = new float[bandCount];
     
@@ -100,10 +100,14 @@ void DistanceAlgorithmClient::RunDisAlg( GDALDataset* poDataset )
                 curvePoint cp;
                 cp.x = 0;
                 cp.y = poData[band];
-                pixelCurve.scVec->push_back( cp );
-                // 做了以上处理，现在pixelCurve就是一个像素的光谱曲线了
-                // 接下来将读取的数据
+                pixelCurve.scVec.push_back( cp );
+                
             }
+            // 做了以上处理，现在pixelCurve就是一个像素的光谱曲线了
+            // 接下来将读取的数据进行组织，做相应的距离计算
+            this->disAlg->curve1 = &pixelCurve;
+            this->disAlg->curve2 = &pixelCurve;
+            float disValue = this->disAlg->CalculateDistance();
         }
     }
 }
