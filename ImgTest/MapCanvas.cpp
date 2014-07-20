@@ -7,6 +7,8 @@
 #include <QtGui/QMatrix>
 #include <QtGui/QWheelEvent>
 #include <QtGui/QScrollBar>
+#include <QtGui/QFileDialog>
+#include <QtCore/QDir>
 
 MapCanvas::MapCanvas( QWidget *parent /*= 0 */ )
     : QGraphicsView( parent )
@@ -339,5 +341,28 @@ void MapCanvas::mouseReleaseEvent( QMouseEvent *event )
     {
         this->setDragMode( QGraphicsView::NoDrag );
     }
+}
+
+/// <summary>
+/// 创建tiff格式图像
+/// </summary>
+/// <param name="poData">The po data.</param>
+/// <param name="dataWidth">Width of the data.</param>
+/// <param name="dataHeight">Height of the data.</param>
+/// <param name="bandCount">The band count.</param>
+void MapCanvas::CreateImg( float *poData , int dataWidth, int dataHeight, int bandCount )
+{
+    GDALDataset *poDataset;
+    int resultBandList[1] = {1};
+    GDALDriver *pDriver = GetGDALDriverManager()->GetDriverByName( "GTiff" );
+    
+    QString dstFileName = QFileDialog::getSaveFileName(
+                              0,
+                              tr( "save file to..." ),
+                              QDir::currentPath(),
+                              tr( "jpg(*.jpg);;tiff(*.tif);;img(*.img);;All files(*.*)" ) );
+    poDataset = pDriver->Create( dstFileName.toStdString().c_str(), dataWidth, dataHeight, 1, GDT_Float32, NULL );
+    poDataset->RasterIO( GF_Write, 0, 0, dataWidth, dataHeight, poData, dataWidth, dataHeight, GDT_Float32, 1, resultBandList, 0, 0, 0 );
+    GDALClose( poDataset );
 }
 

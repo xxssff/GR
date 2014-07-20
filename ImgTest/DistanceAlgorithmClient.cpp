@@ -92,8 +92,8 @@ void DistanceAlgorithmClient::RunDisAlg( GDALDataset* poDataset )
     for ( int i = 0; i < bandCount; i++ )
     {
         curvePoint p;
-        p.x = 1;
-        p.y = 1;
+        p.x = 1.5;
+        p.y = 1.5;
         targetCurve.scVec.push_back( p );
     }
     this->disAlg->curve2 = &targetCurve;
@@ -102,12 +102,11 @@ void DistanceAlgorithmClient::RunDisAlg( GDALDataset* poDataset )
     float *poData = new float[bandCount];
     float *poResultData = new float[dataWidth * dataHeight];// 距离计算结果数组
     int index = 0;
-    for ( int width = 0; width < dataWidth; width++ )
+    for ( int height = 0; height < dataHeight; height++ )
     {
-        for ( int height = 0; height < dataHeight; height++ )
+        for ( int width = 0; width < dataWidth; width++ )
         {
-        
-            poDataset->RasterIO( GF_Read, width, height, width + 1, height + 1, poData, 1, 1, GDT_Float32, bandCount, bandList, 0, 0, 0 );
+            poDataset->RasterIO( GF_Read, width, height,  1, 1, poData, 1, 1, GDT_Float32, bandCount, bandList, 0, 0, 0 );
             for ( int band = 0; band < bandCount; band++ )
             {
                 curvePoint cp;
@@ -126,13 +125,6 @@ void DistanceAlgorithmClient::RunDisAlg( GDALDataset* poDataset )
         }
     }
     // now create the result image
-    GDALDataset *pResultDataset;
-    int *resultBandList = new int[1];
-    resultBandList[0] = 1;
+    this->myMap->CreateImg( poResultData, dataWidth, dataHeight, 1 );
     
-    GDALDriver *pDriver = GetGDALDriverManager()->GetDriverByName( "GTiff" );
-    QString dstFileName = "E:\\result.tif";
-    pResultDataset = pDriver->Create( dstFileName.toStdString().c_str(), dataWidth, dataHeight, 1, GDT_Float32, NULL );
-    pResultDataset->RasterIO( GF_Write, 0, 0, dataWidth, dataHeight, poResultData, dataWidth, dataHeight, GDT_Float32, 1, resultBandList, 0, 0, 0 );
-    GDALClose( pResultDataset );
 }
