@@ -63,7 +63,6 @@ void MapCanvas::ReadImg( const QString imgPath )
         bandList.append( poDataset->GetRasterBand( 3 ) );
         ShowImg( &bandList );
     }
-    // GDALClose( poDataset );
 }
 
 /// <summary>
@@ -346,7 +345,7 @@ void MapCanvas::mouseReleaseEvent( QMouseEvent *event )
 /// <summary>
 /// 创建tiff格式图像
 /// </summary>
-/// <param name="poData">The po data.</param>
+/// <param name="poData">数据集.</param>
 /// <param name="dataWidth">Width of the data.</param>
 /// <param name="dataHeight">Height of the data.</param>
 /// <param name="bandCount">The band count.</param>

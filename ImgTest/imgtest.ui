@@ -112,8 +112,16 @@
     <property name="title">
      <string>Algorithm</string>
     </property>
+    <widget class="QMenu" name="menuClassification">
+     <property name="title">
+      <string>Classification</string>
+     </property>
+     <addaction name="actionSVM_Classification"/>
+    </widget>
     <addaction name="actionEuclidean_Distance"/>
     <addaction name="actionFrechet_Distance"/>
+    <addaction name="separator"/>
+    <addaction name="menuClassification"/>
    </widget>
    <addaction name="menuOpen"/>
    <addaction name="menuView_Operation"/>
@@ -188,6 +196,11 @@
   <action name="actionFrechet_Distance">
    <property name="text">
     <string>Frechet Distance</string>
+   </property>
+  </action>
+  <action name="actionSVM_Classification">
+   <property name="text">
+    <string>SVM Classification</string>
    </property>
   </action>
  </widget>
