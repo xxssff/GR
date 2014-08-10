@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include "ClassificationAlg.h"
+#include "svm.h"
 
 using namespace std;
 

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'imgtest.ui'
 **
-** Created: Sun Jul 20 21:37:49 2014
+** Created: Sun Aug 10 16:28:29 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -43,6 +43,7 @@ public:
     QAction *actionNormal_Size;
     QAction *actionEuclidean_Distance;
     QAction *actionFrechet_Distance;
+    QAction *actionSVM_Classification;
     QWidget *centralWidget;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -60,6 +61,7 @@ public:
     QMenu *menuAbout;
     QMenu *menuView_Operation;
     QMenu *menuAlgorithm;
+    QMenu *menuClassification;
 
     void setupUi(QMainWindow *ImgTestClass)
     {
@@ -91,6 +93,8 @@ public:
         actionEuclidean_Distance->setObjectName(QString::fromUtf8("actionEuclidean_Distance"));
         actionFrechet_Distance = new QAction(ImgTestClass);
         actionFrechet_Distance->setObjectName(QString::fromUtf8("actionFrechet_Distance"));
+        actionSVM_Classification = new QAction(ImgTestClass);
+        actionSVM_Classification->setObjectName(QString::fromUtf8("actionSVM_Classification"));
         centralWidget = new QWidget(ImgTestClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         ImgTestClass->setCentralWidget(centralWidget);
@@ -146,6 +150,8 @@ public:
         menuView_Operation->setObjectName(QString::fromUtf8("menuView_Operation"));
         menuAlgorithm = new QMenu(menuBar);
         menuAlgorithm->setObjectName(QString::fromUtf8("menuAlgorithm"));
+        menuClassification = new QMenu(menuAlgorithm);
+        menuClassification->setObjectName(QString::fromUtf8("menuClassification"));
         ImgTestClass->setMenuBar(menuBar);
 
         mainToolBar->addAction(actionImage);
@@ -173,6 +179,9 @@ public:
         menuView_Operation->addAction(actionNormal_Size);
         menuAlgorithm->addAction(actionEuclidean_Distance);
         menuAlgorithm->addAction(actionFrechet_Distance);
+        menuAlgorithm->addSeparator();
+        menuAlgorithm->addAction(menuClassification->menuAction());
+        menuClassification->addAction(actionSVM_Classification);
 
         retranslateUi(ImgTestClass);
 
@@ -201,11 +210,13 @@ public:
         actionNormal_Size->setText(QApplication::translate("ImgTestClass", "Normal Size", 0, QApplication::UnicodeUTF8));
         actionEuclidean_Distance->setText(QApplication::translate("ImgTestClass", "Euclidean Distance", 0, QApplication::UnicodeUTF8));
         actionFrechet_Distance->setText(QApplication::translate("ImgTestClass", "Frechet Distance", 0, QApplication::UnicodeUTF8));
+        actionSVM_Classification->setText(QApplication::translate("ImgTestClass", "SVM Classification", 0, QApplication::UnicodeUTF8));
         menuOpen->setTitle(QApplication::translate("ImgTestClass", "Open", 0, QApplication::UnicodeUTF8));
         menuWindow->setTitle(QApplication::translate("ImgTestClass", "Window", 0, QApplication::UnicodeUTF8));
         menuAbout->setTitle(QApplication::translate("ImgTestClass", "Help", 0, QApplication::UnicodeUTF8));
         menuView_Operation->setTitle(QApplication::translate("ImgTestClass", "View Operation", 0, QApplication::UnicodeUTF8));
         menuAlgorithm->setTitle(QApplication::translate("ImgTestClass", "Algorithm", 0, QApplication::UnicodeUTF8));
+        menuClassification->setTitle(QApplication::translate("ImgTestClass", "Classification", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
