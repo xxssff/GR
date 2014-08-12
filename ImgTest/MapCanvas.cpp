@@ -40,6 +40,12 @@ void MapCanvas::ReadImg( const QString imgPath )
     GDALAllRegister();
     CPLSetConfigOption( "GDAL_FILENAME_IS_UTF8", "NO" );
     poDataset = ( GDALDataset* )GDALOpen( imgPath.toStdString().c_str(), GA_ReadOnly );
+    
+    // for test
+    std::string ff = imgPath.toStdString();
+    const char*ffffff = ff.c_str();
+    // for test
+    
     if ( poDataset == NULL )
     {
         QMessageBox::critical( this, tr( "Error!" ), tr( "Can not open file %1" ).arg( imgPath ) );
