@@ -15,24 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\TestLibsvm\TestLibsvm\svm.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="SVMClassification.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ClassificationAlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="svm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\TestLibsvm\TestLibsvm\svm.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="SVMClassification.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ClassificationAlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="svm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

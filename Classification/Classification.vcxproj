@@ -60,13 +60,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\TestLibsvm\TestLibsvm\svm.h" />
     <ClInclude Include="ClassificationAlg.h" />
+    <ClInclude Include="svm.h" />
     <ClInclude Include="SVMClassification.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\TestLibsvm\TestLibsvm\svm.cpp" />
     <ClCompile Include="ClassificationAlg.cpp" />
+    <ClCompile Include="svm.cpp" />
     <ClCompile Include="SVMClassification.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
