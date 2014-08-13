@@ -4,6 +4,9 @@
 #include "MapCanvas.h"
 #include <QtGui/QHBoxLayout>
 #include "DistanceAlgorithmClient.h"
+#include "ClassificationClient.h"
+#include <QtCore/QThread>
+#include <QtGui/QProgressBar>
 
 /// <summary>
 /// Initializes a new instance of the <see cref="ImgTest"/> class.
@@ -38,6 +41,7 @@ UIImgTest::UIImgTest( QWidget *parent, Qt::WFlags flags )
     connect( ui.actionNormal_Size, SIGNAL( triggered() ), this->myMap, SLOT( ZoomToNormalSize() ) );
     connect( ui.actionEuclidean_Distance, SIGNAL( triggered() ), this, SLOT( CalculateEuclieanDistance() ) );
     connect( ui.actionFrechet_Distance, SIGNAL( triggered() ), this, SLOT( CalculateFrechetDistance() ) );
+    connect( ui.actionSVM_Classification, SIGNAL( triggered() ), this, SLOT( SvmClassification() ) );
 }
 
 /// <summary>
@@ -110,4 +114,41 @@ void UIImgTest::CalculateFrechetDistance()
 {
     this->myDisAlgClient = new DistanceAlgorithmClient( this->myMap, "Frechet" );
     this->myDisAlgClient->RunDisAlg( myMap->GetDataset() );
+}
+
+void UIImgTest::SvmClassification()
+{
+    this->myClaClent = new ClassificationClient( this->myMap, "SVM" );
+    QString roiFile = QFileDialog::getOpenFileName(
+                          this,
+                          tr( "select the roi file, Only text file is supported..." ),
+                          QDir::currentPath(),
+                          tr( "txt(*.txt)::All Files(*.*)" ) );
+    QString modelFile = QFileDialog::getOpenFileName(
+                            this,
+                            tr( "if there's a model trained before, you can select it..." ),
+                            QDir::currentPath(),
+                            tr( "txt(*.txt)::All Files(*.*)" ) );
+                            
+    QThread *myThread = new QThread;
+    this->myClaClent->moveToThread( myThread );
+    myThread->start();
+    connect( myThread, SIGNAL( started() ), myClaClent, SLOT( executeALg( GDALDataset * poDataset, QString roiFileName, QString modelFileName = "" ) ) );
+    
+    
+    QProgressBar proBar;
+    proBar.show();
+    
+    if ( modelFile.isNull() )
+    {
+        this->myClaClent->executeALg( myMap->GetDataset(), roiFile );
+    }
+    else
+    {
+        this->myClaClent->executeALg( myMap->GetDataset(), roiFile, modelFile );
+    }
+    if ( myThread->isFinished() )
+    {
+        proBar.close();
+    }
 }
