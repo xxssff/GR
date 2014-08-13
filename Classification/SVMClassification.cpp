@@ -15,7 +15,7 @@ SVMClassification::~SVMClassification( void )
 /// </summary>
 /// <param name="roiFilename">The roi filename.</param>
 /// <param name="modelFileName">Name of the model file.</param>
-void SVMClassification::TrainModel( const string roiFilename = 0, const string modelFileName /*= 0 */ )
+void SVMClassification::TrainModel( const string roiFilename, const string modelFileName /*= 0 */ )
 {
     if ( roiFilename == "" )
     {
@@ -131,7 +131,7 @@ void SVMClassification::initialSVMPro( string fileName )
         {
             y1[i] = 4;
         }
-        if ( i >= 7931 + 17418 + 3248 + 4039 && i < i < 7931 + 17418 + 3248 + 4039 + 1033 )
+        if ( i >= 7931 + 17418 + 3248 + 4039 &&  i < 7931 + 17418 + 3248 + 4039 + 1033 )
         {
             y1[i] = 5;
         }
@@ -208,10 +208,9 @@ vector<string> SVMClassification::split( std::string str, std::string pattern )
     return result;
 }
 
-float* SVMClassification::runAlg( float* srcData, int bandCount )
+float SVMClassification::runAlg( float* srcData, string roiFileName, int bandCount, string modelFileName /*=""*/ )
 {
-    float* resultData;
-    int index = 0;
+    TrainModel( roiFileName );
     svm_node *xSpace = new svm_node[bandCount + 1];
     for ( int i = 0; i < bandCount + 1; i++ )
     {
@@ -227,7 +226,6 @@ float* SVMClassification::runAlg( float* srcData, int bandCount )
     }
     
     float res = svm_predict( model, xSpace );
-    resultData[index++] = res;
     
-    return resultData;
+    return res;
 }

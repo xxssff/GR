@@ -8,7 +8,7 @@ class ClassificationAlg;
 class MapCanvas;
 class GDALDataset;
 
-class ClassificationClient: QObject
+class ClassificationClient : public QObject
 {
     Q_OBJECT
     
@@ -16,8 +16,9 @@ public:
     ClassificationClient( QObject *parent );
     ClassificationClient( MapCanvas *myMap, QString algName );
     ~ClassificationClient();
-    
-    void executeALg( GDALDataset* poDataset );
+public slots:
+
+    void executeALg( GDALDataset* poDataset, QString roiFileName, QString modelFileName = "" );
     
 private:
     MapCanvas *myMap;

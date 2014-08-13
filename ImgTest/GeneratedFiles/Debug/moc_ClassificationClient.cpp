@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ClassificationClient.h'
 **
-** Created: Sun Aug 10 16:28:30 2014
+** Created: Wed Aug 13 22:34:33 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,26 +23,39 @@ static const uint qt_meta_data_ClassificationClient[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
+ // slots: signature, parameters, type, tag, flags
+      58,   22,   21,   21, 0x0a,
+     121,   99,   21,   21, 0x2a,
+
        0        // eod
 };
 
 static const char qt_meta_stringdata_ClassificationClient[] = {
-    "ClassificationClient\0"
+    "ClassificationClient\0\0"
+    "poDataset,roiFileName,modelFileName\0"
+    "executeALg(GDALDataset*,QString,QString)\0"
+    "poDataset,roiFileName\0"
+    "executeALg(GDALDataset*,QString)\0"
 };
 
 void ClassificationClient::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
-    Q_UNUSED(_a);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        ClassificationClient *_t = static_cast<ClassificationClient *>(_o);
+        switch (_id) {
+        case 0: _t->executeALg((*reinterpret_cast< GDALDataset*(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3]))); break;
+        case 1: _t->executeALg((*reinterpret_cast< GDALDataset*(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        default: ;
+        }
+    }
 }
 
 const QMetaObjectExtraData ClassificationClient::staticMetaObjectExtraData = {
@@ -50,7 +63,7 @@ const QMetaObjectExtraData ClassificationClient::staticMetaObjectExtraData = {
 };
 
 const QMetaObject ClassificationClient::staticMetaObject = {
-    { &QThread::staticMetaObject, qt_meta_stringdata_ClassificationClient,
+    { &QObject::staticMetaObject, qt_meta_stringdata_ClassificationClient,
       qt_meta_data_ClassificationClient, &staticMetaObjectExtraData }
 };
 
@@ -68,14 +81,19 @@ void *ClassificationClient::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_ClassificationClient))
         return static_cast<void*>(const_cast< ClassificationClient*>(this));
-    return QThread::qt_metacast(_clname);
+    return QObject::qt_metacast(_clname);
 }
 
 int ClassificationClient::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QThread::qt_metacall(_c, _id, _a);
+    _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
     return _id;
 }
 QT_END_MOC_NAMESPACE

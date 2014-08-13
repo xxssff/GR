@@ -19,6 +19,7 @@
 
 class MapCanvas;
 class DistanceAlgorithmClient;
+class ClassificationClient;
 
 /// <summary>
 /// Class ImgTest.
@@ -37,6 +38,7 @@ public slots:
     void ShowInforWindow();
     void CalculateEuclieanDistance();
     void CalculateFrechetDistance();
+    void SvmClassification();
 private:
     /// <summary>
     /// 主窗口UI
@@ -51,6 +53,11 @@ private:
     /// 距离算法对象
     /// </summary>
     DistanceAlgorithmClient *myDisAlgClient;
+    
+    /// <summary>
+    /// 分类算法对象
+    /// </summary>
+    ClassificationClient *myClaClent;
 };
 
 #endif // IMGTEST_H
