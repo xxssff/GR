@@ -29,9 +29,6 @@
     <ClCompile Include="SVMClassification.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ClassificationAlg.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="svm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>

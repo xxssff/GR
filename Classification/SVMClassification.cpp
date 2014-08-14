@@ -1,11 +1,18 @@
 #include "SVMClassification.h"
 #include <fstream>
 
+/// <summary>
+/// Initializes a new instance of the <see cref="SVMClassification"/> class.
+/// </summary>
 SVMClassification::SVMClassification( void )
 {
+    model = NULL;
 }
 
 
+/// <summary>
+/// Finalizes an instance of the <see cref="SVMClassification"/> class.
+/// </summary>
 SVMClassification::~SVMClassification( void )
 {
 }
@@ -15,7 +22,7 @@ SVMClassification::~SVMClassification( void )
 /// </summary>
 /// <param name="roiFilename">The roi filename.</param>
 /// <param name="modelFileName">Name of the model file.</param>
-void SVMClassification::TrainModel( const string roiFilename, const string modelFileName /*= 0 */ )
+void SVMClassification::TrainModel( const string roiFilename, const string modelFileName /*= "" */ )
 {
     if ( roiFilename == "" )
     {
@@ -146,7 +153,7 @@ void SVMClassification::initialSVMPro( string fileName )
 
 /// <summary>
 /// initial SVM parameters , this one should be configed, I don't know the default setting parameters
-///  for remote sensing classification...
+/// for remote sensing classification...
 /// </summary>
 void SVMClassification::initialSVMPara()
 {
@@ -208,9 +215,21 @@ vector<string> SVMClassification::split( std::string str, std::string pattern )
     return result;
 }
 
+/// <summary>
+/// Runs the alg.
+/// </summary>
+/// <param name="srcData">The source data.</param>
+/// <param name="roiFileName">Name of the roi file.</param>
+/// <param name="bandCount">The band count.</param>
+/// <param name="modelFileName">Name of the model file.</param>
+/// <returns>float.</returns>
 float SVMClassification::runAlg( float* srcData, string roiFileName, int bandCount, string modelFileName /*=""*/ )
 {
-    TrainModel( roiFileName );
+    if ( model == NULL )
+    {
+        TrainModel( roiFileName, modelFileName );
+    }
+    
     svm_node *xSpace = new svm_node[bandCount + 1];
     for ( int i = 0; i < bandCount + 1; i++ )
     {

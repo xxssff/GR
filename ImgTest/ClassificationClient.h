@@ -8,21 +8,25 @@ class ClassificationAlg;
 class MapCanvas;
 class GDALDataset;
 
-class ClassificationClient : public QObject
+class ClassificationClient : public QThread
 {
-    Q_OBJECT
-    
-public:
-    ClassificationClient( QObject *parent );
-    ClassificationClient( MapCanvas *myMap, QString algName );
-    ~ClassificationClient();
-public slots:
 
-    void executeALg( GDALDataset* poDataset, QString roiFileName, QString modelFileName = "" );
+public:
+    ClassificationClient();
+    ClassificationClient( MapCanvas *myMap, QString algName, GDALDataset *poDataset, QString roiFileName, QString modelFileName );
+    ~ClassificationClient();
+    
+    void run();
+public slots:
+    void executeALg();
     
 private:
     MapCanvas *myMap;
     ClassificationAlg *claAlg;
+    
+    GDALDataset *poDataset;
+    QString roiFileName;
+    QString modelFileName;
 };
 
 #endif // CLASSIFICATIONCLIENT_H

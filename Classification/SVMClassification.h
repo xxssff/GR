@@ -1,3 +1,16 @@
+// ***********************************************************************
+// Assembly         : Classification
+// Author           : Jacory
+// Created          : 08-10-2014
+//
+// Last Modified By : Jacory
+// Last Modified On : 08-13-2014
+// ***********************************************************************
+// <copyright file="SVMClassification.h" company="">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary>Support Vector Machine分类方法类</summary>
+// ***********************************************************************
 #pragma once
 #include <string>
 #include "ClassificationAlg.h"
@@ -8,6 +21,9 @@
 using namespace std;
 
 
+/// <summary>
+/// Class SVMClassification.
+/// </summary>
 class SVMClassification : public ClassificationAlg
 {
 public:
