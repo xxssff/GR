@@ -1,12 +1,11 @@
-﻿生成启动时间为 2014/8/13 22:41:05。
+﻿生成启动时间为 2014/8/14 22:14:50。
      1>项目“E:\Jacory\Code\ImgTest\ImgTest\ImgTest.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
-         正在对“Debug\ImgTest.unsuccessfulbuild”执行 Touch 任务。
+         正在创建“Debug\ImgTest.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        CustomBuild:
          所有输出均为最新。
        ClCompile:
-         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\3rd_Party\GDAL110\include /I.\GeneratedFiles /I. /ID:\Qt\4.8.4\include /I.\GeneratedFiles\Debug /ID:\Qt\4.8.4\include\QtCore /ID:\Qt\4.8.4\include\QtGui /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt UIImgTest.cpp
-         UIImgTest.cpp
+         所有输出均为最新。
          所有输出均为最新。
        ResourceCompile:
          所有输出均为最新。
@@ -14,7 +13,6 @@
          d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Jacory\Code\ImgTest\Win32\Debug\\ImgTest.exe" /NOLOGO /LIBPATH:D:\3rd_Party\GDAL110\lib /LIBPATH:D:\Qt\4.8.4\lib /LIBPATH:E:\Jacory\Code\ImgTest\Debug gdal_i.lib qtmaind.lib QtCored4.lib QtGuid4.lib DistanceCalculate.lib Classification.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\ImgTest.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Jacory\Code\ImgTest\Win32\Debug\ImgTest.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Jacory\Code\ImgTest\Win32\Debug\ImgTest.lib" /MACHINE:X86 Debug\ImgTest.res
          Debug\ClassificationClient.obj
          Debug\DistanceAlgorithmClient.obj
-         Debug\moc_ClassificationClient.obj
          Debug\moc_DistanceAlgorithmClient.obj
          Debug\moc_MapCanvas.obj
          Debug\moc_UIImgTest.obj
@@ -34,4 +32,4 @@
 
 生成成功。
 
-已用时间 00:00:02.33
+已用时间 00:00:01.11

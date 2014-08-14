@@ -65,7 +65,6 @@
     <ClInclude Include="SVMClassification.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ClassificationAlg.cpp" />
     <ClCompile Include="svm.cpp" />
     <ClCompile Include="SVMClassification.cpp" />
   </ItemGroup>

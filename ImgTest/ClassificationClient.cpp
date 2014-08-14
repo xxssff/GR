@@ -5,13 +5,15 @@
 #include <QtCore/QThread>
 #include <gdal_priv.h>
 
-ClassificationClient::ClassificationClient( QObject *parent )
+ClassificationClient::ClassificationClient()
+
 {
     this->myMap = NULL;
     this->claAlg = NULL;
 }
 
-ClassificationClient::ClassificationClient( MapCanvas *myMap, QString algName )
+ClassificationClient::ClassificationClient( MapCanvas *myMap, QString algName, GDALDataset *poDataset, QString roiFileName, QString modelFileName )
+    : poDataset( poDataset ), roiFileName( roiFileName ), modelFileName( modelFileName )
 {
     this->myMap = myMap;
     if ( algName == "SVM" )
@@ -25,7 +27,7 @@ ClassificationClient::~ClassificationClient()
 
 }
 
-void ClassificationClient::executeALg( GDALDataset* poDataset, QString roiFileName, QString modelFileName )
+void ClassificationClient::executeALg()
 {
     if ( this->claAlg == NULL || poDataset == NULL )
     {
@@ -47,13 +49,16 @@ void ClassificationClient::executeALg( GDALDataset* poDataset, QString roiFileNa
         for ( int column = 0; column < dataWidth; column++ )
         {
             poDataset->RasterIO( GF_Read, column, row, 1, 1, srcData, 1, 1, GDT_Float32, bandCount, bandList, 0, 0, 0 );
-            
-            std::string file = roiFileName.toStdString();
-            
-            float res = claAlg->runAlg( srcData, file , bandCount );
+            float res = claAlg->runAlg( srcData, roiFileName.toStdString() , bandCount , modelFileName.toStdString() );
             resData[index++] = res;
         }
     }
     this->myMap->CreateImg( resData, dataWidth, dataHeight, 1 );
     
 }
+
+void ClassificationClient::run()
+{
+    executeALg();
+}
+

@@ -118,7 +118,7 @@ void UIImgTest::CalculateFrechetDistance()
 
 void UIImgTest::SvmClassification()
 {
-    this->myClaClent = new ClassificationClient( this->myMap, "SVM" );
+
     QString roiFile = QFileDialog::getOpenFileName(
                           this,
                           tr( "select the roi file, Only text file is supported..." ),
@@ -130,25 +130,13 @@ void UIImgTest::SvmClassification()
                             QDir::currentPath(),
                             tr( "txt(*.txt)::All Files(*.*)" ) );
                             
-    QThread *myThread = new QThread;
-    this->myClaClent->moveToThread( myThread );
-    myThread->start();
-    connect( myThread, SIGNAL( started() ), myClaClent, SLOT( executeALg( GDALDataset * poDataset, QString roiFileName, QString modelFileName = "" ) ) );
+    this->myClaClent = new ClassificationClient( this->myMap, "SVM", this->myMap->GetDataset(), roiFile, modelFile );
     
+    this->myClaClent->start();
+    QProgressBar *proBar = new QProgressBar;
+    proBar->setWindowTitle( tr( "Processing..." ) );
+    proBar->setRange( 0, 0 );
+    proBar->setWindowModality( Qt::ApplicationModal );
+    proBar->show();
     
-    QProgressBar proBar;
-    proBar.show();
-    
-    if ( modelFile.isNull() )
-    {
-        this->myClaClent->executeALg( myMap->GetDataset(), roiFile );
-    }
-    else
-    {
-        this->myClaClent->executeALg( myMap->GetDataset(), roiFile, modelFile );
-    }
-    if ( myThread->isFinished() )
-    {
-        proBar.close();
-    }
 }

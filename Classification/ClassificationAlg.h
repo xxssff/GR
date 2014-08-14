@@ -22,8 +22,8 @@ using namespace std;
 class ClassificationAlg
 {
 public:
-    ClassificationAlg( void );
-    ~ClassificationAlg( void );
+    ClassificationAlg( void ) {};
+    ~ClassificationAlg( void ) {};
     
     /// <summary>
     /// Runs the alg.
