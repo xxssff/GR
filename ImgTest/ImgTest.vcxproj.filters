@@ -91,9 +91,15 @@
     <CustomBuild Include="ClassificationClient.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="svmParaDialog.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_imgtest.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_svmParaDialog.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
