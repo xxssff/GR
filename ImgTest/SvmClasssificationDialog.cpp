@@ -6,11 +6,11 @@
 #include "../Classification/SVMClassification.h"
 #include "MapCanvas.h"
 
-SvmClasssificationDialog::SvmClasssificationDialog(  MapCanvas *map, QWidget *parent )
+SvmClasssificationDialog::SvmClasssificationDialog( QWidget *parent )
     : QDialog( parent )
 {
     ui.setupUi( this );
-    this->myMap = map;
+    // this->myMap = map;
     
     connect( ui.roiFileBrowseBtn, SIGNAL( clicked() ), this, SLOT( BrowseRoiFile() ) );
     connect( ui.modelFileBrowseBtn, SIGNAL( clicked() ), this, SLOT( BrowseModelFile() ) );

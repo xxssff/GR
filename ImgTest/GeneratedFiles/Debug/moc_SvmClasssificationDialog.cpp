@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'SvmClasssificationDialog.h'
 **
-** Created: Fri Aug 15 22:59:32 2014
+** Created: Sat Aug 16 14:27:10 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,26 +23,46 @@ static const uint qt_meta_data_SvmClasssificationDialog[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
+ // slots: signature, parameters, type, tag, flags
+      34,   25,   26,   25, 0x0a,
+      50,   25,   26,   25, 0x0a,
+      68,   25,   26,   25, 0x0a,
+      85,   25,   25,   25, 0x0a,
+      95,   25,   25,   25, 0x0a,
+
        0        // eod
 };
 
 static const char qt_meta_stringdata_SvmClasssificationDialog[] = {
-    "SvmClasssificationDialog\0"
+    "SvmClasssificationDialog\0\0QString\0"
+    "BrowseRoiFile()\0BrowseModelFile()\0"
+    "BrowseDestFile()\0Execute()\0Cancel()\0"
 };
 
 void SvmClasssificationDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
-    Q_UNUSED(_a);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        SvmClasssificationDialog *_t = static_cast<SvmClasssificationDialog *>(_o);
+        switch (_id) {
+        case 0: { QString _r = _t->BrowseRoiFile();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 1: { QString _r = _t->BrowseModelFile();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 2: { QString _r = _t->BrowseDestFile();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 3: _t->Execute(); break;
+        case 4: _t->Cancel(); break;
+        default: ;
+        }
+    }
 }
 
 const QMetaObjectExtraData SvmClasssificationDialog::staticMetaObjectExtraData = {
@@ -76,6 +96,11 @@ int SvmClasssificationDialog::qt_metacall(QMetaObject::Call _c, int _id, void **
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 5)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 5;
+    }
     return _id;
 }
 QT_END_MOC_NAMESPACE

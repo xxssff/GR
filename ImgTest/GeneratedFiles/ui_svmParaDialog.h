@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'svmParaDialog.ui'
 **
-** Created: Fri Aug 15 22:59:33 2014
+** Created: Sat Aug 16 14:21:15 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -254,8 +254,8 @@ public:
         kernelTypeComboBox->insertItems(0, QStringList()
          << QApplication::translate("svmParaDialog", "Linear", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("svmParaDialog", "Radial Based Function", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("svmParaDialog", "Poly", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("svmParaDialog", "Sigmoid", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("svmParaDialog", "Polynomial", 0, QApplication::UnicodeUTF8)
         );
         modelFileBrowseBtn->setText(QApplication::translate("svmParaDialog", "Browse", 0, QApplication::UnicodeUTF8));
         roiFileBrowseBtn->setText(QApplication::translate("svmParaDialog", "Browse", 0, QApplication::UnicodeUTF8));
