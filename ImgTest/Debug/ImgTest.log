@@ -1,42 +1,38 @@
-﻿生成启动时间为 2014/8/15 22:59:32。
-     1>项目“E:\Jacory\Code\ImgTest\ImgTest\ImgTest.vcxproj”在节点 3 上(rebuild 个目标)。
+﻿生成启动时间为 2014/8/16 14:30:41。
+     1>项目“E:\Jacory\Code\ImgTest\ImgTest\ImgTest.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\ImgTest.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        CustomBuild:
-         Moc'ing UIImgTest.h...
-         Uic'ing imgtest.ui...
-         Moc'ing SvmClasssificationDialog.h...
-         Moc'ing DistanceAlgorithmClient.h...
-         Moc'ing ClassificationClient.h...
-     1>E:\Jacory\Code\ImgTest\ImgTest\ClassificationClient.h(37): warning : Class ClassificationClient inherits from two QObject subclasses QThread and QDialog. This is not supported!
-         Moc'ing MapCanvas.h...
-         Rcc'ing imgtest.qrc...
-     1>RCC : warning : No resources in 'E:\Jacory\Code\ImgTest\ImgTest\imgtest.qrc'.
-         
-         Uic'ing svmParaDialog.ui...
+         所有输出均为最新。
        ClCompile:
-         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\3rd_Party\GDAL110\include /I.\GeneratedFiles /I. /ID:\Qt\4.8.4\include /I.\GeneratedFiles\Debug /ID:\Qt\4.8.4\include\QtCore /ID:\Qt\4.8.4\include\QtGui /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ClassificationClient.cpp DistanceAlgorithmClient.cpp GeneratedFiles\Debug\moc_ClassificationClient.cpp GeneratedFiles\Debug\moc_DistanceAlgorithmClient.cpp GeneratedFiles\Debug\moc_MapCanvas.cpp GeneratedFiles\Debug\moc_UIImgTest.cpp MapCanvas.cpp SvmClasssificationDialog.cpp UIImgTest.cpp main.cpp
-         ClassificationClient.cpp
-     1>ClassificationClient.cpp(14): error C2385: 对“connect”的访问不明确
-                 可能是“connect”(位于基“QObject”中)
-                 也可能是“connect”(位于基“QObject”中)
-     1>ClassificationClient.cpp(14): error C2594: “参数”: 从“ClassificationClient *const ”到“const QObject *”的转换不明确
-     1>ClassificationClient.cpp(14): error C3861: “connect”: 找不到标识符
-         DistanceAlgorithmClient.cpp
-         moc_ClassificationClient.cpp
-     1>GeneratedFiles\Debug\moc_ClassificationClient.cpp(52): error C2594: “static_cast”: 从“QObject *”到“ClassificationClient *”的转换不明确
-     1>GeneratedFiles\Debug\moc_ClassificationClient.cpp(101): error C2594: “参数”: 从“ClassificationClient *const ”到“QObject *”的转换不明确
-         moc_DistanceAlgorithmClient.cpp
-         moc_MapCanvas.cpp
-         moc_UIImgTest.cpp
-         MapCanvas.cpp
-         SvmClasssificationDialog.cpp
-     1>e:\jacory\code\imgtest\imgtest\SvmClasssificationDialog.h(5): fatal error C1083: 无法打开包括文件:“ui_SvmClasssificationDialog.h”: No such file or directory
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\3rd_Party\GDAL110\include /I.\GeneratedFiles /I. /ID:\Qt\4.8.4\include /I.\GeneratedFiles\Debug /ID:\Qt\4.8.4\include\QtCore /ID:\Qt\4.8.4\include\QtGui /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt UIImgTest.cpp
          UIImgTest.cpp
-         main.cpp
-         正在生成代码...
-     1>已完成生成项目“E:\Jacory\Code\ImgTest\ImgTest\ImgTest.vcxproj”(rebuild 个目标)的操作 - 失败。
+         所有输出均为最新。
+       ResourceCompile:
+         所有输出均为最新。
+       Link:
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Jacory\Code\ImgTest\Win32\Debug\\ImgTest.exe" /NOLOGO /LIBPATH:D:\3rd_Party\GDAL110\lib /LIBPATH:D:\Qt\4.8.4\lib /LIBPATH:E:\Jacory\Code\ImgTest\Debug gdal_i.lib qtmaind.lib QtCored4.lib QtGuid4.lib DistanceCalculate.lib Classification.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\ImgTest.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Jacory\Code\ImgTest\Win32\Debug\ImgTest.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Jacory\Code\ImgTest\Win32\Debug\ImgTest.lib" /MACHINE:X86 Debug\ImgTest.res
+         Debug\ClassificationClient.obj
+         Debug\DistanceAlgorithmClient.obj
+         Debug\moc_DistanceAlgorithmClient.obj
+         Debug\moc_MapCanvas.obj
+         Debug\moc_SvmClasssificationDialog.obj
+         Debug\moc_UIImgTest.obj
+         Debug\qrc_imgtest.obj
+         Debug\MapCanvas.obj
+         Debug\SvmClasssificationDialog.obj
+         Debug\UIImgTest.obj
+         Debug\main.obj
+         LINK : 没有找到 E:\Jacory\Code\ImgTest\Win32\Debug\\ImgTest.exe 或上一个增量链接没有生成它；正在执行完全链接
+            正在创建库 E:\Jacory\Code\ImgTest\Win32\Debug\ImgTest.lib 和对象 E:\Jacory\Code\ImgTest\Win32\Debug\ImgTest.exp
+         ImgTest.vcxproj -> E:\Jacory\Code\ImgTest\Win32\Debug\ImgTest.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\Jacory\Code\ImgTest\Win32\Debug\\ImgTest.exe;#1" /manifest Debug\ImgTest.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Debug\ImgTest.unsuccessfulbuild”。
+         正在对“Debug\ImgTest.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\Jacory\Code\ImgTest\ImgTest\ImgTest.vcxproj”(build 个目标)的操作。
 
-生成失败。
+生成成功。
 
-已用时间 00:00:10.02
+已用时间 00:00:02.18

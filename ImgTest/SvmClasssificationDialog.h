@@ -11,7 +11,7 @@ class SvmClasssificationDialog : public QDialog
     Q_OBJECT
     
 public:
-    SvmClasssificationDialog( MapCanvas *map, QWidget *parent = 0 );
+    SvmClasssificationDialog( QWidget *parent = 0 );
     ~SvmClasssificationDialog();
     
 public slots:

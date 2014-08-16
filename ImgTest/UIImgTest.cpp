@@ -116,19 +116,11 @@ void UIImgTest::CalculateFrechetDistance()
     this->myDisAlgClient->RunDisAlg( myMap->GetDataset() );
 }
 
+/// <summary>
+/// execute svm classification
+/// </summary>
 void UIImgTest::SvmClassification()
 {
-
-    SvmClasssificationDialog svmDialog;
-    svmDialog.show();
-    
-    //this->myClaClent = new ClassificationClient( this->myMap, "SVM", this->myMap->GetDataset(), roiFile, modelFile );
-    
-    //this->myClaClent->start();
-    //QProgressBar *proBar = new QProgressBar;
-    //proBar->setWindowTitle( tr( "Processing..." ) );
-    //proBar->setRange( 0, 0 );
-    // proBar->setWindowModality( Qt::ApplicationModal );
-    //proBar->show();
-    
+    SvmClasssificationDialog *svmDialog = new SvmClasssificationDialog;
+    svmDialog->show();
 }
