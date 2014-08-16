@@ -29,13 +29,33 @@ class SVMClassification : public ClassificationAlg
 public:
     SVMClassification( void );
     ~SVMClassification( void );
+    float* runAlg( float** srcData );
     
-    void TrainModel( const string roiFilename , const string modelFileName = "" );
-    float runAlg( float* srcData, string roiFileName, int bandCount, string modelFileName = ""  );
+    //setters and getters
+    void SetRoiFile( const string rFile );
+    void SetModelFile( const string mFile );
+    void SetModelFileSave( const string msFile );
+    void SetBandCount( int count );
+    void SetPixelCount( int count );
+    void SetParameter( svm_parameter &para );
+    string GetRoiFile();
+    string GetModelFile();
+    string GetModelFileSave();
+    int GetBandCount();
+    int GetPixelCount();
+    
 private:
-    void initialSVMPro( string fileName );
-    void initialSVMPara();
-    vector<string> split( std::string str, std::string pattern );
+    void initialSVMPro();
+    void initialParameter();
+    vector<string> split( string str, string pattern );
+    void TrainModel();
+    void SaveModel();
+    
+    string roiFile;
+    string modelFile;
+    string modelFileSave;
+    int bandCount;
+    int pixelCount;
     
     /// <summary>
     /// The SVM problem, for train data organization
@@ -48,7 +68,7 @@ private:
     /// <summary>
     /// The SVM model
     /// </summary>
-    svm_model *model;
+    svm_model *svmModel;
     
     /// <summary>
     /// the total count of the classes

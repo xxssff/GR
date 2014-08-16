@@ -33,6 +33,6 @@ public:
     /// <param name="bandCount">The band count.</param>
     /// <param name="modelFileName">Name of the model file.</param>
     /// <returns>float.</returns>
-    virtual float runAlg( float* srcData, string roiFileName, int bandCount, string modelFileName = "" ) = 0;
+    virtual float* runAlg( float** srcData ) = 0;
 };
 

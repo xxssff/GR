@@ -6,7 +6,12 @@
 /// </summary>
 SVMClassification::SVMClassification( void )
 {
-    model = NULL;
+    svmModel = NULL;
+    roiFile = "";
+    modelFile = "";
+    modelFileSave = "";
+    bandCount = 0;
+    pixelCount = 0;
 }
 
 
@@ -18,34 +23,32 @@ SVMClassification::~SVMClassification( void )
 }
 
 /// <summary>
-/// Trains the model.
+/// Trains the model.If the model file exist, load the model, otherwise, train the model
 /// </summary>
 /// <param name="roiFilename">The roi filename.</param>
 /// <param name="modelFileName">Name of the model file.</param>
-void SVMClassification::TrainModel( const string roiFilename, const string modelFileName /*= "" */ )
+void SVMClassification::TrainModel()
 {
-    if ( roiFilename == "" )
+    if ( roiFile == "" )
     {
         return;
     }
     
-    fstream in( modelFileName );
+    fstream in( modelFile );
     if ( in.fail() )
     {
-        initialSVMPro( roiFilename );
-        initialSVMPara();
+        initialSVMPro();
         const char *error_msg;
         error_msg = svm_check_parameter( &svmPro, &svmPara );
         if ( error_msg )
         {
             return;
         }
-        model = svm_train( &svmPro, &svmPara );
-        svm_save_model( modelFileName.c_str() , model );
+        svmModel = svm_train( &svmPro, &svmPara );
     }
     else
     {
-        model = svm_load_model( modelFileName.c_str() );
+        svmModel = svm_load_model( modelFile.c_str() );
     }
 }
 
@@ -54,16 +57,16 @@ void SVMClassification::TrainModel( const string roiFilename, const string model
 /// initial the SVM problem , construct the dataset that SVM uses
 /// </summary>
 /// <param name="fileName">Name of the file.</param>
-void SVMClassification::initialSVMPro( string fileName )
+void SVMClassification::initialSVMPro()
 {
     int dataCount = 0;// the total count of samples
     int nodeIndex = 0;
     svm_node **node = new svm_node *[33669];
     
-    ifstream in( fileName.c_str() );
+    ifstream in( roiFile.c_str() );
     if ( in.fail() )
     {
-        //cout << "cannot open file " << fileName << endl;
+        return;
     }
     
     string line = "";
@@ -149,33 +152,28 @@ void SVMClassification::initialSVMPro( string fileName )
     svmPro.y = y1;
 }
 
-
-
 /// <summary>
 /// initial SVM parameters , this one should be configed, I don't know the default setting parameters
 /// for remote sensing classification...
 /// </summary>
-void SVMClassification::initialSVMPara()
+void SVMClassification::initialParameter()
 {
-    svmPara.svm_type = C_SVC;
-    svmPara.kernel_type = RBF;
-    //svmPara.degree = 3;
-    svmPara.gamma = 0.2;
-    //svmPara.coef0 = 0;
-    
-    svmPara.nu = 0.5;
-    svmPara.cache_size = 1;
-    svmPara.C = 1;
-    svmPara.eps = 1e-3;
-    svmPara.p = 0.1;
-    svmPara.shrinking = 1;
-    svmPara.nr_weight = 0;
-    svmPara.weight_label = NULL;
-    svmPara.weight = NULL;
+    //svmPara.svm_type = C_SVC;
+    //svmPara.kernel_type = LINEAR;
+    ////svmPara.degree = 3;
+    //svmPara.gamma = 0.2;
+    ////svmPara.coef0 = 0;
+    //
+    //svmPara.nu = 0.5;
+    //svmPara.cache_size = 1;
+    //svmPara.C = 1;
+    //svmPara.eps = 1e-3;
+    //svmPara.p = 0.1;
+    //svmPara.shrinking = 1;
+    //svmPara.nr_weight = 0;
+    //svmPara.weight_label = NULL;
+    //svmPara.weight = NULL;
 }
-
-
-
 
 /// <summary>
 /// Runs the alg.
@@ -185,30 +183,33 @@ void SVMClassification::initialSVMPara()
 /// <param name="bandCount">The band count.</param>
 /// <param name="modelFileName">Name of the model file.</param>
 /// <returns>float.</returns>
-float SVMClassification::runAlg( float* srcData, string roiFileName, int bandCount, string modelFileName /*=""*/ )
+float* SVMClassification::runAlg( float** srcData )
 {
-    if ( model == NULL )
+    if ( svmModel == NULL || bandCount == 0 || pixelCount == 0 || srcData == NULL )
     {
-        TrainModel( roiFileName, modelFileName );
+        TrainModel();
     }
     
+    float* resultData = new float[pixelCount];// create the resultData array, size is width*height of image
     svm_node *xSpace = new svm_node[bandCount + 1];
-    for ( int i = 0; i < bandCount + 1; i++ )
+    for ( int n = 0; n < pixelCount; n++ )
     {
-        if ( i != bandCount )
+        for ( int i = 0; i < bandCount + 1; i++ )
         {
-            xSpace[i].index = i + 1;
-            xSpace[i].value = srcData[i];
+            if ( i != bandCount )
+            {
+                xSpace[i].index = i + 1;
+                xSpace[i].value = srcData[n][i];
+            }
+            else
+            {
+                xSpace[i].index = -1;
+            }
         }
-        else
-        {
-            xSpace[i].index = -1;
-        }
+        
+        resultData[n] = svm_predict( svmModel, xSpace );
     }
-    
-    float res = svm_predict( model, xSpace );
-    
-    return res;
+    return resultData;
 }
 
 /// <summary>
@@ -249,4 +250,68 @@ vector<string> SVMClassification::split( std::string str, std::string pattern )
     }
     
     return result;
+}
+
+void SVMClassification::SetRoiFile( const string rFile )
+{
+    this->roiFile = rFile;
+}
+
+void SVMClassification::SetModelFile( const string mFile )
+{
+    this->modelFile = mFile;
+}
+
+void SVMClassification::SetModelFileSave( const string msFile )
+{
+    this->modelFileSave = msFile;
+}
+
+void SVMClassification::SetBandCount( int count )
+{
+    this->bandCount = count;
+}
+
+void SVMClassification::SetPixelCount( int count )
+{
+    this->pixelCount = count;
+}
+
+string SVMClassification::GetRoiFile()
+{
+    return roiFile;
+}
+
+string SVMClassification::GetModelFile()
+{
+    return modelFile;
+}
+
+string SVMClassification::GetModelFileSave()
+{
+    return modelFileSave;
+}
+
+int SVMClassification::GetBandCount()
+{
+    return bandCount;
+}
+
+int SVMClassification::GetPixelCount()
+{
+    return pixelCount;
+}
+
+void SVMClassification::SaveModel()
+{
+    if ( modelFileSave == "" )
+    {
+        return;
+    }
+    svm_save_model( modelFileSave.c_str(), svmModel );
+}
+
+void SVMClassification::SetParameter( svm_parameter &para )
+{
+    svmPara = para;
 }
