@@ -175,6 +175,42 @@ void SVMClassification::initialSVMPara()
 }
 
 
+
+
+/// <summary>
+/// Runs the alg.
+/// </summary>
+/// <param name="srcData">The source data.</param>
+/// <param name="roiFileName">Name of the roi file.</param>
+/// <param name="bandCount">The band count.</param>
+/// <param name="modelFileName">Name of the model file.</param>
+/// <returns>float.</returns>
+float SVMClassification::runAlg( float* srcData, string roiFileName, int bandCount, string modelFileName /*=""*/ )
+{
+    if ( model == NULL )
+    {
+        TrainModel( roiFileName, modelFileName );
+    }
+    
+    svm_node *xSpace = new svm_node[bandCount + 1];
+    for ( int i = 0; i < bandCount + 1; i++ )
+    {
+        if ( i != bandCount )
+        {
+            xSpace[i].index = i + 1;
+            xSpace[i].value = srcData[i];
+        }
+        else
+        {
+            xSpace[i].index = -1;
+        }
+    }
+    
+    float res = svm_predict( model, xSpace );
+    
+    return res;
+}
+
 /// <summary>
 /// Splits the specified string.
 /// </summary>
@@ -213,38 +249,4 @@ vector<string> SVMClassification::split( std::string str, std::string pattern )
     }
     
     return result;
-}
-
-/// <summary>
-/// Runs the alg.
-/// </summary>
-/// <param name="srcData">The source data.</param>
-/// <param name="roiFileName">Name of the roi file.</param>
-/// <param name="bandCount">The band count.</param>
-/// <param name="modelFileName">Name of the model file.</param>
-/// <returns>float.</returns>
-float SVMClassification::runAlg( float* srcData, string roiFileName, int bandCount, string modelFileName /*=""*/ )
-{
-    if ( model == NULL )
-    {
-        TrainModel( roiFileName, modelFileName );
-    }
-    
-    svm_node *xSpace = new svm_node[bandCount + 1];
-    for ( int i = 0; i < bandCount + 1; i++ )
-    {
-        if ( i != bandCount )
-        {
-            xSpace[i].index = i + 1;
-            xSpace[i].value = srcData[i];
-        }
-        else
-        {
-            xSpace[i].index = -1;
-        }
-    }
-    
-    float res = svm_predict( model, xSpace );
-    
-    return res;
 }

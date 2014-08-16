@@ -6,7 +6,6 @@
 #include <gdal_priv.h>
 
 ClassificationClient::ClassificationClient()
-
 {
     this->myMap = NULL;
     this->claAlg = NULL;
@@ -15,6 +14,7 @@ ClassificationClient::ClassificationClient()
 ClassificationClient::ClassificationClient( MapCanvas *myMap, QString algName, GDALDataset *poDataset, QString roiFileName, QString modelFileName )
     : poDataset( poDataset ), roiFileName( roiFileName ), modelFileName( modelFileName )
 {
+    ClassificationClient();
     this->myMap = myMap;
     if ( algName == "SVM" )
     {
@@ -61,4 +61,5 @@ void ClassificationClient::run()
 {
     executeALg();
 }
+
 

@@ -1,8 +1,6 @@
-﻿生成启动时间为 2014/8/13 21:38:17。
-     1>项目“E:\Jacory\Code\ImgTest\DistanceCalculate\DistanceCalculate.vcxproj”在节点 2 上(rebuild 个目标)。
-     1>_PrepareForClean:
-         正在删除文件“Debug\DistanceCalculate.lastbuildstate”。
-       InitializeBuildStatus:
+﻿生成启动时间为 2014/8/15 22:59:30。
+     1>项目“E:\Jacory\Code\ImgTest\DistanceCalculate\DistanceCalculate.vcxproj”在节点 3 上(rebuild 个目标)。
+     1>InitializeBuildStatus:
          正在创建“Debug\DistanceCalculate.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
          d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt EuclideanDisntance.cpp FrechetDistance.cpp
@@ -20,4 +18,4 @@
 
 生成成功。
 
-已用时间 00:00:01.53
+已用时间 00:00:01.41

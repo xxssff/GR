@@ -4,7 +4,7 @@
 #include "MapCanvas.h"
 #include <QtGui/QHBoxLayout>
 #include "DistanceAlgorithmClient.h"
-#include "ClassificationClient.h"
+#include "SvmClasssificationDialog.h"
 #include <QtCore/QThread>
 #include <QtGui/QProgressBar>
 
@@ -119,24 +119,16 @@ void UIImgTest::CalculateFrechetDistance()
 void UIImgTest::SvmClassification()
 {
 
-    QString roiFile = QFileDialog::getOpenFileName(
-                          this,
-                          tr( "select the roi file, Only text file is supported..." ),
-                          QDir::currentPath(),
-                          tr( "txt(*.txt)::All Files(*.*)" ) );
-    QString modelFile = QFileDialog::getOpenFileName(
-                            this,
-                            tr( "if there's a model trained before, you can select it..." ),
-                            QDir::currentPath(),
-                            tr( "txt(*.txt)::All Files(*.*)" ) );
-                            
-    this->myClaClent = new ClassificationClient( this->myMap, "SVM", this->myMap->GetDataset(), roiFile, modelFile );
+    SvmClasssificationDialog svmDialog;
+    svmDialog.show();
     
-    this->myClaClent->start();
-    QProgressBar *proBar = new QProgressBar;
-    proBar->setWindowTitle( tr( "Processing..." ) );
-    proBar->setRange( 0, 0 );
-    proBar->setWindowModality( Qt::ApplicationModal );
-    proBar->show();
+    //this->myClaClent = new ClassificationClient( this->myMap, "SVM", this->myMap->GetDataset(), roiFile, modelFile );
+    
+    //this->myClaClent->start();
+    //QProgressBar *proBar = new QProgressBar;
+    //proBar->setWindowTitle( tr( "Processing..." ) );
+    //proBar->setRange( 0, 0 );
+    // proBar->setWindowModality( Qt::ApplicationModal );
+    //proBar->show();
     
 }

@@ -71,6 +71,9 @@
     <ClCompile Include="ClassificationClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SvmClasssificationDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="imgtest.ui">
@@ -93,6 +96,9 @@
     </CustomBuild>
     <CustomBuild Include="svmParaDialog.ui">
       <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SvmClasssificationDialog.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
