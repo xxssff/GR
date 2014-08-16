@@ -5,8 +5,9 @@
 #include <QtCore/QThread>
 #include "ui_svmParaDialog.h"
 #include <QtGui/QDialog>
+#include "../Classification/svm.h"
 
-class ClassificationAlg;
+class SVMClassification;
 class MapCanvas;
 class GDALDataset;
 
@@ -14,23 +15,18 @@ class ClassificationClient : public QThread
 {
 public:
     ClassificationClient();
-    ClassificationClient( MapCanvas *myMap, QString algName, GDALDataset *poDataset, QString roiFileName, QString modelFileName );
+    ClassificationClient( MapCanvas *myMap, QString algName, GDALDataset *poDataset, QString roiFileName, QString modelFileName, svm_parameter parameter );
     ~ClassificationClient();
-    
     void run();
-public slots:
-    void executeALg();
-    
     
 private:
     MapCanvas *myMap;
-    ClassificationAlg *claAlg;
+    SVMClassification *claAlg;
     
     GDALDataset *poDataset;
     QString roiFileName;
     QString modelFileName;
-    
-    Ui::svmParaDialog svmDialog;
+    svm_parameter parameter;
 };
 
 #endif // CLASSIFICATIONCLIENT_H

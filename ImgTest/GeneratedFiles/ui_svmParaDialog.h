@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'svmParaDialog.ui'
 **
-** Created: Sat Aug 16 14:21:15 2014
+** Created: Sat Aug 16 22:03:29 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,6 +14,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QCheckBox>
 #include <QtGui/QComboBox>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
@@ -31,6 +32,7 @@ class Ui_svmParaDialog
 {
 public:
     QGridLayout *gridLayout_3;
+    QSpacerItem *verticalSpacer_2;
     QGridLayout *gridLayout;
     QLabel *label_3;
     QLabel *label;
@@ -41,10 +43,15 @@ public:
     QPushButton *modelFileBrowseBtn;
     QPushButton *roiFileBrowseBtn;
     QLabel *label_2;
-    QHBoxLayout *horizontalLayout_2;
-    QSpacerItem *horizontalSpacer;
-    QPushButton *ExecuteBtn;
-    QPushButton *CancelBtn;
+    QCheckBox *saveModelCheckBox;
+    QSpacerItem *verticalSpacer_4;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_9;
+    QLineEdit *resultFilePath;
+    QPushButton *resultFileBrowseBtn;
+    QSpacerItem *verticalSpacer_3;
+    QLineEdit *saveModelLineEdit;
+    QPushButton *saveModelBtn;
     QGridLayout *gridLayout_2;
     QLabel *label_4;
     QSpinBox *degreeSpinBox;
@@ -56,13 +63,10 @@ public:
     QLabel *label_7;
     QSpinBox *pyramidLevelsSpinBox;
     QLabel *label_8;
-    QHBoxLayout *horizontalLayout;
-    QLabel *label_9;
-    QLineEdit *resultFilePath;
-    QPushButton *resultFileBrowseBtn;
-    QSpacerItem *verticalSpacer_2;
-    QSpacerItem *verticalSpacer_3;
-    QSpacerItem *verticalSpacer_4;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *ExecuteBtn;
+    QPushButton *CancelBtn;
 
     void setupUi(QWidget *svmParaDialog)
     {
@@ -79,6 +83,10 @@ public:
         svmParaDialog->setMaximumSize(QSize(332, 454));
         gridLayout_3 = new QGridLayout(svmParaDialog);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_3->addItem(verticalSpacer_2, 1, 0, 1, 3);
+
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         label_3 = new QLabel(svmParaDialog);
@@ -126,26 +134,50 @@ public:
         gridLayout->addWidget(label_2, 1, 0, 1, 1);
 
 
-        gridLayout_3->addLayout(gridLayout, 0, 0, 1, 1);
+        gridLayout_3->addLayout(gridLayout, 0, 0, 1, 3);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        saveModelCheckBox = new QCheckBox(svmParaDialog);
+        saveModelCheckBox->setObjectName(QString::fromUtf8("saveModelCheckBox"));
 
-        horizontalLayout_2->addItem(horizontalSpacer);
+        gridLayout_3->addWidget(saveModelCheckBox, 5, 0, 1, 1);
 
-        ExecuteBtn = new QPushButton(svmParaDialog);
-        ExecuteBtn->setObjectName(QString::fromUtf8("ExecuteBtn"));
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        horizontalLayout_2->addWidget(ExecuteBtn);
+        gridLayout_3->addItem(verticalSpacer_4, 6, 0, 1, 3);
 
-        CancelBtn = new QPushButton(svmParaDialog);
-        CancelBtn->setObjectName(QString::fromUtf8("CancelBtn"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        label_9 = new QLabel(svmParaDialog);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
 
-        horizontalLayout_2->addWidget(CancelBtn);
+        horizontalLayout->addWidget(label_9);
+
+        resultFilePath = new QLineEdit(svmParaDialog);
+        resultFilePath->setObjectName(QString::fromUtf8("resultFilePath"));
+
+        horizontalLayout->addWidget(resultFilePath);
+
+        resultFileBrowseBtn = new QPushButton(svmParaDialog);
+        resultFileBrowseBtn->setObjectName(QString::fromUtf8("resultFileBrowseBtn"));
+
+        horizontalLayout->addWidget(resultFileBrowseBtn);
 
 
-        gridLayout_3->addLayout(horizontalLayout_2, 6, 0, 1, 1);
+        gridLayout_3->addLayout(horizontalLayout, 4, 0, 1, 3);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_3->addItem(verticalSpacer_3, 3, 0, 1, 3);
+
+        saveModelLineEdit = new QLineEdit(svmParaDialog);
+        saveModelLineEdit->setObjectName(QString::fromUtf8("saveModelLineEdit"));
+
+        gridLayout_3->addWidget(saveModelLineEdit, 5, 1, 1, 1);
+
+        saveModelBtn = new QPushButton(svmParaDialog);
+        saveModelBtn->setObjectName(QString::fromUtf8("saveModelBtn"));
+
+        gridLayout_3->addWidget(saveModelBtn, 5, 2, 1, 1);
 
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
@@ -157,6 +189,7 @@ public:
         degreeSpinBox = new QSpinBox(svmParaDialog);
         degreeSpinBox->setObjectName(QString::fromUtf8("degreeSpinBox"));
         degreeSpinBox->setMaximumSize(QSize(51, 16777215));
+        degreeSpinBox->setValue(2);
 
         gridLayout_2->addWidget(degreeSpinBox, 0, 1, 1, 1);
 
@@ -205,39 +238,26 @@ public:
         gridLayout_2->addWidget(label_8, 4, 0, 1, 1);
 
 
-        gridLayout_3->addLayout(gridLayout_2, 2, 0, 1, 1);
+        gridLayout_3->addLayout(gridLayout_2, 2, 0, 1, 3);
 
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        label_9 = new QLabel(svmParaDialog);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout->addWidget(label_9);
+        horizontalLayout_2->addItem(horizontalSpacer);
 
-        resultFilePath = new QLineEdit(svmParaDialog);
-        resultFilePath->setObjectName(QString::fromUtf8("resultFilePath"));
+        ExecuteBtn = new QPushButton(svmParaDialog);
+        ExecuteBtn->setObjectName(QString::fromUtf8("ExecuteBtn"));
 
-        horizontalLayout->addWidget(resultFilePath);
+        horizontalLayout_2->addWidget(ExecuteBtn);
 
-        resultFileBrowseBtn = new QPushButton(svmParaDialog);
-        resultFileBrowseBtn->setObjectName(QString::fromUtf8("resultFileBrowseBtn"));
+        CancelBtn = new QPushButton(svmParaDialog);
+        CancelBtn->setObjectName(QString::fromUtf8("CancelBtn"));
 
-        horizontalLayout->addWidget(resultFileBrowseBtn);
+        horizontalLayout_2->addWidget(CancelBtn);
 
 
-        gridLayout_3->addLayout(horizontalLayout, 4, 0, 1, 1);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_3->addItem(verticalSpacer_2, 1, 0, 1, 1);
-
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_3->addItem(verticalSpacer_3, 3, 0, 1, 1);
-
-        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_3->addItem(verticalSpacer_4, 5, 0, 1, 1);
+        gridLayout_3->addLayout(horizontalLayout_2, 7, 0, 1, 3);
 
 
         retranslateUi(svmParaDialog);
@@ -260,15 +280,20 @@ public:
         modelFileBrowseBtn->setText(QApplication::translate("svmParaDialog", "Browse", 0, QApplication::UnicodeUTF8));
         roiFileBrowseBtn->setText(QApplication::translate("svmParaDialog", "Browse", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("svmParaDialog", "Model File:", 0, QApplication::UnicodeUTF8));
-        ExecuteBtn->setText(QApplication::translate("svmParaDialog", "Execute", 0, QApplication::UnicodeUTF8));
-        CancelBtn->setText(QApplication::translate("svmParaDialog", "Cancel", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("svmParaDialog", "Degree of Kernel Polynomial:", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("svmParaDialog", "Gamma in Kernel Function:", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("svmParaDialog", "Bias in Kernel Function:", 0, QApplication::UnicodeUTF8));
-        label_7->setText(QApplication::translate("svmParaDialog", "Penalty Parameter:", 0, QApplication::UnicodeUTF8));
-        label_8->setText(QApplication::translate("svmParaDialog", "Pyramid Levels:", 0, QApplication::UnicodeUTF8));
+        saveModelCheckBox->setText(QApplication::translate("svmParaDialog", "Save Trained Model?", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("svmParaDialog", "Result File:", 0, QApplication::UnicodeUTF8));
         resultFileBrowseBtn->setText(QApplication::translate("svmParaDialog", "Browse", 0, QApplication::UnicodeUTF8));
+        saveModelBtn->setText(QApplication::translate("svmParaDialog", "Browse", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("svmParaDialog", "Degree of Kernel Polynomial:", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("svmParaDialog", "Gamma in Kernel Function:", 0, QApplication::UnicodeUTF8));
+        biasLineEdit->setText(QApplication::translate("svmParaDialog", "100", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("svmParaDialog", "Bias in Kernel Function:", 0, QApplication::UnicodeUTF8));
+        PenaltyLineEdit->setText(QApplication::translate("svmParaDialog", "0.5", 0, QApplication::UnicodeUTF8));
+        GammaLineEdit->setText(QApplication::translate("svmParaDialog", "0.2", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("svmParaDialog", "Penalty Parameter:", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("svmParaDialog", "Pyramid Levels:", 0, QApplication::UnicodeUTF8));
+        ExecuteBtn->setText(QApplication::translate("svmParaDialog", "Execute", 0, QApplication::UnicodeUTF8));
+        CancelBtn->setText(QApplication::translate("svmParaDialog", "Cancel", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

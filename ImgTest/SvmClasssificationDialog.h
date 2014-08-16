@@ -3,8 +3,10 @@
 
 #include <QDialog>
 #include "ui_svmParaDialog.h"
+#include "../Classification/svm.h"
 
 class MapCanvas;
+class ProgressDialog;
 
 class SvmClasssificationDialog : public QDialog
 {
@@ -15,19 +17,27 @@ public:
     ~SvmClasssificationDialog();
     
 public slots:
-    QString BrowseRoiFile();
-    QString BrowseModelFile();
-    QString BrowseDestFile();
+    void BrowseRoiFile();
+    void BrowseModelFile();
+    void BrowseDestFile();
     void Execute();
     void Cancel();
-    
+    void SetSaveModelEnable();
+    void BrowseSaveModel();
+    void SetMap( MapCanvas *map );
 private:
+    void initialParameter();
+    
     Ui::svmParaDialog ui;
     MapCanvas *myMap;
+    ProgressDialog *progDialog;
     
     QString roiFile;
     QString modelFile;
     QString resultFile;
+    QString saveModelFile;
+    svm_parameter parameter;
+    
 };
 
 #endif // SVMCLASSSIFICATIONDIALOG_H
