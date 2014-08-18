@@ -11,9 +11,11 @@ SvmClasssificationDialog::SvmClasssificationDialog( QWidget *parent )
     : QDialog( parent )
 {
     ui.setupUi( this );
+    prog = new MyProgressBar( this );
     ui.saveModelCheckBox->setCheckState( Qt::Unchecked );
     ui.saveModelLineEdit->setEnabled( false );
     ui.saveModelBtn->setEnabled( false );
+    
     
     connect( ui.roiFileBrowseBtn, SIGNAL( clicked() ), this, SLOT( BrowseRoiFile() ) );
     connect( ui.modelFileBrowseBtn, SIGNAL( clicked() ), this, SLOT( BrowseModelFile() ) );
@@ -80,9 +82,13 @@ void SvmClasssificationDialog::Execute()
         QMessageBox::critical( this, tr( "Error" ), tr( "there is no data or roi file..." ) );
         return;
     }
+    
+    prog->show();
+    
     initialParameter();
     ClassificationClient *client = new ClassificationClient( this->myMap, "SVM", this->myMap->GetDataset(), roiFile, modelFile, parameter );
-    client->run();
+    //client->run();
+    // prog->close();
 }
 
 void SvmClasssificationDialog::Cancel()
