@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "ui_svmParaDialog.h"
 #include "../Classification/svm.h"
+#include "MyProgressBar.h"
 
 class MapCanvas;
 class ProgressDialog;
@@ -29,8 +30,8 @@ private:
     void initialParameter();
     
     Ui::svmParaDialog ui;
+    MyProgressBar *prog;
     MapCanvas *myMap;
-    ProgressDialog *progDialog;
     
     QString roiFile;
     QString modelFile;

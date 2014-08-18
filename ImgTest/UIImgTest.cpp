@@ -121,7 +121,7 @@ void UIImgTest::CalculateFrechetDistance()
 /// </summary>
 void UIImgTest::SvmClassification()
 {
-    SvmClasssificationDialog *svmDialog = new SvmClasssificationDialog;
+    SvmClasssificationDialog *svmDialog = new SvmClasssificationDialog( this );
     svmDialog->SetMap( this->myMap );
     svmDialog->show();
 }

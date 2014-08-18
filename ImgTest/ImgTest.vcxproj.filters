@@ -80,6 +80,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_SvmClasssificationDialog.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="MyProgressBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MyProgressBar.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MyProgressBar.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="imgtest.ui">
@@ -106,12 +115,21 @@
     <CustomBuild Include="SvmClasssificationDialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="ProgressDialog.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MyProgressBar.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_imgtest.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_svmParaDialog.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_ProgressDialog.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
