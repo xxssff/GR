@@ -52,7 +52,6 @@ void SVMClassification::TrainModel()
     }
 }
 
-
 /// <summary>
 /// initial the SVM problem , construct the dataset that SVM uses
 /// </summary>
@@ -118,7 +117,6 @@ void SVMClassification::initialSVMPro()
             }
             
             node[nodeIndex++] = xSpace;
-            //cout << nodeIndex << endl;
         }
     }
     
@@ -147,32 +145,10 @@ void SVMClassification::initialSVMPro()
         }
     }
     
+    Scale( node );
     svmPro.l = nodeIndex;
     svmPro.x = node;
     svmPro.y = y1;
-}
-
-/// <summary>
-/// initial SVM parameters , this one should be configed, I don't know the default setting parameters
-/// for remote sensing classification...
-/// </summary>
-void SVMClassification::initialParameter()
-{
-    //svmPara.svm_type = C_SVC;
-    //svmPara.kernel_type = LINEAR;
-    ////svmPara.degree = 3;
-    //svmPara.gamma = 0.2;
-    ////svmPara.coef0 = 0;
-    //
-    //svmPara.nu = 0.5;
-    //svmPara.cache_size = 1;
-    //svmPara.C = 1;
-    //svmPara.eps = 1e-3;
-    //svmPara.p = 0.1;
-    //svmPara.shrinking = 1;
-    //svmPara.nr_weight = 0;
-    //svmPara.weight_label = NULL;
-    //svmPara.weight = NULL;
 }
 
 /// <summary>
@@ -213,6 +189,155 @@ float* SVMClassification::runAlg( float** srcData )
 }
 
 /// <summary>
+/// Sets the roiFile.
+/// </summary>
+/// <param name="rFile">The r file.</param>
+void SVMClassification::SetRoiFile( const string rFile )
+{
+    this->roiFile = rFile;
+}
+
+/// <summary>
+/// Sets the modelFile.
+/// </summary>
+/// <param name="mFile">The m file.</param>
+void SVMClassification::SetModelFile( const string mFile )
+{
+    this->modelFile = mFile;
+}
+
+/// <summary>
+/// Sets the modelFileSave.
+/// </summary>
+/// <param name="msFile">The modelFileSave.</param>
+void SVMClassification::SetModelFileSave( const string msFile )
+{
+    this->modelFileSave = msFile;
+}
+
+/// <summary>
+/// Sets the bandCount.
+/// </summary>
+/// <param name="count">The count.</param>
+void SVMClassification::SetBandCount( int count )
+{
+    this->bandCount = count;
+}
+
+/// <summary>
+/// Sets the pixelCount.
+/// </summary>
+/// <param name="count">The count.</param>
+void SVMClassification::SetPixelCount( int count )
+{
+    this->pixelCount = count;
+}
+
+/// <summary>
+/// Gets the roiFile.
+/// </summary>
+/// <returns>string.</returns>
+string SVMClassification::GetRoiFile()
+{
+    return roiFile;
+}
+
+/// <summary>
+/// Gets the modelFile.
+/// </summary>
+/// <returns>string.</returns>
+string SVMClassification::GetModelFile()
+{
+    return modelFile;
+}
+
+/// <summary>
+/// Gets the modelFile save.
+/// </summary>
+/// <returns>string.</returns>
+string SVMClassification::GetModelFileSave()
+{
+    return modelFileSave;
+}
+
+/// <summary>
+/// Gets the bandCount.
+/// </summary>
+/// <returns>int.</returns>
+int SVMClassification::GetBandCount()
+{
+    return bandCount;
+}
+
+/// <summary>
+/// Gets the pixelCount.
+/// </summary>
+/// <returns>int.</returns>
+int SVMClassification::GetPixelCount()
+{
+    return pixelCount;
+}
+
+/// <summary>
+/// Saves the model.
+/// </summary>
+void SVMClassification::SaveModel()
+{
+    if ( modelFileSave == "" )
+    {
+        return;
+    }
+    svm_save_model( modelFileSave.c_str(), svmModel );
+}
+
+/// <summary>
+/// Sets the parameter.
+/// </summary>
+/// <param name="para">The para.</param>
+void SVMClassification::SetParameter( svm_parameter &para )
+{
+    svmPara = para;
+}
+
+
+/// <summary>
+/// Scales the specified source data.
+/// </summary>
+/// <param name="srcData">The source data.</param>
+void SVMClassification::Scale( svm_node** srcData )
+{
+    double max = 0;
+    double min = 0;
+    for ( int k = 0; k < bandCount; k++ )
+    {
+        for ( int i = 0; i < 33669; i++ )
+        {
+            if ( min >= srcData[i][k].value )
+            {
+                min = srcData[i][k].value;
+            }
+            if ( max <= srcData[i][k].value )
+            {
+                max = srcData[i][k].value;
+            }
+        }
+        
+        for ( int i = 0; i < 33669; i++ )
+        {
+            srcData[i][k].value = ( srcData[i][k].value - min ) * 1.0 / ( max - min );
+            if ( srcData[i][k].value >= max )
+            {
+                srcData[i][k].value = 1.0;
+            }
+            if ( srcData[i][k].value <= min )
+            {
+                srcData[i][k].value = 0.0;
+            }
+        }
+    }
+}
+
+/// <summary>
 /// Splits the specified string.
 /// </summary>
 /// <param name="str">The string.</param>
@@ -250,68 +375,4 @@ vector<string> SVMClassification::split( std::string str, std::string pattern )
     }
     
     return result;
-}
-
-void SVMClassification::SetRoiFile( const string rFile )
-{
-    this->roiFile = rFile;
-}
-
-void SVMClassification::SetModelFile( const string mFile )
-{
-    this->modelFile = mFile;
-}
-
-void SVMClassification::SetModelFileSave( const string msFile )
-{
-    this->modelFileSave = msFile;
-}
-
-void SVMClassification::SetBandCount( int count )
-{
-    this->bandCount = count;
-}
-
-void SVMClassification::SetPixelCount( int count )
-{
-    this->pixelCount = count;
-}
-
-string SVMClassification::GetRoiFile()
-{
-    return roiFile;
-}
-
-string SVMClassification::GetModelFile()
-{
-    return modelFile;
-}
-
-string SVMClassification::GetModelFileSave()
-{
-    return modelFileSave;
-}
-
-int SVMClassification::GetBandCount()
-{
-    return bandCount;
-}
-
-int SVMClassification::GetPixelCount()
-{
-    return pixelCount;
-}
-
-void SVMClassification::SaveModel()
-{
-    if ( modelFileSave == "" )
-    {
-        return;
-    }
-    svm_save_model( modelFileSave.c_str(), svmModel );
-}
-
-void SVMClassification::SetParameter( svm_parameter &para )
-{
-    svmPara = para;
 }
