@@ -50,6 +50,7 @@ private:
     vector<string> split( string str, string pattern );
     void TrainModel();
     void SaveModel();
+    void Scale( svm_node** srcData );
     
     string roiFile;
     string modelFile;

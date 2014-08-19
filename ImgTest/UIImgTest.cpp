@@ -69,7 +69,7 @@ void UIImgTest::PickOpenFile()
                            this,
                            tr( "Pick a image file to open..." ),
                            QDir::currentPath(),
-                           tr( "jpg(*.jpg);;tiff(*.tif);;img(*.img);;All files(*.*)" ) );
+                           tr( "tiff(*.tif);;img(*.img);;All files(*.*)" ) );
     if ( !fileName.isNull() )
     {
         myMap->ReadImg( fileName );

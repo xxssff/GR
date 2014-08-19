@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'svmParaDialog.ui'
 **
-** Created: Sat Aug 16 22:03:29 2014
+** Created: Mon Aug 18 15:42:54 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -288,8 +288,8 @@ public:
         label_6->setText(QApplication::translate("svmParaDialog", "Gamma in Kernel Function:", 0, QApplication::UnicodeUTF8));
         biasLineEdit->setText(QApplication::translate("svmParaDialog", "100", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("svmParaDialog", "Bias in Kernel Function:", 0, QApplication::UnicodeUTF8));
-        PenaltyLineEdit->setText(QApplication::translate("svmParaDialog", "0.5", 0, QApplication::UnicodeUTF8));
-        GammaLineEdit->setText(QApplication::translate("svmParaDialog", "0.2", 0, QApplication::UnicodeUTF8));
+        PenaltyLineEdit->setText(QApplication::translate("svmParaDialog", "100", 0, QApplication::UnicodeUTF8));
+        GammaLineEdit->setText(QApplication::translate("svmParaDialog", "0.250", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("svmParaDialog", "Penalty Parameter:", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("svmParaDialog", "Pyramid Levels:", 0, QApplication::UnicodeUTF8));
         ExecuteBtn->setText(QApplication::translate("svmParaDialog", "Execute", 0, QApplication::UnicodeUTF8));

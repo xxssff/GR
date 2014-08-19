@@ -366,6 +366,10 @@ void MapCanvas::CreateImg( float *poData , int dataWidth, int dataHeight, int ba
                               tr( "save file to..." ),
                               QDir::currentPath(),
                               tr( "jpg(*.jpg);;tiff(*.tif);;img(*.img);;All files(*.*)" ) );
+    if ( dstFileName.isNull() )
+    {
+        return;
+    }
     poDataset = pDriver->Create( dstFileName.toStdString().c_str(), dataWidth, dataHeight, 1, GDT_Float32, NULL );
     poDataset->RasterIO( GF_Write, 0, 0, dataWidth, dataHeight, poData, dataWidth, dataHeight, GDT_Float32, 1, resultBandList, 0, 0, 0 );
     GDALClose( poDataset );

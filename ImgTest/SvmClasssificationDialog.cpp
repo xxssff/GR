@@ -16,7 +16,6 @@ SvmClasssificationDialog::SvmClasssificationDialog( QWidget *parent )
     ui.saveModelLineEdit->setEnabled( false );
     ui.saveModelBtn->setEnabled( false );
     
-    
     connect( ui.roiFileBrowseBtn, SIGNAL( clicked() ), this, SLOT( BrowseRoiFile() ) );
     connect( ui.modelFileBrowseBtn, SIGNAL( clicked() ), this, SLOT( BrowseModelFile() ) );
     connect( ui.resultFileBrowseBtn, SIGNAL( clicked() ), this, SLOT( BrowseDestFile() ) );
@@ -26,11 +25,17 @@ SvmClasssificationDialog::SvmClasssificationDialog( QWidget *parent )
     connect( ui.saveModelBtn, SIGNAL( clicked() ), this, SLOT( BrowseSaveModel() ) );
 }
 
+/// <summary>
+/// Finalizes an instance of the <see cref="SvmClasssificationDialog"/> class.
+/// </summary>
 SvmClasssificationDialog::~SvmClasssificationDialog()
 {
 
 }
 
+/// <summary>
+/// Browses the roi file.
+/// </summary>
 void SvmClasssificationDialog::BrowseRoiFile()
 {
     QString roiFile = QFileDialog::getOpenFileName(
@@ -42,6 +47,9 @@ void SvmClasssificationDialog::BrowseRoiFile()
     this->roiFile = roiFile;
 }
 
+/// <summary>
+/// Browses the model file.
+/// </summary>
 void SvmClasssificationDialog::BrowseModelFile()
 {
     QString modelFile = QFileDialog::getOpenFileName(
@@ -53,17 +61,23 @@ void SvmClasssificationDialog::BrowseModelFile()
     this->modelFile = modelFile;
 }
 
+/// <summary>
+/// Browses the dest file.
+/// </summary>
 void SvmClasssificationDialog::BrowseDestFile()
 {
     QString resultFile = QFileDialog::getSaveFileName(
                              this,
                              tr( "save file to..." ),
                              QDir::currentPath(),
-                             tr( "jpg(*.jpg);;tiff(*.tif);;img(*.img);;All files(*.*)" ) );
+                             tr( "tiff(*.tif);;img(*.img);;All files(*.*)" ) );
     ui.resultFilePath->setText( resultFile );
     this->resultFile = resultFile;
 }
 
+/// <summary>
+/// Browses the save model.
+/// </summary>
 void SvmClasssificationDialog::BrowseSaveModel()
 {
     QString saveModelFile = QFileDialog::getSaveFileName(
@@ -75,6 +89,11 @@ void SvmClasssificationDialog::BrowseSaveModel()
     this->saveModelFile = saveModelFile;
 }
 
+/// <summary>
+/// Executes this instance. This method creates a new ClassificationClient object, and
+/// passes the arguments needed to it. Then call the object's run function. The Classification class
+/// is inherit from QThread, so it will run in a new thread.
+/// </summary>
 void SvmClasssificationDialog::Execute()
 {
     if ( myMap == NULL || roiFile == "" || myMap->GetDataset() == NULL )
@@ -86,17 +105,22 @@ void SvmClasssificationDialog::Execute()
     prog->show();
     
     initialParameter();
-    ClassificationClient *client = new ClassificationClient( this->myMap, "SVM", this->myMap->GetDataset(), roiFile, modelFile, parameter );
-    //client->run();
-    // prog->close();
+    ClassificationClient *client = new ClassificationClient( this->myMap, "SVM", roiFile, modelFile, saveModelFile, &parameter );
+    client->start();
 }
 
+/// <summary>
+/// Cancels this instance.
+/// </summary>
 void SvmClasssificationDialog::Cancel()
 {
     this->close();
     return;
 }
 
+/// <summary>
+/// Sets the save model controls enable.
+/// </summary>
 void SvmClasssificationDialog::SetSaveModelEnable()
 {
     if ( ui.saveModelCheckBox->checkState() == Qt::Checked )
@@ -112,7 +136,8 @@ void SvmClasssificationDialog::SetSaveModelEnable()
 }
 
 /// <summary>
-/// Initials the parameter.
+/// Initials the parameter struct. These parameters are only used to train the svm model, if there's a model file that include
+/// a model already been trained, these parameters will be ignored.
 /// </summary>
 void SvmClasssificationDialog::initialParameter()
 {
@@ -134,10 +159,11 @@ void SvmClasssificationDialog::initialParameter()
     }
     parameter.gamma = ui.GammaLineEdit->text().toDouble();
     parameter.degree = ui.degreeSpinBox->value();
+    parameter.C = ui.PenaltyLineEdit->text().toDouble();
+    
     parameter.coef0 = 0;
     parameter.nu = 0.5;
     parameter.cache_size = 1;
-    parameter.C = 1;
     parameter.eps = 1e-3;
     parameter.p = 0.1;
     parameter.shrinking = 1;
