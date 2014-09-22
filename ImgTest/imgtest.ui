@@ -130,6 +130,10 @@
    <addaction name="menuAbout"/>
   </widget>
   <action name="actionImage">
+   <property name="icon">
+    <iconset resource="imgtest.qrc">
+     <normaloff>:/ImgTest/order.png</normaloff>:/ImgTest/order.png</iconset>
+   </property>
    <property name="text">
     <string>image</string>
    </property>
@@ -179,6 +183,10 @@
    </property>
   </action>
   <action name="actionFit_Window">
+   <property name="icon">
+    <iconset resource="imgtest.qrc">
+     <normaloff>:/ImgTest/Browser.png</normaloff>:/ImgTest/Browser.png</iconset>
+   </property>
    <property name="text">
     <string>Fit Window</string>
    </property>

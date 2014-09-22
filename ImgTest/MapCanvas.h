@@ -75,7 +75,7 @@ public:
     
     QSize sizeHint() const;
     
-    void CreateImg( float *poData , int dataWidth, int dataHeight, int bandCount );
+    void CreateImg( float *poData , int dataWidth, int dataHeight, int bandCount  );
     
 public slots:
     /// <summary>

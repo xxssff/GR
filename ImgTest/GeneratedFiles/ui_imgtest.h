@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'imgtest.ui'
 **
-** Created: Sat Aug 16 21:16:22 2014
+** Created: Wed Aug 27 17:19:38 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -71,6 +71,9 @@ public:
         ImgTestClass->setStyleSheet(QString::fromUtf8(""));
         actionImage = new QAction(ImgTestClass);
         actionImage->setObjectName(QString::fromUtf8("actionImage"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/ImgTest/order.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionImage->setIcon(icon);
         actionExit = new QAction(ImgTestClass);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
         actionInformation = new QAction(ImgTestClass);
@@ -87,6 +90,9 @@ public:
         actionZoom_In->setObjectName(QString::fromUtf8("actionZoom_In"));
         actionFit_Window = new QAction(ImgTestClass);
         actionFit_Window->setObjectName(QString::fromUtf8("actionFit_Window"));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/ImgTest/Browser.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionFit_Window->setIcon(icon1);
         actionNormal_Size = new QAction(ImgTestClass);
         actionNormal_Size->setObjectName(QString::fromUtf8("actionNormal_Size"));
         actionEuclidean_Distance = new QAction(ImgTestClass);
