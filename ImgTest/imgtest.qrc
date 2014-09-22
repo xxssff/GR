@@ -1,4 +1,18 @@
 <RCC>
-    <qresource prefix="ImgTest">
-    </qresource>
+  <qresource prefix="ImgTest">
+    <file>arrow_left.png</file>
+    <file>arrow_right.png</file>
+    <file>AttributeTable.png</file>
+    <file>bookmark.png</file>
+    <file>Browser.png</file>
+    <file>category.png</file>
+    <file>check.png</file>
+    <file>comment.png</file>
+    <file>config.png</file>
+    <file>folder.png</file>
+    <file>lock.png</file>
+    <file>order.png</file>
+    <file>pencil-32.png</file>
+    <file>search.png</file>
+  </qresource>
 </RCC>
