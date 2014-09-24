@@ -98,6 +98,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_GeocorrectClient.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="Feature.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="imgtest.ui">
@@ -143,6 +146,9 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_ProgressDialog.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Feature.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
