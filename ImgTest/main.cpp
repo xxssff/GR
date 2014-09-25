@@ -1,6 +1,7 @@
 #include "UIImgTest.h"
 #include <QtGui/QApplication>
 #include <QtCore/QTextCodec>
+#include "GRApp.h"
 
 
 int main( int argc, char *argv[] )
@@ -15,7 +16,10 @@ int main( int argc, char *argv[] )
     QTextCodec::setCodecForTr( codec );
     QTextCodec::setCodecForCStrings( codec );
     
-    UIImgTest w;
-    w.show();
+    /*UIImgTest w;
+    w.show();*/
+    
+    GRApp gr;
+    gr.show();
     return a.exec();
 }
