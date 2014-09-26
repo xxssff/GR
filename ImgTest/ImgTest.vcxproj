@@ -149,11 +149,13 @@
     <ClCompile Include="GeocorrectClient.cpp" />
     <ClCompile Include="GRApp.cpp" />
     <ClCompile Include="GRAppBase.cpp" />
+    <ClCompile Include="GRCoordinateTransform.cpp" />
     <ClCompile Include="GRIface.cpp" />
     <ClCompile Include="GRLegend.cpp" />
     <ClCompile Include="GRMapLayer.cpp" />
     <ClCompile Include="GRPoint.cpp" />
     <ClCompile Include="GRRect.cpp" />
+    <ClCompile Include="GRRenderer.cpp" />
     <ClCompile Include="MapCanvas.cpp" />
     <ClCompile Include="MyProgressBar.cpp" />
     <ClCompile Include="SvmClasssificationDialog.cpp" />
@@ -191,6 +193,8 @@
     <ClInclude Include="GeneratedFiles\ui_ProgressDialog.h" />
     <ClInclude Include="GeneratedFiles\ui_svmParaDialog.h" />
     <ClInclude Include="Global.h" />
+    <ClInclude Include="GRRenderer.h" />
+    <ClInclude Include="GRTable.h" />
     <CustomBuild Include="GRApp.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing GRApp.h...</Message>
@@ -248,6 +252,8 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui"</Command>
     </CustomBuild>
+    <ClInclude Include="GRCoordinateTransform.h" />
+    <ClInclude Include="GRDataSource.h" />
     <ClInclude Include="GRPoint.h" />
     <ClInclude Include="GRRect.h" />
     <CustomBuild Include="GeocorrectClient.h">
