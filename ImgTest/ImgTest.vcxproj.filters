@@ -146,6 +146,12 @@
     <ClCompile Include="GeneratedFiles\Release\moc_GRMapLayer.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="GRCoordinateTransform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GRRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="imgtest.ui">
@@ -227,6 +233,18 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_GRAppBase.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GRCoordinateTransform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GRDataSource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GRTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GRRenderer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
