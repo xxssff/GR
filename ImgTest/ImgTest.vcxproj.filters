@@ -152,6 +152,15 @@
     <ClCompile Include="GRRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GRMapCanvas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GRMapCanvas.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GRMapCanvas.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="imgtest.ui">
@@ -203,6 +212,9 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="GRMapLayer.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GRMapCanvas.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
