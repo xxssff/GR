@@ -1,16 +1,12 @@
-﻿生成启动时间为 2014/9/26 12:50:03。
+﻿生成启动时间为 2014/10/11 14:48:38。
      1>项目“E:\Jacory\Code\ImgTest\ImgTest\ImgTest.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
-         正在创建“Debug\ImgTest.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+         正在对“Debug\ImgTest.unsuccessfulbuild”执行 Touch 任务。
        CustomBuild:
-         Moc'ing GRMapLayer.h...
+         所有输出均为最新。
        ClCompile:
-         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\3rd_Party\GDAL110\include /I.\GeneratedFiles /I. /ID:\Qt\4.8.4\include /I.\GeneratedFiles\Debug /ID:\Qt\4.8.4\include\QtCore /ID:\Qt\4.8.4\include\QtGui /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GeneratedFiles\Debug\moc_GRMapLayer.cpp GRCoordinateTransform.cpp GRLegend.cpp GRMapLayer.cpp
-         moc_GRMapLayer.cpp
-         GRCoordinateTransform.cpp
-         GRLegend.cpp
-         GRMapLayer.cpp
-         正在生成代码...
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\3rd_Party\GDAL110\include /I.\GeneratedFiles /I. /ID:\Qt\4.8.4\include /I.\GeneratedFiles\Debug /ID:\Qt\4.8.4\include\QtCore /ID:\Qt\4.8.4\include\QtGui /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D QT_LARGEFILE_SUPPORT /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GRRenderer.cpp
+         GRRenderer.cpp
          所有输出均为最新。
        ResourceCompile:
          所有输出均为最新。
@@ -39,6 +35,7 @@
          Debug\GRMapLayer.obj
          Debug\GRPoint.obj
          Debug\GRRect.obj
+         Debug\GRRenderer.obj
          Debug\MapCanvas.obj
          Debug\MyProgressBar.obj
          Debug\SvmClasssificationDialog.obj
@@ -56,4 +53,4 @@
 
 生成成功。
 
-已用时间 00:00:11.65
+已用时间 00:00:08.38

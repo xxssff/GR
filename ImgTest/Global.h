@@ -1,5 +1,5 @@
 #pragma once
-namespace ImgTest
+namespace GR
 {
 enum MapTools
 {
