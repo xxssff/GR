@@ -16,7 +16,7 @@
 #include <map>
 #include <vector>
 #include <list>
-#include <QtGui/QWidget>
+#include <QtGui/QGraphicsView>
 #include <QEvent>
 
 #include "GRRect.h"
@@ -30,10 +30,11 @@ class GRLegend;
 class QColor;
 class GRPoint;
 
+
 /// <summary>
 /// Class GRMapCanvas.
 /// </summary>
-class GRMapCanvas: public QWidget
+class GRMapCanvas: public QGraphicsView
 {
     Q_OBJECT
     
@@ -100,7 +101,7 @@ public:
     /// </summary>
     void zoomPreviousExtent();
     
-    
+    void refresh();
     /// <summary>
     /// Gets the zpos.
     /// </summary>

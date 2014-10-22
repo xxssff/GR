@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'GRApp.h'
 **
-** Created: Thu Sep 25 20:03:37 2014
+** Created: Mon Oct 20 16:43:54 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_GRApp[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      19,   14, // methods
+      20,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -46,10 +46,11 @@ static const uint qt_meta_data_GRApp[] = {
      290,    6,    6,    6, 0x08,
      301,    6,    6,    6, 0x08,
      311,    6,    6,    6, 0x08,
-     328,    6,    6,    6, 0x08,
-     346,    6,    6,    6, 0x08,
-     371,    6,    6,    6, 0x08,
-     391,  389,    6,    6, 0x08,
+     318,    6,    6,    6, 0x08,
+     335,    6,    6,    6, 0x08,
+     353,    6,    6,    6, 0x08,
+     378,    6,    6,    6, 0x08,
+     398,  396,    6,    6, 0x08,
 
        0        // eod
 };
@@ -64,9 +65,9 @@ static const char qt_meta_stringdata_GRApp[] = {
     "actionPluginManager_activated()\0"
     "saveWindowState()\0restoreWindowState()\0"
     "fileSave()\0fileSaveAs()\0fileOpen()\0"
-    "fileNew()\0checkGrVersion()\0socketConnected()\0"
-    "socketConnectionClosed()\0socketReadyRead()\0"
-    "e\0socketError(int)\0"
+    "fileNew()\0exit()\0checkGrVersion()\0"
+    "socketConnected()\0socketConnectionClosed()\0"
+    "socketReadyRead()\0e\0socketError(int)\0"
 };
 
 void GRApp::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -89,11 +90,12 @@ void GRApp::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 11: _t->fileSaveAs(); break;
         case 12: _t->fileOpen(); break;
         case 13: _t->fileNew(); break;
-        case 14: _t->checkGrVersion(); break;
-        case 15: _t->socketConnected(); break;
-        case 16: _t->socketConnectionClosed(); break;
-        case 17: _t->socketReadyRead(); break;
-        case 18: _t->socketError((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 14: _t->exit(); break;
+        case 15: _t->checkGrVersion(); break;
+        case 16: _t->socketConnected(); break;
+        case 17: _t->socketConnectionClosed(); break;
+        case 18: _t->socketReadyRead(); break;
+        case 19: _t->socketError((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -131,9 +133,9 @@ int GRApp::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 19)
+        if (_id < 20)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 19;
+        _id -= 20;
     }
     return _id;
 }

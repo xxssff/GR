@@ -18,7 +18,8 @@ class GRMapLayer;
 class QSocket;
 class GRPoint;
 
-class MapCanvas;
+//class MapCanvas;
+class GRMapCanvas;
 
 class GRApp : public GRAppBase
 {
@@ -70,6 +71,7 @@ private slots:
     void fileSaveAs();
     void fileOpen();
     void fileNew();
+    void exit();
     void checkGrVersion();
     void socketConnected();
     void socketConnectionClosed();
@@ -79,7 +81,7 @@ private slots:
 private:
     //QPopupMenu* popMenu;
     QListView* legendView;
-    MapCanvas* mapCanvas;
+    GRMapCanvas* mapCanvas;
     GRLegend* mapLegend;
     QCursor* mapCursor;
     double scaleFactor;

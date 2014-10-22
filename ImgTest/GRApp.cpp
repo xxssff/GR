@@ -1,6 +1,8 @@
 #include "GRApp.h"
 #include "MapCanvas.h"
 #include "GRlegend.h"
+#include "GRMapCanvas.h"
+#include "GRShapeFileLayer.h"
 
 #include <QtGui/QPixmap>
 #include <QtGui/QLayout>
@@ -10,33 +12,34 @@
 #include <ogrsf_frmts.h>
 #include <QtGui/QSplitter>
 #include <QtGui/QListView>
+#include <QtGui/QMessageBox>
 
 GRApp::GRApp( QWidget *parent /*= 0*/, const char *name /*= 0 /*,WFlags fl = WType_TopLevel */ )
 {
     OGRRegisterAll();
+    CPLSetConfigOption( "GDAL_FILENAME_IS_UTF8", "NO" );
     setupUi( this );
-    //QPixmap icon( qgis_xpm );
-    //setIcon(icon);
     
     // store startup location
     QDir *d = new QDir();
     startupPath = d->absolutePath();
     delete d;
     
-    /*QBitmap zoomInCur;
-    QBitmap zoomInCurMask;*/
-    
-    // QGridLayout *frameLayout = new QGridLayout( frameMain, 1, 2, 4, 6, "mainFrameLayout" );
     QSplitter *split = new QSplitter( frameMain );
     legendView = new QListView( split );
-    
     mapLegend = new GRLegend( legendView );
-    mapCanvas = new MapCanvas( split );
-    mapCanvas->setMidLineWidth( 400 );
-    mapLegend->setMapCanvas( mapCanvas );
     
+    
+    mapCanvas = new GRMapCanvas( split );
+    mapCanvas->setMinimumWidth( 400 );
+    
+    this->setCentralWidget( split );
+    
+    mapLegend->setMapCanvas( mapCanvas );
+    mapCanvas->setLegend( mapLegend );
     
     connect( actionAdd_a_vector_layer, SIGNAL( triggered() ), this, SLOT( fileOpen() ) );
+    connect( actionExit, SIGNAL( triggered() ), this, SLOT( exit() ) );
 }
 
 GRApp::~GRApp()
@@ -51,7 +54,44 @@ GRIface * GRApp::getInterface()
 
 void GRApp::addLayer()
 {
-
+    mapCanvas->freeze( true );
+    QStringList files = QFileDialog::getOpenFileNames(
+                            this,
+                            "open files dialog",
+                            0,
+                            "Shapefiles (*.shp);;All files (*.*)",
+                            0
+                        );
+    QApplication::setOverrideCursor( Qt::WaitCursor );
+    QStringList::Iterator it = files.begin();
+    while ( it != files.end() )
+    {
+        QFileInfo fi( *it );
+        QString base = fi.baseName();
+        // create the layer
+        GRShapeFileLayer *lyr = new GRShapeFileLayer( base, *it );
+        connect( lyr, SIGNAL( repaintRequested() ), mapCanvas, SLOT( refresh() ) );
+        
+        if ( lyr->isValid() )
+        {
+            // add it to the mapcanvas collection
+            mapCanvas->addLayer( lyr );
+        }
+        else
+        {
+            QString msg = *it;
+            msg += " is not a valid or recognized data source";
+            QMessageBox::critical( this, "Invalid Data Source", msg );
+        }
+        
+        ++it;
+    }
+    mapLegend->update();
+    qApp->processEvents();
+    mapCanvas->freeze( false );
+    mapCanvas->render2();
+    QApplication::restoreOverrideCursor();
+    statusBar()->showMessage( mapCanvas->extent().stringRep() );
 }
 
 #ifdef PGDB
@@ -183,15 +223,7 @@ void GRApp::fileSaveAs()
 
 void GRApp::fileOpen()
 {
-    QString fileName = QFileDialog::getOpenFileName(
-                           this,
-                           tr( "Pick a image file to open..." ),
-                           QDir::currentPath(),
-                           tr( "tiff(*.tif);;img(*.img);;All files(*.*)" ) );
-    if ( !fileName.isNull() )
-    {
-        mapCanvas->ReadImg( fileName );
-    }
+    addLayer();
 }
 
 void GRApp::fileNew()
@@ -227,4 +259,9 @@ void GRApp::socketError( int e )
 int GRApp::getInt()
 {
     return 1;
+}
+
+void GRApp::exit()
+{
+    this->close();
 }
