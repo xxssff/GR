@@ -52,3 +52,11 @@ GRPoint GRCoordinateTransform::toMapPoint( int x, int y )
     double my = -1 * ( ( y - yMax )  * mapUnitsPerPixel - yMin );
     return GRPoint( mx, my );
 }
+
+void GRCoordinateTransform::setParameters( double mupp, double xmin, double ymin, double ymax )
+{
+    mapUnitsPerPixel = mupp;
+    xMin = xmin;
+    yMin = ymin;
+    yMax = ymax;
+}

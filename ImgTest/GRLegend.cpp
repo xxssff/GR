@@ -5,15 +5,15 @@
 #include <QtGui/QListView>
 #include <QtGui/QVBoxLayout>
 
-#include "MapCanvas.h"
 #include "GRMapLayer.h"
+#include "GRMapCanvas.h"
 
 GRLegend::GRLegend( QListView* lv, QWidget* parent /*= 0*/, const char* name /*= 0 */ )
-	: QWidget( parent ),
-	  listView( lv )
+    : QWidget( parent ),
+      listView( lv )
 {
-	layerListModel = new QStandardItemModel;
-	listView->setModel( layerListModel );
+    layerListModel = new QStandardItemModel;
+    listView->setModel( layerListModel );
 }
 
 GRLegend::~GRLegend()
@@ -21,26 +21,26 @@ GRLegend::~GRLegend()
 
 }
 
-void GRLegend::setMapCanvas( MapCanvas* canvas )
+void GRLegend::setMapCanvas( GRMapCanvas* canvas )
 {
-	map = canvas;
+    map = canvas;
 }
 
 QString GRLegend::currentLayerName()
 {
-	QModelIndex index = listView->currentIndex();
-	QString layerName = index.data().toString();
-	return layerName;
+    QModelIndex index = listView->currentIndex();
+    QString layerName = index.data().toString();
+    return layerName;
 }
 
 void GRLegend::update()
 {
-	//listView->update();
+    //listView->update();
 }
 
 GRMapLayer* GRLegend::currentLayer()
 {
-	QModelIndex index = listView->currentIndex();
-	
-	return new GRMapLayer();
+    QModelIndex index = listView->currentIndex();
+    
+    return new GRMapLayer();
 }
