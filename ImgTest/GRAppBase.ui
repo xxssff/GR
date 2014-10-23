@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>GIS and RS</string>
   </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
@@ -89,6 +92,12 @@
    <addaction name="actionSave_project_as"/>
    <addaction name="actionAdd_a_vector_layer"/>
    <addaction name="action_About"/>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget">
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents"/>
   </widget>
   <action name="actionOpen_project">
    <property name="icon">

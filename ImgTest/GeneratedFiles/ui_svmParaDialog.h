@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'svmParaDialog.ui'
 **
-** Created: Mon Aug 18 15:42:54 2014
+** Created: Thu Oct 23 13:37:27 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

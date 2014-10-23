@@ -13,6 +13,8 @@
 #include <QtGui/QSplitter>
 #include <QtGui/QListView>
 #include <QtGui/QMessageBox>
+#include <QtGui/QWorkspace>
+#include <QtGui/QDockWidget>
 
 GRApp::GRApp( QWidget *parent /*= 0*/, const char *name /*= 0 /*,WFlags fl = WType_TopLevel */ )
 {
@@ -20,20 +22,26 @@ GRApp::GRApp( QWidget *parent /*= 0*/, const char *name /*= 0 /*,WFlags fl = WTy
     CPLSetConfigOption( "GDAL_FILENAME_IS_UTF8", "NO" );
     setupUi( this );
     
+    QWorkspace *workSpace = new QWorkspace( this );
+    QDockWidget *doc = new QDockWidget( this );
+    
     // store startup location
-    QDir *d = new QDir();
+    /*QDir *d = new QDir();
     startupPath = d->absolutePath();
-    delete d;
+    delete d;*/
     
-    QSplitter *split = new QSplitter( frameMain );
-    legendView = new QListView( split );
+    //QSplitter *split = new QSplitter( workSpace );
+    legendView = new QListView( this );
     mapLegend = new GRLegend( legendView );
+    QLayout *docLayout = new QVBoxLayout( doc );
+    docLayout->addWidget( legendView );
+    doc->setLayout( docLayout );
     
-    
-    mapCanvas = new GRMapCanvas( split );
+    mapCanvas = new GRMapCanvas( this );
     mapCanvas->setMinimumWidth( 400 );
+    workSpace->addWindow( mapCanvas );
     
-    this->setCentralWidget( split );
+    this->setCentralWidget( workSpace );
     
     mapLegend->setMapCanvas( mapCanvas );
     mapCanvas->setLegend( mapLegend );

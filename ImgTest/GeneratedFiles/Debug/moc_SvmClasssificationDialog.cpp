@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'SvmClasssificationDialog.h'
 **
-** Created: Mon Aug 18 21:12:22 2014
+** Created: Thu Oct 23 13:37:24 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!

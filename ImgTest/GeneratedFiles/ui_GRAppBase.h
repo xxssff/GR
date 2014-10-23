@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GRAppBase.ui'
 **
-** Created: Mon Oct 20 14:52:55 2014
+** Created: Thu Oct 23 13:54:05 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,6 +14,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QDockWidget>
 #include <QtGui/QFrame>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
@@ -49,12 +50,15 @@ public:
     QMenu *menuHelp;
     QStatusBar *statusbar;
     QToolBar *toolBar;
+    QDockWidget *dockWidget;
+    QWidget *dockWidgetContents;
 
     void setupUi(QMainWindow *GRAppBase)
     {
         if (GRAppBase->objectName().isEmpty())
             GRAppBase->setObjectName(QString::fromUtf8("GRAppBase"));
         GRAppBase->resize(808, 509);
+        GRAppBase->setDocumentMode(false);
         actionOpen_project = new QAction(GRAppBase);
         actionOpen_project->setObjectName(QString::fromUtf8("actionOpen_project"));
         QIcon icon;
@@ -126,6 +130,12 @@ public:
         toolBar = new QToolBar(GRAppBase);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
         GRAppBase->addToolBar(Qt::TopToolBarArea, toolBar);
+        dockWidget = new QDockWidget(GRAppBase);
+        dockWidget->setObjectName(QString::fromUtf8("dockWidget"));
+        dockWidgetContents = new QWidget();
+        dockWidgetContents->setObjectName(QString::fromUtf8("dockWidgetContents"));
+        dockWidget->setWidget(dockWidgetContents);
+        GRAppBase->addDockWidget(static_cast<Qt::DockWidgetArea>(2), dockWidget);
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuView->menuAction());
