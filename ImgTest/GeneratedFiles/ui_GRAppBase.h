@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GRAppBase.ui'
 **
-** Created: Thu Oct 23 13:54:05 2014
+** Created: Thu Oct 23 18:31:12 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,7 +14,6 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
-#include <QtGui/QDockWidget>
 #include <QtGui/QFrame>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
@@ -40,6 +39,11 @@ public:
     QAction *actionTest_plugin_functions;
     QAction *actionOptions;
     QAction *action_About;
+    QAction *actionLegend_dock_widget;
+    QAction *actionPlugin_dock_widget;
+    QAction *actionAdd_new_window;
+    QAction *actionTile;
+    QAction *actionCascade;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QFrame *frameMain;
@@ -50,8 +54,6 @@ public:
     QMenu *menuHelp;
     QStatusBar *statusbar;
     QToolBar *toolBar;
-    QDockWidget *dockWidget;
-    QWidget *dockWidgetContents;
 
     void setupUi(QMainWindow *GRAppBase)
     {
@@ -100,6 +102,16 @@ public:
         QIcon icon6;
         icon6.addFile(QString::fromUtf8(":/ImgTest/about.png"), QSize(), QIcon::Normal, QIcon::Off);
         action_About->setIcon(icon6);
+        actionLegend_dock_widget = new QAction(GRAppBase);
+        actionLegend_dock_widget->setObjectName(QString::fromUtf8("actionLegend_dock_widget"));
+        actionPlugin_dock_widget = new QAction(GRAppBase);
+        actionPlugin_dock_widget->setObjectName(QString::fromUtf8("actionPlugin_dock_widget"));
+        actionAdd_new_window = new QAction(GRAppBase);
+        actionAdd_new_window->setObjectName(QString::fromUtf8("actionAdd_new_window"));
+        actionTile = new QAction(GRAppBase);
+        actionTile->setObjectName(QString::fromUtf8("actionTile"));
+        actionCascade = new QAction(GRAppBase);
+        actionCascade->setObjectName(QString::fromUtf8("actionCascade"));
         centralwidget = new QWidget(GRAppBase);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -130,12 +142,6 @@ public:
         toolBar = new QToolBar(GRAppBase);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
         GRAppBase->addToolBar(Qt::TopToolBarArea, toolBar);
-        dockWidget = new QDockWidget(GRAppBase);
-        dockWidget->setObjectName(QString::fromUtf8("dockWidget"));
-        dockWidgetContents = new QWidget();
-        dockWidgetContents->setObjectName(QString::fromUtf8("dockWidgetContents"));
-        dockWidget->setWidget(dockWidgetContents);
-        GRAppBase->addDockWidget(static_cast<Qt::DockWidgetArea>(2), dockWidget);
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuView->menuAction());
@@ -148,6 +154,11 @@ public:
         menuFile->addSeparator();
         menuFile->addAction(actionExit);
         menuView->addAction(actionAdd_a_vector_layer);
+        menuView->addSeparator();
+        menuView->addAction(actionAdd_new_window);
+        menuView->addSeparator();
+        menuView->addAction(actionTile);
+        menuView->addAction(actionCascade);
         menuTools->addAction(actionCheck_GR_version);
         menuTools->addAction(actionPlugin_manager);
         menuTools->addAction(actionTest_plugin_functions);
@@ -186,6 +197,11 @@ public:
         actionTest_plugin_functions->setText(QApplication::translate("GRAppBase", "Test plugin functions", 0, QApplication::UnicodeUTF8));
         actionOptions->setText(QApplication::translate("GRAppBase", "options", 0, QApplication::UnicodeUTF8));
         action_About->setText(QApplication::translate("GRAppBase", "&About ", 0, QApplication::UnicodeUTF8));
+        actionLegend_dock_widget->setText(QApplication::translate("GRAppBase", "Legend dock widget", 0, QApplication::UnicodeUTF8));
+        actionPlugin_dock_widget->setText(QApplication::translate("GRAppBase", "Plugin dock widget", 0, QApplication::UnicodeUTF8));
+        actionAdd_new_window->setText(QApplication::translate("GRAppBase", "Add new window", 0, QApplication::UnicodeUTF8));
+        actionTile->setText(QApplication::translate("GRAppBase", "Tile", 0, QApplication::UnicodeUTF8));
+        actionCascade->setText(QApplication::translate("GRAppBase", "Cascade", 0, QApplication::UnicodeUTF8));
         menuFile->setTitle(QApplication::translate("GRAppBase", "File", 0, QApplication::UnicodeUTF8));
         menuView->setTitle(QApplication::translate("GRAppBase", "View", 0, QApplication::UnicodeUTF8));
         menuTools->setTitle(QApplication::translate("GRAppBase", "Tools", 0, QApplication::UnicodeUTF8));

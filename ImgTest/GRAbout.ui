@@ -6,13 +6,34 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>471</width>
+    <width>648</width>
     <height>348</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>70</y>
+     <width>561</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>This project is mean to be a GIS and Remote sensing project, and the name will be changed to GR, which is for GIS and Remote
+sensing. The design of this project is mainly the same as the open source project QGIS, the amazing GIS application. the 
+difference is GR will add some algorithms and data processing of remote sensing images. </string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

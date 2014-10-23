@@ -17,6 +17,7 @@ class QListViewItem;
 class GRMapLayer;
 class QSocket;
 class GRPoint;
+class QMdiArea;
 
 //class MapCanvas;
 class GRMapCanvas;
@@ -32,7 +33,6 @@ public:
     
     GRIface *getInterface();
     int getInt();
-    
     //! add a layer to the map
     void addLayer();
 #ifdef PGDB
@@ -77,6 +77,8 @@ private slots:
     void socketConnectionClosed();
     void socketReadyRead();
     void socketError( int e );
+    void addVectorLayer();
+    void addNewWindow();
     
 private:
     //QPopupMenu* popMenu;
@@ -93,8 +95,13 @@ private:
     GRIface* grInterface;
     QSocket* socket;
     QString versionMessage;
+    QMdiArea *mdiArea;
+    
     
     friend class GRIface;
+    
+    
+    void createConnections();
 };
 
 #endif // GRAPP_H

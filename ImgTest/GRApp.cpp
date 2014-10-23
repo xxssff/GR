@@ -13,7 +13,7 @@
 #include <QtGui/QSplitter>
 #include <QtGui/QListView>
 #include <QtGui/QMessageBox>
-#include <QtGui/QWorkspace>
+#include <QtGui/QMdiArea>
 #include <QtGui/QDockWidget>
 
 GRApp::GRApp( QWidget *parent /*= 0*/, const char *name /*= 0 /*,WFlags fl = WType_TopLevel */ )
@@ -22,32 +22,43 @@ GRApp::GRApp( QWidget *parent /*= 0*/, const char *name /*= 0 /*,WFlags fl = WTy
     CPLSetConfigOption( "GDAL_FILENAME_IS_UTF8", "NO" );
     setupUi( this );
     
-    QWorkspace *workSpace = new QWorkspace( this );
-    QDockWidget *doc = new QDockWidget( this );
+    // add plugin doc widget
+    QDockWidget *pluginDoc = new QDockWidget( this );
+    pluginDoc->setAllowedAreas( Qt::AllDockWidgetAreas );
+    pluginDoc->setWindowTitle( tr( "Plugin" ) );
+    addDockWidget( Qt::RightDockWidgetArea, pluginDoc );
     
-    // store startup location
-    /*QDir *d = new QDir();
-    startupPath = d->absolutePath();
-    delete d;*/
-    
-    //QSplitter *split = new QSplitter( workSpace );
+    // add legend doc widget
+    QDockWidget *legendDoc = new QDockWidget( this );
+    legendDoc->setAllowedAreas( Qt::AllDockWidgetAreas );
     legendView = new QListView( this );
     mapLegend = new GRLegend( legendView );
-    QLayout *docLayout = new QVBoxLayout( doc );
-    docLayout->addWidget( legendView );
-    doc->setLayout( docLayout );
+    legendDoc->setWidget( legendView );
+    legendDoc->setWindowTitle( tr( "Legend" ) );
+    addDockWidget( Qt::RightDockWidgetArea, legendDoc );
+    
+    // add work space to have MDI mode
+    mdiArea = new QMdiArea( this );
     
     mapCanvas = new GRMapCanvas( this );
     mapCanvas->setMinimumWidth( 400 );
-    workSpace->addWindow( mapCanvas );
+    mdiArea->addSubWindow( mapCanvas );
     
-    this->setCentralWidget( workSpace );
+    this->setCentralWidget( mdiArea );
     
     mapLegend->setMapCanvas( mapCanvas );
     mapCanvas->setLegend( mapLegend );
     
-    connect( actionAdd_a_vector_layer, SIGNAL( triggered() ), this, SLOT( fileOpen() ) );
+    toolBar->setAllowedAreas( Qt::LeftToolBarArea );
+    
+    connect( actionAdd_a_vector_layer, SIGNAL( triggered() ), this, SLOT( addVectorLayer() ) );
+    connect( actionAdd_new_window, SIGNAL( triggered() ), this, SLOT( addNewWindow() ) );
     connect( actionExit, SIGNAL( triggered() ), this, SLOT( exit() ) );
+    
+    menuView->addAction( legendDoc->toggleViewAction() );
+    menuView->addAction( pluginDoc->toggleViewAction() );
+    
+    createConnections();
 }
 
 GRApp::~GRApp()
@@ -55,7 +66,7 @@ GRApp::~GRApp()
 
 }
 
-GRIface * GRApp::getInterface()
+GRIface* GRApp::getInterface()
 {
     return grInterface;
 }
@@ -231,7 +242,7 @@ void GRApp::fileSaveAs()
 
 void GRApp::fileOpen()
 {
-    addLayer();
+
 }
 
 void GRApp::fileNew()
@@ -272,4 +283,23 @@ int GRApp::getInt()
 void GRApp::exit()
 {
     this->close();
+}
+
+void GRApp::addVectorLayer()
+{
+    addLayer();
+}
+
+void GRApp::addNewWindow()
+{
+    GRMapCanvas* map = new GRMapCanvas( this );
+    map->setWindowTitle( tr( "new window" ) );
+    mdiArea->addSubWindow( map );
+    map->show();
+}
+
+void GRApp::createConnections()
+{
+    connect( actionTile, SIGNAL( triggered() ), mdiArea, SLOT( tileSubWindows() ) );
+    connect( actionCascade, SIGNAL( triggered() ), mdiArea, SLOT( cascadeSubWindows() ) );
 }

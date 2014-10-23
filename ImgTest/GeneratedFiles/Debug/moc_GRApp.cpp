@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'GRApp.h'
 **
-** Created: Mon Oct 20 16:43:54 2014
+** Created: Thu Oct 23 18:34:44 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_GRApp[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      20,   14, // methods
+      22,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -51,6 +51,8 @@ static const uint qt_meta_data_GRApp[] = {
      353,    6,    6,    6, 0x08,
      378,    6,    6,    6, 0x08,
      398,  396,    6,    6, 0x08,
+     415,    6,    6,    6, 0x08,
+     432,    6,    6,    6, 0x08,
 
        0        // eod
 };
@@ -68,6 +70,7 @@ static const char qt_meta_stringdata_GRApp[] = {
     "fileNew()\0exit()\0checkGrVersion()\0"
     "socketConnected()\0socketConnectionClosed()\0"
     "socketReadyRead()\0e\0socketError(int)\0"
+    "addVectorLayer()\0addNewWindow()\0"
 };
 
 void GRApp::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -96,6 +99,8 @@ void GRApp::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 17: _t->socketConnectionClosed(); break;
         case 18: _t->socketReadyRead(); break;
         case 19: _t->socketError((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 20: _t->addVectorLayer(); break;
+        case 21: _t->addNewWindow(); break;
         default: ;
         }
     }
@@ -133,9 +138,9 @@ int GRApp::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 20)
+        if (_id < 22)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 20;
+        _id -= 22;
     }
     return _id;
 }
