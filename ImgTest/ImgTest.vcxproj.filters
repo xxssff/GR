@@ -98,9 +98,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_GeocorrectClient.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="Feature.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GRAppBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -183,6 +180,30 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GRMarkerSymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GRFeature.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GRRenderContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GRMapLayerRegistry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GRMapLayerRegistry.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GRMapLayerRegistry.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GRRenderer.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GRRenderer.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GRScaleCalculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -271,6 +292,12 @@
     <CustomBuild Include="MapCanvas.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="GRMapLayerRegistry.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GRRenderer.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_imgtest.h">
@@ -281,9 +308,6 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_ProgressDialog.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Feature.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Global.h">
       <Filter>Header Files</Filter>
@@ -307,9 +331,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GRTable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GRRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GRSymbol.h">
@@ -353,6 +374,15 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_MapCanvas.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GRFeature.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GRRenderContext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GRScaleCalculator.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

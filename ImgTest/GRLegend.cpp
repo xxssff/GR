@@ -16,16 +16,27 @@ GRLegend::GRLegend( QListView* lv, QWidget* parent /*= 0*/, const char* name /*=
     listView->setModel( layerListModel );
 }
 
+/// <summary>
+/// Finalizes an instance of the <see cref="GRLegend"/> class.
+/// </summary>
 GRLegend::~GRLegend()
 {
 
 }
 
+/// <summary>
+/// Sets the map canvas.
+/// </summary>
+/// <param name="canvas">The canvas.</param>
 void GRLegend::setMapCanvas( GRMapCanvas* canvas )
 {
     map = canvas;
 }
 
+/// <summary>
+/// Get name of the current layer.
+/// </summary>
+/// <returns>QString.</returns>
 QString GRLegend::currentLayerName()
 {
     QModelIndex index = listView->currentIndex();
@@ -33,11 +44,18 @@ QString GRLegend::currentLayerName()
     return layerName;
 }
 
+/// <summary>
+/// Updates this instance.
+/// </summary>
 void GRLegend::update()
 {
     //listView->update();
 }
 
+/// <summary>
+/// Currents the layer.
+/// </summary>
+/// <returns>GRMapLayer *.</returns>
 GRMapLayer* GRLegend::currentLayer()
 {
     QModelIndex index = listView->currentIndex();

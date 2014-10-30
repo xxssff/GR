@@ -66,6 +66,7 @@ public:
     /// <returns>const QString.</returns>
     const QString getLayerName() {return layerName;};
     
+    // Calculate the extent of the map layer.
     virtual GRRect calculateExtent();
     virtual void draw( QPainter* painter, GRRect* viewExtent, int yTransform );
     virtual void draw( QPainter* painter, GRRect *viewExtent, GRCoordinateTransform* cXf );
