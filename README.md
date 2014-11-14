@@ -1,4 +1,4 @@
-ImgTest
+GIS and Remote Sensing
 =======
 
 This project is mean to be a GIS and Remote sensing project, and the name will be changed to GR, which is for GIS and Remote
