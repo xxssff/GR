@@ -1,0 +1,37 @@
+<RCC>
+  <qresource prefix="Icon">
+    <file>about.png</file>
+    <file>add_vector.png</file>
+    <file>arrow_left.png</file>
+    <file>arrow_right.png</file>
+    <file>AttributeTable.png</file>
+    <file>bookmark.png</file>
+    <file>Browser.png</file>
+    <file>Cascade.png</file>
+    <file>category.png</file>
+    <file>check.png</file>
+    <file>CheckVersion.png</file>
+    <file>comment.png</file>
+    <file>config.png</file>
+    <file>Cut.png</file>
+    <file>Earth.png</file>
+    <file>exit.png</file>
+    <file>folder.png</file>
+    <file>FullExtent.png</file>
+    <file>GRIcon.png</file>
+    <file>lock.png</file>
+    <file>map-marker-flag-1-right-azure.png</file>
+    <file>map-marker-flag-1-right-pink.png</file>
+    <file>map-marker-push-pin-1-right-pink.png</file>
+    <file>NewWindow.png</file>
+    <file>options.png</file>
+    <file>order.png</file>
+    <file>pencil-32.png</file>
+    <file>Plugin.png</file>
+    <file>save_as_proj.png</file>
+    <file>save_proj.png</file>
+    <file>search.png</file>
+    <file>Tile.png</file>
+    <file>zoom.png</file>
+  </qresource>
+</RCC>
