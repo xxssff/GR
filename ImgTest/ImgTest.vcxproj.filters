@@ -38,9 +38,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\qrc_imgtest.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_UIImgTest.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -206,13 +203,13 @@
     <ClCompile Include="GRScaleCalculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_GR.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="imgtest.ui">
       <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="imgtest.qrc">
-      <Filter>Resource Files</Filter>
     </CustomBuild>
     <CustomBuild Include="UIImgTest.h">
       <Filter>Header Files</Filter>
@@ -297,6 +294,9 @@
     </CustomBuild>
     <CustomBuild Include="GRRenderer.h">
       <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GR.qrc">
+      <Filter>Resource Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -386,6 +386,92 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="ImgTest.rc" />
+    <None Include="Cut.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Earth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="GRIcon.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="about.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="options.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="add_vector.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="exit.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="save_as_proj.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Cascade.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CheckVersion.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="NewWindow.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Plugin.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Tile.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="save_proj.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="open_proj.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="AttributeTable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="bookmark.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Browser.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="category.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="check.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="comment.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="config.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="folder.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="lock.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="order.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="pencil-32.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="search.png">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

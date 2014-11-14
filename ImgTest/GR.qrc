@@ -1,0 +1,33 @@
+<RCC>
+  <qresource prefix="GR">
+    <file>Cut.png</file>
+    <file>Earth.png</file>
+    <file>GRIcon.png</file>
+    <file>about.png</file>
+    <file>options.png</file>
+    <file>add_vector.png</file>
+    <file>exit.png</file>
+    <file>save_as_proj.png</file>
+    <file>Cascade.png</file>
+    <file>CheckVersion.png</file>
+    <file>NewWindow.png</file>
+    <file>Plugin.png</file>
+    <file>Tile.png</file>
+    <file>save_proj.png</file>
+    <file>open_proj.ico</file>
+    <file>arrow_left.png</file>
+    <file>arrow_right.png</file>
+    <file>AttributeTable.png</file>
+    <file>bookmark.png</file>
+    <file>Browser.png</file>
+    <file>category.png</file>
+    <file>check.png</file>
+    <file>comment.png</file>
+    <file>config.png</file>
+    <file>folder.png</file>
+    <file>lock.png</file>
+    <file>order.png</file>
+    <file>pencil-32.png</file>
+    <file>search.png</file>
+  </qresource>
+</RCC>

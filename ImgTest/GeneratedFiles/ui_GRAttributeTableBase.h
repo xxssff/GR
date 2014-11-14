@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GRAttributeTableBase.ui'
 **
-** Created: Tue Oct 21 18:56:24 2014
+** Created: Fri Nov 14 13:30:07 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

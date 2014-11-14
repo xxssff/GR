@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GRAppBase.ui'
 **
-** Created: Thu Oct 23 18:31:12 2014
+** Created: Fri Nov 14 13:30:07 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -60,58 +60,76 @@ public:
         if (GRAppBase->objectName().isEmpty())
             GRAppBase->setObjectName(QString::fromUtf8("GRAppBase"));
         GRAppBase->resize(808, 509);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/GR/GRIcon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        GRAppBase->setWindowIcon(icon);
         GRAppBase->setDocumentMode(false);
         actionOpen_project = new QAction(GRAppBase);
         actionOpen_project->setObjectName(QString::fromUtf8("actionOpen_project"));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/ImgTest/open_proj.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        actionOpen_project->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/GR/open_proj.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        actionOpen_project->setIcon(icon1);
         actionSave_project = new QAction(GRAppBase);
         actionSave_project->setObjectName(QString::fromUtf8("actionSave_project"));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/ImgTest/save_proj.png"), QSize(), QIcon::Normal, QIcon::Off);
-        actionSave_project->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/GR/save_proj.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSave_project->setIcon(icon2);
         actionSave_project_as = new QAction(GRAppBase);
         actionSave_project_as->setObjectName(QString::fromUtf8("actionSave_project_as"));
-        QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/ImgTest/save_as_proj.png"), QSize(), QIcon::Normal, QIcon::Off);
-        actionSave_project_as->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/GR/save_as_proj.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSave_project_as->setIcon(icon3);
         actionExit = new QAction(GRAppBase);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
-        QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/ImgTest/exit.png"), QSize(), QIcon::Normal, QIcon::Off);
-        actionExit->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/GR/exit.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionExit->setIcon(icon4);
         actionAdd_a_vector_layer = new QAction(GRAppBase);
         actionAdd_a_vector_layer->setObjectName(QString::fromUtf8("actionAdd_a_vector_layer"));
-        QIcon icon4;
-        icon4.addFile(QString::fromUtf8(":/ImgTest/add_vector.png"), QSize(), QIcon::Normal, QIcon::Off);
-        actionAdd_a_vector_layer->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/GR/add_vector.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionAdd_a_vector_layer->setIcon(icon5);
         actionCheck_GR_version = new QAction(GRAppBase);
         actionCheck_GR_version->setObjectName(QString::fromUtf8("actionCheck_GR_version"));
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/GR/CheckVersion.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionCheck_GR_version->setIcon(icon6);
         actionPlugin_manager = new QAction(GRAppBase);
         actionPlugin_manager->setObjectName(QString::fromUtf8("actionPlugin_manager"));
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/GR/Plugin.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionPlugin_manager->setIcon(icon7);
         actionTest_plugin_functions = new QAction(GRAppBase);
         actionTest_plugin_functions->setObjectName(QString::fromUtf8("actionTest_plugin_functions"));
         actionOptions = new QAction(GRAppBase);
         actionOptions->setObjectName(QString::fromUtf8("actionOptions"));
-        QIcon icon5;
-        icon5.addFile(QString::fromUtf8(":/ImgTest/options.png"), QSize(), QIcon::Normal, QIcon::Off);
-        actionOptions->setIcon(icon5);
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8(":/GR/options.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionOptions->setIcon(icon8);
         action_About = new QAction(GRAppBase);
         action_About->setObjectName(QString::fromUtf8("action_About"));
-        QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/ImgTest/about.png"), QSize(), QIcon::Normal, QIcon::Off);
-        action_About->setIcon(icon6);
+        QIcon icon9;
+        icon9.addFile(QString::fromUtf8(":/GR/about.png"), QSize(), QIcon::Normal, QIcon::Off);
+        action_About->setIcon(icon9);
         actionLegend_dock_widget = new QAction(GRAppBase);
         actionLegend_dock_widget->setObjectName(QString::fromUtf8("actionLegend_dock_widget"));
         actionPlugin_dock_widget = new QAction(GRAppBase);
         actionPlugin_dock_widget->setObjectName(QString::fromUtf8("actionPlugin_dock_widget"));
         actionAdd_new_window = new QAction(GRAppBase);
         actionAdd_new_window->setObjectName(QString::fromUtf8("actionAdd_new_window"));
+        QIcon icon10;
+        icon10.addFile(QString::fromUtf8(":/GR/NewWindow.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionAdd_new_window->setIcon(icon10);
         actionTile = new QAction(GRAppBase);
         actionTile->setObjectName(QString::fromUtf8("actionTile"));
+        QIcon icon11;
+        icon11.addFile(QString::fromUtf8(":/GR/Tile.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionTile->setIcon(icon11);
         actionCascade = new QAction(GRAppBase);
         actionCascade->setObjectName(QString::fromUtf8("actionCascade"));
+        QIcon icon12;
+        icon12.addFile(QString::fromUtf8(":/GR/Cascade.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionCascade->setIcon(icon12);
         centralwidget = new QWidget(GRAppBase);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -169,6 +187,9 @@ public:
         toolBar->addAction(actionSave_project_as);
         toolBar->addAction(actionAdd_a_vector_layer);
         toolBar->addAction(action_About);
+        toolBar->addAction(actionAdd_new_window);
+        toolBar->addAction(actionTile);
+        toolBar->addAction(actionCascade);
 
         retranslateUi(GRAppBase);
 
@@ -183,7 +204,7 @@ public:
         actionOpen_project->setToolTip(QApplication::translate("GRAppBase", "Open project", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
         actionOpen_project->setShortcut(QApplication::translate("GRAppBase", "Ctrl+O", 0, QApplication::UnicodeUTF8));
-        actionSave_project->setText(QApplication::translate("GRAppBase", "Save project", 0, QApplication::UnicodeUTF8));
+        actionSave_project->setText(QApplication::translate("GRAppBase", "&Save project", 0, QApplication::UnicodeUTF8));
         actionSave_project->setShortcut(QApplication::translate("GRAppBase", "Ctrl+S", 0, QApplication::UnicodeUTF8));
         actionSave_project_as->setText(QApplication::translate("GRAppBase", "Save project as", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
