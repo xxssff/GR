@@ -1,0 +1,38 @@
+﻿生成启动时间为 2015/4/26 14:48:13。
+     1>项目“E:\Jacory\Code\Github\GR\GRUtils\GRUtils.vcxproj”在节点 3 上(rebuild 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“Debug\GRUtils.lastbuildstate”。
+       InitializeBuildStatus:
+         正在对“Debug\GRUtils.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\GRCommons /ZI /nologo /W3 /WX- /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GREnviAsciiRoi.cpp GREnviRoiException.cpp
+         GREnviRoiException.cpp
+         GREnviAsciiRoi.cpp
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(38): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(42): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(44): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(46): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(48): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.cpp(20): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.cpp(22): warning C4554: “&”: 检查运算符优先级可能存在的错误；使用圆括号阐明优先级
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.cpp(29): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.cpp(34): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.cpp(36): warning C4554: “&”: 检查运算符优先级可能存在的错误；使用圆括号阐明优先级
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.cpp(43): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.cpp(45): warning C4554: “&”: 检查运算符优先级可能存在的错误；使用圆括号阐明优先级
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.cpp(52): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.cpp(54): warning C4554: “&”: 检查运算符优先级可能存在的错误；使用圆括号阐明优先级
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.cpp(61): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.cpp(63): warning C4554: “&”: 检查运算符优先级可能存在的错误；使用圆括号阐明优先级
+         正在生成代码...
+       Link:
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Jacory\Code\Github\GR\Debug\GRUtils.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\GRUtils.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Jacory\Code\Github\GR\Debug\GRUtils.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Jacory\Code\Github\GR\Debug\GRUtils.lib" /MACHINE:X86 /DLL Debug\GREnviAsciiRoi.obj
+         Debug\GREnviRoiException.obj
+         E:\Jacory\Code\Github\GR\Debug\GRCommons.lib
+         E:\Jacory\Code\Github\GR\Debug\GRMath.lib
+     1>LINK : fatal error LNK1104: 无法打开文件“E:\Jacory\Code\Github\GR\Debug\GRCommons.lib”
+     1>已完成生成项目“E:\Jacory\Code\Github\GR\GRUtils\GRUtils.vcxproj”(rebuild 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:01.00
