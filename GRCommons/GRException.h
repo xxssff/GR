@@ -1,5 +1,11 @@
 #pragma once
 
+#ifdef GREXCEPTION_EXPORTS
+#define  GREXCEPTION_API __declspec(dllexport)
+#else
+#define GREXCEPTION_API __declspec(dllimport)
+#endif
+
 #include <string>
 #include <exception>
 
