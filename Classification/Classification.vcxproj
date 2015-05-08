@@ -61,12 +61,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ClassificationAlg.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="svm.h" />
     <ClInclude Include="SVMClassification.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="svm.cpp" />
     <ClCompile Include="SVMClassification.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Classification.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

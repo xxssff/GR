@@ -55,7 +55,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
-      <AdditionalLibraryDirectories>D:\3rd_Party\GDAL110\lib;$(QTDIR)\lib;E:\Jacory\Code\GR\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\3rd_Party\GDAL110\lib;$(QTDIR)\lib;..\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>gdal_i.lib;qtmaind.lib;QtCored4.lib;QtGuid4.lib;DistanceCalculate.lib;Classification.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>

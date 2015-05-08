@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GRLayerPropertiesBase.ui'
 **
-** Created: Fri Nov 14 21:12:38 2014
+** Created: Fri May 8 22:43:21 2015
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
