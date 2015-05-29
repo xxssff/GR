@@ -1,8 +1,10 @@
 #pragma once
 
-namespace GRMath
+namespace GR
 {
-class Matrix
+namespace math
+{
+class GRMatrix
 {
 
 private:
@@ -20,4 +22,4 @@ private:
 }
 
 
-
+}

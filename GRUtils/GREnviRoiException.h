@@ -5,7 +5,7 @@
 namespace GR
 {
 
-namespace GRUtils
+namespace utils
 {
 
 class GREnviRoiException: public GR::GRException

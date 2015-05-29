@@ -2,7 +2,7 @@
 
 namespace GR
 {
-namespace GRUtils
+namespace utils
 {
 
 

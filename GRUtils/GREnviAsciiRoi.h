@@ -6,28 +6,24 @@
 
 namespace GR
 {
-namespace GRUtils
+namespace utils
 {
 
 
-/**
- * ENVI ACSII roi class, parse and store the information of ENVI ACSII roi files.
- */
+
+// ENVI ACSII roi class, parse and store the information of ENVI ACSII roi files.
 class GREnviAsciiRoi
 {
 
 private:
-    /**
-     * input ENVI ASCII roi file
-     */
+
+    // input ENVI ASCII roi file
     std::string inputfile;
     int roiCount;
     int VariableCount;
     ENVIRoi* rois;
 
-    /**
-     * parse roi files.
-     */
+    // parse roi files.
     void parsefile();
 
 public:
@@ -43,7 +39,7 @@ public:
 
     int getNumSamples( int i ) throw ( GREnviRoiException );
 
-    GRMath::Matrix* getMatrix( int i ) throw ( GREnviRoiException );
+    math::GRMatrix* getMatrix( int i ) throw ( GREnviRoiException );
 
     std::string* getName( int i ) throw ( GREnviRoiException );
 

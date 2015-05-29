@@ -2,7 +2,7 @@
 
 namespace GR
 {
-namespace GRUtils
+namespace utils
 {
 
 
@@ -49,7 +49,7 @@ int GREnviAsciiRoi::getNumSamples( int i ) throw ( GREnviRoiException )
     return rois[i].samples;
 }
 
-GRMath::Matrix* GREnviAsciiRoi::getMatrix( int i ) throw ( GREnviRoiException )
+math::GRMatrix* GREnviAsciiRoi::getMatrix( int i ) throw ( GREnviRoiException )
 {
     if ( i<0 & i >= roiCount )
     {

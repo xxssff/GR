@@ -7,7 +7,7 @@
 
 namespace GR
 {
-namespace GRUtils
+namespace utils
 {
 
 
@@ -17,7 +17,7 @@ public:
     std::string name;
     int samples;
     GRColor* color;
-    GRMath::Matrix* data;
+    math::GRMatrix* data;
 };
 
 }
