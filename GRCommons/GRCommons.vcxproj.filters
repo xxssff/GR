@@ -18,9 +18,30 @@
     <ClInclude Include="GRException.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GRClassificationException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GROutputStreamException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GRInputStreamException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GRException.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GRCommons.h">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GRClassificationException.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GROutputStreamException.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GRInputStreamException.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

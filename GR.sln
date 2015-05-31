@@ -13,6 +13,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GRUtils", "GRUtils\GRUtils.
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GRMath", "GRMath\GRMath.vcxproj", "{F3F2DD37-D636-406E-AD7E-134065312102}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DFD28705-0C7F-4649-A230-FFCF1BA36C35} = {DFD28705-0C7F-4649-A230-FFCF1BA36C35}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GRCommons", "GRCommons\GRCommons.vcxproj", "{DFD28705-0C7F-4649-A230-FFCF1BA36C35}"
 EndProject

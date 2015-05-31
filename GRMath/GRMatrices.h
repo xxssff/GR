@@ -2,7 +2,8 @@
 
 #include "Matrix.h"
 #include "GRMatriceException.h"
-#include <..\GRCommons\GROutputStreamException.h>
+#include "..\GRCommons\GROutputStreamException.h"
+#include "..\GRCommons\GRInputStreamException.h"
 
 namespace GR
 {
@@ -29,7 +30,7 @@ public:
     GRMatrices();
     ~GRMatrices();
 
-    Matrix* createMatrix( int n, int m ) throw( GRMatriceException );
+    Matrix* createMatrix( int m, int n ) throw( GRMatriceException );
     Matrix* createMatrix( Matrix* matrix ) throw( GRMatriceException );
 
     Matrix* copyMatrix( Matrix* matrix ) throw( GRMatriceException );
@@ -45,9 +46,9 @@ public:
     void printMatrix( Matrix *matrix );
 
     // import matrix
-    Matrix* readMatrixFromTxt( std::string filepath ) throw( GRMatriceException,/*RSGISInputStreamException*/ );
-    Matrix* readMatrixFromGridTxt( std::string filepath ) throw( GRMatriceException, /*RSGISInputStreamException*/ );
-    Matrix* readMatrixFromBinary( std::string filepath ) throw( GRMatriceException, /*RSGISInputStreamException*/ );
+    Matrix* readMatrixFromTxt( std::string filepath ) throw( GRMatriceException, GRInputStreamException );
+    Matrix* readMatrixFromGridTxt( std::string filepath ) throw( GRMatriceException, GRInputStreamException );
+    Matrix* readMatrixFromBinary( std::string filepath ) throw( GRMatriceException, GRInputStreamException );
 
     // export matrix
     void saveMatrix2GridTxt( Matrix *matrix, std::string filepath ) throw( GRMatriceException, GROutputStreamException );

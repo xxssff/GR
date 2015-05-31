@@ -19,12 +19,12 @@ private:
 
     // input ENVI ASCII roi file
     std::string inputfile;
-    int roiCount;
+    int numrois;
     int VariableCount;
     ENVIRoi* rois;
 
     // parse roi files.
-    void parsefile();
+    void parsefile() throw ( GR::GRInputStreamException );
 
 public:
     GREnviAsciiRoi( std::string file );

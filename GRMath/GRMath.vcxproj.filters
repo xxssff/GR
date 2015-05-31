@@ -18,5 +18,28 @@
     <ClInclude Include="Matrix.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GRMatrices.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GRMathException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GRMatriceException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GRMatrices.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GRMathException.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GRMatriceException.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
