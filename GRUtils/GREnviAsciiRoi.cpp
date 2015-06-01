@@ -2,8 +2,12 @@
 
 #include "..\GRMath\GRMatrices.h"
 
+#include "GRTextUtils.h"
+#include "GRTextException.h"
+
 #include <fstream>
 #include <vector>
+#include <iostream>
 
 namespace GR
 {
@@ -31,6 +35,7 @@ void GREnviAsciiRoi::parsefile() throw ( GR::GRInputStreamException )
     {
         std::string strLine;
         std::string word;
+        GRTextUtils textUtils;
         int lineCounter = 0; // current line
         int roicount = 0; // total roi numbers
         int headingsLine = 0;
@@ -42,14 +47,12 @@ void GREnviAsciiRoi::parsefile() throw ( GR::GRInputStreamException )
         std::vector<std::string> *tokens = new std::vector<std::string>();
         while( !inputRoiFile.eof() )
         {
-            getline( inputROIFile, strLine );
+            getline( inputRoiFile, strLine );
 
             // lines start with ";"
             if( textUtils.lineStart( strLine, ';' ) )
             {
                 // Header
-                //std::cout << lineCounter << ") " << strLine << std::endl;
-
                 if( lineCounter == 0 )
                 {
                     textUtils.tokenizeString( strLine, ' ', tokens, true );
@@ -65,7 +68,7 @@ void GREnviAsciiRoi::parsefile() throw ( GR::GRInputStreamException )
                         }
                         else
                         {
-                            throw RSGISTextException( "Incorrect file format" );
+                            throw GRTextException( "Incorrect file format" );
                         }
                     }
                     tokens->clear();
@@ -99,7 +102,7 @@ void GREnviAsciiRoi::parsefile() throw ( GR::GRInputStreamException )
                         }
                         //std::cout << "varDiff = " << varDiff << std::endl;
                         //std::cout << "numVaribles (using varDiff) = " << tokens->size() - varDiff << std::endl;
-                        numVariables = tokens->size() - varDiff;
+                        VariableCount = tokens->size() - varDiff;
 
                         if( varDiff == 4 )
                         {
@@ -109,17 +112,17 @@ void GREnviAsciiRoi::parsefile() throw ( GR::GRInputStreamException )
                         {
                             dataStart = varDiff - 3;
                         }
-                        std::cout << "There are " << numrois << " roi's where each sample has " << numVariables << " variables\n";
+                        std::cout << "There are " << numrois << " roi's where each sample has " << VariableCount << " variables\n";
                         for( int i = 0; i < numrois; i++ )
                         {
                             std::cout << "ROI " << rois[i].name << " has " << rois[i].samples << " samples\n";
-                            rois[i].data = matrixUtils.createMatrix( numVariables, rois[i].samples );
+                            rois[i].data = matrixUtils.createMatrix( VariableCount, rois[i].samples );
                             //matrixUtils.printMatrix(rois[i].data);
                         }
                         tokens->clear();
                         roicount = 0;
                     }
-                    else
+                    else // read all the headingsLine and store information of rois
                     {
                         textUtils.tokenizeString( strLine, ':', tokens, true );
                         for( unsigned int i = 0; i < tokens->size(); i++ )
@@ -131,7 +134,7 @@ void GREnviAsciiRoi::parsefile() throw ( GR::GRInputStreamException )
                             }
                             else if( tokens->at( i ) == std::string( "; ROI rgb value" ) )
                             {
-                                rois[roicount].colour = new RSGISColour();
+                                rois[roicount].color = new GRColor();
                             }
                             else if( tokens->at( i ) == std::string( "; ROI npts" ) )
                             {
@@ -180,7 +183,7 @@ void GREnviAsciiRoi::parsefile() throw ( GR::GRInputStreamException )
 
 ENVIRoi* GREnviAsciiRoi::getENVIRoi( int i ) throw ( GREnviRoiException )
 {
-    if ( i<0 & i >= roiCount )
+    if ( i<0 & i >= numrois )
     {
         throw GREnviRoiException( "There are insufficient ROIs in datastructure.." );
     }
@@ -194,7 +197,7 @@ int GREnviAsciiRoi::getVariableCount() throw ( GREnviRoiException )
 
 GRColor* GREnviAsciiRoi::getColor( int i ) throw ( GREnviRoiException )
 {
-    if ( i<0 & i >= roiCount )
+    if ( i<0 & i >= numrois )
     {
         throw GREnviRoiException( "There are insufficient ROIs in datastructure.." );
     }
@@ -203,16 +206,16 @@ GRColor* GREnviAsciiRoi::getColor( int i ) throw ( GREnviRoiException )
 
 int GREnviAsciiRoi::getNumSamples( int i ) throw ( GREnviRoiException )
 {
-    if ( i<0 & i >= roiCount )
+    if ( i<0 & i >= numrois )
     {
         throw GREnviRoiException( "There are insufficient ROIs in datastructure.." );
     }
     return rois[i].samples;
 }
 
-math::GRMatrix* GREnviAsciiRoi::getMatrix( int i ) throw ( GREnviRoiException )
+math::Matrix* GREnviAsciiRoi::getMatrix( int i ) throw ( GREnviRoiException )
 {
-    if ( i<0 & i >= roiCount )
+    if ( i<0 & i >= numrois )
     {
         throw GREnviRoiException( "There are insufficient ROIs in datastructure.." );
     }
@@ -221,7 +224,7 @@ math::GRMatrix* GREnviAsciiRoi::getMatrix( int i ) throw ( GREnviRoiException )
 
 std::string* GREnviAsciiRoi::getName( int i ) throw ( GREnviRoiException )
 {
-    if ( i<0 & i >= roiCount )
+    if ( i<0 & i >= numrois )
     {
         throw GREnviRoiException( "There are insufficient ROIs in datastructure.." );
     }
@@ -230,7 +233,7 @@ std::string* GREnviAsciiRoi::getName( int i ) throw ( GREnviRoiException )
 
 int GREnviAsciiRoi::getRoiCounts()
 {
-    return roiCount;
+    return numrois;
 }
 
 void GREnviAsciiRoi::printRois()

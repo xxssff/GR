@@ -1,0 +1,62 @@
+﻿生成启动时间为 2015/6/1 16:00:54。
+     1>项目“E:\Jacory\Code\Github\GR\test\test.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Debug\test.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt testmain.cpp
+         testmain.cpp
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(32): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(33): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(35): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(39): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(41): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(42): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(43): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(48): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(49): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(50): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(53): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(54): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(55): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(56): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(57): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(59): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(62): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(63): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(64): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(65): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(66): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(68): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(27): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(34): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(38): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(40): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(42): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(44): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Jacory\Code\Github\GR\Debug\test.exe" /INCREMENTAL /NOLOGO /LIBPATH:E:\Jacory\Code\Github\GR\Debug GRUtils.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\test.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Jacory\Code\Github\GR\Debug\test.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Jacory\Code\Github\GR\Debug\test.lib" /MACHINE:X86 Debug\test.exe.embed.manifest.res
+         Debug\testmain.obj
+     1>GRUtils.lib(GREnviAsciiRoi.obj) : error LNK2019: 无法解析的外部符号 "public: __thiscall GR::math::GRMatrices::~GRMatrices(void)" (??1GRMatrices@math@GR@@QAE@XZ)，该符号在函数 "private: void __thiscall GR::utils::GREnviAsciiRoi::parsefile(void)" (?parsefile@GREnviAsciiRoi@utils@GR@@AAEXXZ) 中被引用
+     1>GRUtils.lib(GREnviAsciiRoi.obj) : error LNK2019: 无法解析的外部符号 "public: __thiscall GR::utils::GRColor::GRColor(void)" (??0GRColor@utils@GR@@QAE@XZ)，该符号在函数 "private: void __thiscall GR::utils::GREnviAsciiRoi::parsefile(void)" (?parsefile@GREnviAsciiRoi@utils@GR@@AAEXXZ) 中被引用
+     1>GRUtils.lib(GREnviAsciiRoi.obj) : error LNK2019: 无法解析的外部符号 "public: struct GR::math::Matrix * __thiscall GR::math::GRMatrices::createMatrix(int,int)" (?createMatrix@GRMatrices@math@GR@@QAEPAUMatrix@23@HH@Z)，该符号在函数 "private: void __thiscall GR::utils::GREnviAsciiRoi::parsefile(void)" (?parsefile@GREnviAsciiRoi@utils@GR@@AAEXXZ) 中被引用
+     1>GRUtils.lib(GREnviAsciiRoi.obj) : error LNK2019: 无法解析的外部符号 "public: virtual __thiscall GR::GRInputStreamException::~GRInputStreamException(void)" (??1GRInputStreamException@GR@@UAE@XZ)，该符号在函数 "private: void __thiscall GR::utils::GREnviAsciiRoi::parsefile(void)" (?parsefile@GREnviAsciiRoi@utils@GR@@AAEXXZ) 中被引用
+     1>GRUtils.lib(GREnviAsciiRoi.obj) : error LNK2019: 无法解析的外部符号 "public: __thiscall GR::GRInputStreamException::GRInputStreamException(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0GRInputStreamException@GR@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)，该符号在函数 "private: void __thiscall GR::utils::GREnviAsciiRoi::parsefile(void)" (?parsefile@GREnviAsciiRoi@utils@GR@@AAEXXZ) 中被引用
+     1>GRUtils.lib(GREnviAsciiRoi.obj) : error LNK2019: 无法解析的外部符号 "public: __thiscall GR::math::GRMatrices::GRMatrices(void)" (??0GRMatrices@math@GR@@QAE@XZ)，该符号在函数 "private: void __thiscall GR::utils::GREnviAsciiRoi::parsefile(void)" (?parsefile@GREnviAsciiRoi@utils@GR@@AAEXXZ) 中被引用
+     1>GRUtils.lib(GREnviAsciiRoi.obj) : error LNK2001: 无法解析的外部符号 "public: virtual char const * __thiscall GR::GRException::what(void)const " (?what@GRException@GR@@UBEPBDXZ)
+     1>GRUtils.lib(GRTextException.obj) : error LNK2001: 无法解析的外部符号 "public: virtual char const * __thiscall GR::GRException::what(void)const " (?what@GRException@GR@@UBEPBDXZ)
+     1>GRUtils.lib(GREnviRoiException.obj) : error LNK2001: 无法解析的外部符号 "public: virtual char const * __thiscall GR::GRException::what(void)const " (?what@GRException@GR@@UBEPBDXZ)
+     1>GRUtils.lib(GREnviAsciiRoi.obj) : error LNK2019: 无法解析的外部符号 "public: virtual __thiscall GR::GRException::~GRException(void)" (??1GRException@GR@@UAE@XZ)，该符号在函数 "public: virtual void * __thiscall GR::GRException::`scalar deleting destructor'(unsigned int)" (??_GGRException@GR@@UAEPAXI@Z) 中被引用
+     1>GRUtils.lib(GRTextException.obj) : error LNK2001: 无法解析的外部符号 "public: virtual __thiscall GR::GRException::~GRException(void)" (??1GRException@GR@@UAE@XZ)
+     1>GRUtils.lib(GREnviRoiException.obj) : error LNK2001: 无法解析的外部符号 "public: virtual __thiscall GR::GRException::~GRException(void)" (??1GRException@GR@@UAE@XZ)
+     1>GRUtils.lib(GRTextException.obj) : error LNK2019: 无法解析的外部符号 "public: __thiscall GR::GRException::GRException(char const *)" (??0GRException@GR@@QAE@PBD@Z)，该符号在函数 "public: __thiscall GR::utils::GRTextException::GRTextException(void)" (??0GRTextException@utils@GR@@QAE@XZ) 中被引用
+     1>GRUtils.lib(GREnviRoiException.obj) : error LNK2001: 无法解析的外部符号 "public: __thiscall GR::GRException::GRException(char const *)" (??0GRException@GR@@QAE@PBD@Z)
+     1>GRUtils.lib(GRTextException.obj) : error LNK2019: 无法解析的外部符号 "public: __thiscall GR::GRException::GRException(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0GRException@GR@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)，该符号在函数 "public: __thiscall GR::utils::GRTextException::GRTextException(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0GRTextException@utils@GR@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) 中被引用
+     1>GRUtils.lib(GREnviRoiException.obj) : error LNK2001: 无法解析的外部符号 "public: __thiscall GR::GRException::GRException(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0GRException@GR@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+     1>E:\Jacory\Code\Github\GR\Debug\test.exe : fatal error LNK1120: 10 个无法解析的外部命令
+     1>已完成生成项目“E:\Jacory\Code\Github\GR\test\test.vcxproj”(build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.86

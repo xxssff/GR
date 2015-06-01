@@ -3,7 +3,7 @@
 
 namespace GR
 {
-namespace GRUtils
+namespace utils
 {
 
 GREnviRoiException::GREnviRoiException(): GR::GRException( "A GREnviRoiException has been created.." )

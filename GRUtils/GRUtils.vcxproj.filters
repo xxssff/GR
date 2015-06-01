@@ -27,12 +27,27 @@
     <ClInclude Include="GREnviRoiException.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GRTextUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GRTextException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GREnviAsciiRoi.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="GREnviRoiException.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GRTextUtils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GRTextException.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\testmain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

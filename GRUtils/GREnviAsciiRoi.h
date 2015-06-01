@@ -9,8 +9,6 @@ namespace GR
 namespace utils
 {
 
-
-
 // ENVI ACSII roi class, parse and store the information of ENVI ACSII roi files.
 class GREnviAsciiRoi
 {
@@ -39,7 +37,7 @@ public:
 
     int getNumSamples( int i ) throw ( GREnviRoiException );
 
-    math::GRMatrix* getMatrix( int i ) throw ( GREnviRoiException );
+    math::Matrix* getMatrix( int i ) throw ( GREnviRoiException );
 
     std::string* getName( int i ) throw ( GREnviRoiException );
 

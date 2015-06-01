@@ -16,7 +16,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -41,7 +41,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\GRCommons;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\Jacory\Code\Github\GR\GRCommons;E:\Jacory\Code\Github\GR\GRMath;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -66,10 +66,15 @@
     <ClInclude Include="GRColor.h" />
     <ClInclude Include="GREnviAsciiRoi.h" />
     <ClInclude Include="GREnviRoiException.h" />
+    <ClInclude Include="GRTextException.h" />
+    <ClInclude Include="GRTextUtils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\test\testmain.cpp" />
     <ClCompile Include="GREnviAsciiRoi.cpp" />
     <ClCompile Include="GREnviRoiException.cpp" />
+    <ClCompile Include="GRTextException.cpp" />
+    <ClCompile Include="GRTextUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GRCommons\GRCommons.vcxproj">

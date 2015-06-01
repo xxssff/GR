@@ -16,7 +16,7 @@ private:
     double alpha;
 
 public:
-    GRColor();
+    GRColor() {};
     GRColor( double r, double g, double b, double a )
         : red( r ), green( g ), blue( b ), alpha( a ) {};
     ~GRColor() {};
@@ -40,7 +40,7 @@ private:
     int alpha;
 
 public:
-    GRColorInt();
+    GRColorInt() {};
     GRColorInt( int r, int g, int b, int a )
         : red( r ), green( g ), blue( b ), alpha( a ) {};
     ~GRColorInt() {};
