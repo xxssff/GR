@@ -35,8 +35,5 @@
     <ClCompile Include="GRMatriceException.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="testmain.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

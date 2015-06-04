@@ -9,7 +9,7 @@ namespace GR
 namespace math
 {
 
-struct Matrix
+struct _declspec( dllexport ) Matrix
 {
     double *matrix;
     int m; // row
@@ -23,7 +23,7 @@ enum outTXTform
     csv
 };
 
-class GRMatrices
+class _declspec( dllexport ) GRMatrices
 {
 public:
     GRMatrices();

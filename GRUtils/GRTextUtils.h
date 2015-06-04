@@ -9,7 +9,7 @@ namespace utils
 {
 
 
-class GRTextUtils
+class _declspec( dllexport ) GRTextUtils
 {
 public:
     GRTextUtils();

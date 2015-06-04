@@ -6,7 +6,7 @@ namespace utils
 {
 
 
-class GRColor
+class _declspec( dllexport ) GRColor
 {
 
 private:
@@ -31,7 +31,7 @@ public:
 
 
 
-class GRColorInt
+class _declspec( dllexport ) GRColorInt
 {
 private:
     int red;

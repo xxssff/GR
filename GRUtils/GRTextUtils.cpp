@@ -38,7 +38,7 @@ bool GRTextUtils::lineStart( std::string line, char token )
 
 void GRTextUtils::tokenizeString( std::string line, char token, std::vector<std::string>* tokens, bool ignoreDuplicateTokens, bool trimWhitespace )
 {
-    tokens = &( split( line, std::string( &token ) ) );
+    *tokens = split( line, std::string( &token ) );
 }
 
 std::vector<std::string> GRTextUtils::split( std::string str, std::string pattern )

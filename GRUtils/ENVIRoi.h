@@ -11,11 +11,11 @@ namespace utils
 {
 
 
-class ENVIRoi
+class _declspec( dllexport ) ENVIRoi
 {
 public:
-    ENVIRoi();
-    ~ENVIRoi();
+    ENVIRoi() {};
+    ~ENVIRoi() {};
 
     std::string name;
     int samples;

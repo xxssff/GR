@@ -116,7 +116,7 @@ void GREnviAsciiRoi::parsefile() throw ( GR::GRInputStreamException )
                         for( int i = 0; i < numrois; i++ )
                         {
                             std::cout << "ROI " << rois[i].name << " has " << rois[i].samples << " samples\n";
-                            rois[i].data = matrixUtils.createMatrix( VariableCount, rois[i].samples );
+                            rois[i].data = matrixUtils.createMatrix( rois[i].samples, VariableCount );
                             //matrixUtils.printMatrix(rois[i].data);
                         }
                         tokens->clear();
@@ -158,16 +158,16 @@ void GREnviAsciiRoi::parsefile() throw ( GR::GRInputStreamException )
             else
             {
                 // DATA
-                //std::cout << "dataStart = " << dataStart << std::endl;
-                //std::cout << lineCounter << ") " << strLine << std::endl;
-                //std::cout << sampleCount << "] ROI: " << roicount << std::endl;
+                /*std::cout << "dataStart = " << dataStart << std::endl;
+                std::cout << lineCounter << ") " << strLine << std::endl;
+                std::cout << sampleCount << "] ROI: " << roicount << std::endl;*/
                 variable = 0;
                 textUtils.tokenizeString( strLine, ' ', tokens, true );
                 //std::cout << "Found " << tokens->size() << " tokens\n";
                 for( unsigned int i = dataStart; i < tokens->size(); i++ )
                 {
                     rois[roicount].data->matrix[dataindex++] = strtod( tokens->at( i ).c_str(), NULL );
-                    //std::cout << variable << ") " << tokens->at(i) << std::endl;
+                    //std::cout << variable << ") " << tokens->at( i ) << std::endl;
                     variable++;
                 }
                 tokens->clear();

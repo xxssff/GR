@@ -1,16 +1,13 @@
-#include <iostream>
-
-#include "GRMatrices.h"
+#include "..\GRUtils\GREnviAsciiRoi.h"
+#include "..\GRMath\GRMatrices.h";
 
 using namespace GR::math;
-using namespace std;
 
 int main()
 {
-
-    Matrix* newMatrix = new Matrix();
+    GR::utils::GREnviAsciiRoi* roi = new GR::utils::GREnviAsciiRoi( "E:\\Jacory\\Code\\Github\\GF_Classification\\GF data\\roi\\clip.txt" );
+    Matrix* newMatrix = roi->getENVIRoi( 1 )->data;
     GRMatrices *ss = new GRMatrices();
-    newMatrix = ss->createMatrix( 10, 3 );
 
     ss->printMatrix( newMatrix );
     ss->saveMatrix2GridTxt( newMatrix, "E:\\Temp\\11" );

@@ -10,6 +10,20 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GRCommons\GRCommons.vcxproj">
+      <Project>{dfd28705-0c7f-4649-a230-ffcf1ba36c35}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GRMath\GRMath.vcxproj">
+      <Project>{f3f2dd37-d636-406e-ad7e-134065312102}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GRUtils\GRUtils.vcxproj">
+      <Project>{a355f203-9e1c-4967-b5ea-1a8417e7614b}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5AF43281-218C-42B3-AD67-39EAB6C0E081}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -49,12 +63,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\Jacory\Code\Github\GR\GRCommons;E:\Jacory\Code\Github\GR\GRUtils;E:\Jacory\Code\Github\GR\GRMath;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>GRUtils.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>GRMath.lib;GRUtils.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>E:\Jacory\Code\Github\GR\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

@@ -10,7 +10,7 @@ namespace utils
 {
 
 // ENVI ACSII roi class, parse and store the information of ENVI ACSII roi files.
-class GREnviAsciiRoi
+class _declspec( dllexport ) GREnviAsciiRoi
 {
 
 private:
