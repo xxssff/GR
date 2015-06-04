@@ -9,7 +9,9 @@ namespace GR
 namespace utils
 {
 
-// ENVI ACSII roi class, parse and store the information of ENVI ACSII roi files.
+/// <summary>
+/// ENVI ACSII roi class, parse and store the information of ENVI ACSII roi files.
+/// </summary>
 class _declspec( dllexport ) GREnviAsciiRoi
 {
 
@@ -17,7 +19,7 @@ private:
 
     // input ENVI ASCII roi file
     std::string inputfile;
-    int numrois;
+    int roiCount;
     int VariableCount;
     ENVIRoi* rois;
 
