@@ -19,7 +19,7 @@
 #include <QtCore/QThread>
 #include "ui_svmParaDialog.h"
 #include <QtGui/QDialog>
-#include "../Classification/svm.h"
+#include "..\GRClassify\svm.h"
 
 class SVMClassification;
 class MapCanvas;
@@ -35,10 +35,10 @@ public:
     ClassificationClient( MapCanvas *myMap, QString algName, QString roiFileName = "", QString modelFileName = "", QString saveModelFile = "", svm_parameter *parameter = NULL );
     ~ClassificationClient();
     void run();
-    
+
 private:
     float Scale( float src , float max, float min );
-    
+
     /// <summary>
     /// The MapCanvas reference, it's used to get
     /// the raster data's information and create the new image.

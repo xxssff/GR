@@ -780,7 +780,7 @@ void GRMatrices::exportAsImage( Matrix *matrix, std::string filepath ) throw( GR
         }
 
 
-        delete row;
+        //delete row;
         GDALClose( outputImageDS );
     }
     catch( GRMatriceException e )

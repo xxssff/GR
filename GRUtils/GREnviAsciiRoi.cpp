@@ -243,5 +243,20 @@ void GREnviAsciiRoi::printRois()
     }
 }
 
+int GREnviAsciiRoi::getTotalRoiSamplesCount()
+{
+    int totalCount = 0;
+    for ( int i = 0; i < roiCount; i++ )
+    {
+        totalCount += rois[i].samples;
+    }
+    return totalCount;
+}
+
+GREnviAsciiRoi::~GREnviAsciiRoi()
+{
+    delete rois;
+}
+
 }
 }

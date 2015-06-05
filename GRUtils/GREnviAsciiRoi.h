@@ -20,7 +20,7 @@ private:
     // input ENVI ASCII roi file
     std::string inputfile;
     int roiCount;
-    int VariableCount;
+    int VariableCount; // band count
     ENVIRoi* rois;
 
     // parse roi files.
@@ -30,6 +30,7 @@ public:
     GREnviAsciiRoi( std::string file );
     ~GREnviAsciiRoi();
 
+    int getTotalRoiSamplesCount();
 
     ENVIRoi* getENVIRoi( int i ) throw ( GREnviRoiException );
 

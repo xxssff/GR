@@ -18,7 +18,7 @@
 
 #include <QDialog>
 #include "ui_svmParaDialog.h"
-#include "../Classification/svm.h"
+#include "..\GRClassify\svm.h"
 #include "MyProgressBar.h"
 
 class MapCanvas;
@@ -30,11 +30,11 @@ class ProgressDialog;
 class SvmClasssificationDialog : public QDialog
 {
     Q_OBJECT
-    
+
 public:
     SvmClasssificationDialog( QWidget *parent = 0 );
     ~SvmClasssificationDialog();
-    
+
 public slots:
     void BrowseRoiFile();
     void BrowseModelFile();
@@ -44,10 +44,10 @@ public slots:
     void SetSaveModelEnable();
     void BrowseSaveModel();
     void SetMap( MapCanvas *map );
-    
+
 private:
     void initialParameter();
-    
+
     /// <summary>
     /// The dialog ui.
     /// </summary>
@@ -81,7 +81,7 @@ private:
     /// The parameter to train svm model.
     /// </summary>
     svm_parameter parameter;
-    
+
 };
 
 #endif // SVMCLASSSIFICATIONDIALOG_H
