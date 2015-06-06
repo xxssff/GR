@@ -35,6 +35,10 @@
     <Import Project="..\GRMath.props" />
     <Import Project="..\GRUtils.props" />
     <Import Project="..\GDAL1_11_2.props" />
+    <Import Project="GDAL1_11_2_mac.props" />
+    <Import Project="GRMath_mac.props" />
+    <Import Project="GRCommons_mac.props" />
+    <Import Project="GRUtils_mac.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -42,6 +46,10 @@
     <Import Project="..\GRCommons.props" />
     <Import Project="..\GRMath.props" />
     <Import Project="..\GRUtils.props" />
+    <Import Project="GDAL1_11_2_mac.props" />
+    <Import Project="GRMath_mac.props" />
+    <Import Project="GRCommons_mac.props" />
+    <Import Project="GRUtils_mac.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
@@ -71,10 +79,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GRIsoDataClassifier.h" />
     <ClInclude Include="GRSvmClassifier.h" />
     <ClInclude Include="svm.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GRIsoDataClassifier.cpp" />
     <ClCompile Include="GRSvmClassifier.cpp" />
     <ClCompile Include="svm.cpp" />
   </ItemGroup>

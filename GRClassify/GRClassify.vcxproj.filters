@@ -21,12 +21,18 @@
     <ClInclude Include="svm.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GRIsoDataClassifier.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GRSvmClassifier.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="svm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GRIsoDataClassifier.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

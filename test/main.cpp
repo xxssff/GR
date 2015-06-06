@@ -1,6 +1,7 @@
 #include "..\GRUtils\GREnviAsciiRoi.h"
 #include "..\GRMath\GRMatrices.h";
 #include "..\GRClassify\GRSvmClassifier.h"
+#include "..\GRClassify\GRIsoDataClassifier.h"
 
 #include <time.h>
 #include <iostream>
@@ -10,7 +11,8 @@ using namespace std;
 
 int main()
 {
-    string base = "CLIP";
+    #pragma region test svm classification
+    /*string base = "CLIP";
     string dir = "E:\\Jacory\\Code\\Github\\GF_Classification\\GF data\\";
 
     string ROIpath = dir + "roi\\" + base + ".txt";
@@ -43,7 +45,32 @@ int main()
 
     time_t endTime = time( NULL );
 
+    cout << "time use:" << endTime - startTime << "s" << endl;*/
+    #pragma endregion test svm classification
+
+
+    #pragma region test isodata classification
+    string inputFileName = "C:\\31954-106.jpg";
+    string outputFileName = "E:\\ISO_class.tif";
+    GR::classifier::GRIsoDataClassifier *isodata = new GR::classifier::GRIsoDataClassifier();
+    isodata->setInputFilename( inputFileName );
+    isodata->setOutputFilename( outputFileName );
+    time_t startTime = time( NULL );
+    try
+    {
+        isodata->ParametersCheck();
+        isodata->Execute();
+    }
+    catch ( const char* error )
+    {
+        cout << error << endl;
+    }
+
+    time_t endTime = time( NULL );
     cout << "time use:" << endTime - startTime << "s" << endl;
+
+    #pragma endregion test isodata classification
+
 
 
     //GR::utils::GREnviAsciiRoi* roi = new GR::utils::GREnviAsciiRoi( "E:\\Jacory\\Code\\Github\\GF_Classification\\GF data\\roi\\clip.txt" );
