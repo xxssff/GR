@@ -30,18 +30,12 @@ GRSvmClassifier::~GRSvmClassifier()
 }
 
 
-bool GRSvmClassifier::run( std::string roiFilePath, std::string modelPath, std::string imgName, std::string saveName )
+bool GRSvmClassifier::run( std::string roiFilePath, std::string imgName, std::string saveName )
 {
-    fstream in( modelPath );
-    if ( in.fail() )
-    {
-        in.close();
-        intialSvmProFormSource( roiFilePath, imgName );
-        initialSvmPara();
-        trainModel( modelPath );
-    }
-    const char* tmp = modelPath.c_str();
-    svmModel = svm_load_model( tmp );
+
+    intialSvmProFormSource( roiFilePath, imgName );
+    initialSvmPara();
+    trainModel();
 
     classification( imgName , saveName );
 
@@ -69,7 +63,7 @@ void GRSvmClassifier::initialSvmPara()
     svmPara.probability = 0;
 }
 
-void GRSvmClassifier::trainModel( std::string modelPath )
+void GRSvmClassifier::trainModel()
 {
     cout << "train model..." << endl;
 
@@ -81,8 +75,6 @@ void GRSvmClassifier::trainModel( std::string modelPath )
         exit( 1 );
     }
     svmModel = svm_train( &svmPro, &svmPara );
-    const char* tmp = modelPath.c_str();
-    svm_save_model( tmp , svmModel );
 
     cout << "model trainning done!" << endl;
 }
