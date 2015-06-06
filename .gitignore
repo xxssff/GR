@@ -34,3 +34,11 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+# Visual Studio generate files
+.obj
+.tlog
+.log
+.lastbuildstate
+.idb
+.pdb

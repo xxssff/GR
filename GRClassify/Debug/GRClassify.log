@@ -1,25 +1,97 @@
-﻿生成启动时间为 2015/6/6 星期六 0:39:58。
-     1>项目“\\psf\Home\Documents\Git\GR\GRClassify\GRClassify.vcxproj”在节点 2 上(build 个目标)。
+﻿生成启动时间为 2015/6/6 13:00:58。
+     1>项目“E:\Jacory\Code\Github\GR\GRClassify\GRClassify.vcxproj”在节点 3 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\GRClassify.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\3rd_Party\GDAL1.11.2\include /I\\psf\Home\Documents\Git\GR\GRUtils /I\\psf\Home\Documents\Git\GR\GRCommons /I\\psf\Home\Documents\Git\GR\GRMath /IC:\3rd_party\GDAL1.11.2\include /IC:\3rd_party\GDAL1.11.2\include /IE:\Jacory\Code\Github\GR\GRUtils /IE:\Jacory\Code\Github\GR\GRMath /IE:\Jacory\Code\Github\GR\GRCommons /ZI /nologo /W3 /WX- /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GRIsoDataClassifier.cpp
-         GRIsoDataClassifier.cpp
-     1>\\psf\home\documents\git\gr\grclassify\grisodataclassifier.h(72): warning C4251: “GR::classifier::GRIsoDataClassifier::inputFilename”: class“std::basic_string<_Elem,_Traits,_Ax>”需要有 dll 接口由 class“GR::classifier::GRIsoDataClassifier”的客户端使用
+         所有输出均为最新。
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\3rd_Party\GDAL1.11.2\include /I\\psf\Home\Documents\Git\GR\GRUtils /I\\psf\Home\Documents\Git\GR\GRCommons /I\\psf\Home\Documents\Git\GR\GRMath /IC:\3rd_party\GDAL1.11.2\include /ID:\3rd_party\GDAL1.11.2\include /IE:\Jacory\Code\Github\GR\GRUtils /IE:\Jacory\Code\Github\GR\GRMath /IE:\Jacory\Code\Github\GR\GRCommons /ZI /nologo /W3 /WX- /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GRIsoDataClassifier.cpp GRSvmClassifier.cpp svm.cpp
+         svm.cpp
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(2900): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3032): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3048): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3052): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3074): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3096): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3100): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3104): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3108): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3112): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3120): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3129): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3138): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3147): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3156): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3190): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\string.h(197) : 参见“strtok”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3193): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\string.h(197) : 参见“strtok”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3223): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\string.h(197) : 参见“strtok”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3227): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\string.h(197) : 参见“strtok”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3233): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\string.h(197) : 参见“strtok”的声明
+     1>e:\jacory\code\github\gr\grclassify\svm.cpp(3234): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\string.h(197) : 参见“strtok”的声明
+         GRSvmClassifier.cpp
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(32): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(33): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(35): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(39): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(41): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(42): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(43): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(48): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(49): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(50): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(53): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(54): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(55): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(56): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(57): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(59): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(62): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(63): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(64): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(65): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(66): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grmath\grmatrices.h(68): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\enviroi.h(20): warning C4251: “GR::utils::ENVIRoi::name”: class“std::basic_string<_Elem,_Traits,_Ax>”需要有 dll 接口由 class“GR::utils::ENVIRoi”的客户端使用
                  with
                  [
                      _Elem=char,
                      _Traits=std::char_traits<char>,
                      _Ax=std::allocator<char>
                  ]
-     1>\\psf\home\documents\git\gr\grclassify\grisodataclassifier.h(73): warning C4251: “GR::classifier::GRIsoDataClassifier::outputFilename”: class“std::basic_string<_Elem,_Traits,_Ax>”需要有 dll 接口由 class“GR::classifier::GRIsoDataClassifier”的客户端使用
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(21): warning C4251: “GR::utils::GREnviAsciiRoi::inputfile”: class“std::basic_string<_Elem,_Traits,_Ax>”需要有 dll 接口由 class“GR::utils::GREnviAsciiRoi”的客户端使用
                  with
                  [
                      _Elem=char,
                      _Traits=std::char_traits<char>,
                      _Ax=std::allocator<char>
                  ]
-     1>c:\3rd_party\gdal1.11.2\include\cpl_string.h(227): warning C4251: “std::_String_val<_Elem,_Alloc>::_Alval”: class“std::allocator<_Ty>”需要有 dll 接口由 class“std::_String_val<_Elem,_Alloc>”的客户端使用
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(27): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(35): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(39): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(41): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(43): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>e:\jacory\code\github\gr\grutils\grenviasciiroi.h(45): warning C4290: 忽略 C++ 异常规范，但指示函数不是 __declspec(nothrow)
+     1>d:\3rd_party\gdal1.11.2\include\cpl_string.h(227): warning C4251: “std::_String_val<_Elem,_Alloc>::_Alval”: class“std::allocator<_Ty>”需要有 dll 接口由 class“std::_String_val<_Elem,_Alloc>”的客户端使用
                  with
                  [
                      _Elem=char,
@@ -34,38 +106,86 @@
                      _Elem=char,
                      _Alloc=std::allocator<char>
                  ]
-     1>c:\3rd_party\gdal1.11.2\include\gdal_priv.h(451): warning C4251: “GDALColorTable::aoEntries”: class“std::vector<_Ty>”需要有 dll 接口由 class“GDALColorTable”的客户端使用
+     1>d:\3rd_party\gdal1.11.2\include\gdal_priv.h(451): warning C4251: “GDALColorTable::aoEntries”: class“std::vector<_Ty>”需要有 dll 接口由 class“GDALColorTable”的客户端使用
                  with
                  [
                      _Ty=GDALColorEntry
                  ]
-     1>c:\3rd_party\gdal1.11.2\include\gdal_rat.h(294): warning C4251: “GDALDefaultRasterAttributeTable::aoFields”: class“std::vector<_Ty>”需要有 dll 接口由 class“GDALDefaultRasterAttributeTable”的客户端使用
+     1>d:\3rd_party\gdal1.11.2\include\gdal_rat.h(294): warning C4251: “GDALDefaultRasterAttributeTable::aoFields”: class“std::vector<_Ty>”需要有 dll 接口由 class“GDALDefaultRasterAttributeTable”的客户端使用
                  with
                  [
                      _Ty=GDALRasterAttributeField
                  ]
-     1>\\psf\home\documents\git\gr\grclassify\grisodataclassifier.cpp(563): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-     1>\\psf\home\documents\git\gr\grclassify\grisodataclassifier.cpp(927): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
-                 c:\program files\microsoft visual studio 10.0\vc\include\stdlib.h(867) : 参见“itoa”的声明
-     1>\\psf\home\documents\git\gr\grclassify\grisodataclassifier.cpp(935): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
-                 c:\program files\microsoft visual studio 10.0\vc\include\stdlib.h(867) : 参见“itoa”的声明
-     1>\\psf\home\documents\git\gr\grclassify\grisodataclassifier.cpp(940): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
-                 c:\program files\microsoft visual studio 10.0\vc\include\stdlib.h(867) : 参见“itoa”的声明
-     1>\\psf\home\documents\git\gr\grclassify\grisodataclassifier.cpp(957): warning C4101: “ex”: 未引用的局部变量
+     1>e:\jacory\code\github\gr\grclassify\grsvmclassifier.cpp(125): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\jacory\code\github\gr\grclassify\grsvmclassifier.cpp(129): warning C4244: “=”: 从“double”转换到“short”，可能丢失数据
+     1>e:\jacory\code\github\gr\grclassify\grsvmclassifier.cpp(130): warning C4244: “=”: 从“double”转换到“short”，可能丢失数据
+     1>e:\jacory\code\github\gr\grclassify\grsvmclassifier.cpp(131): warning C4244: “=”: 从“double”转换到“short”，可能丢失数据
+     1>e:\jacory\code\github\gr\grclassify\grsvmclassifier.cpp(147): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdlib.h(867) : 参见“itoa”的声明
+     1>e:\jacory\code\github\gr\grclassify\grsvmclassifier.cpp(176): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+         GRIsoDataClassifier.cpp
+     1>e:\jacory\code\github\gr\grclassify\grisodataclassifier.h(72): warning C4251: “GR::classifier::GRIsoDataClassifier::inputFilename”: class“std::basic_string<_Elem,_Traits,_Ax>”需要有 dll 接口由 class“GR::classifier::GRIsoDataClassifier”的客户端使用
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+     1>e:\jacory\code\github\gr\grclassify\grisodataclassifier.h(73): warning C4251: “GR::classifier::GRIsoDataClassifier::outputFilename”: class“std::basic_string<_Elem,_Traits,_Ax>”需要有 dll 接口由 class“GR::classifier::GRIsoDataClassifier”的客户端使用
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+     1>d:\3rd_party\gdal1.11.2\include\cpl_string.h(227): warning C4251: “std::_String_val<_Elem,_Alloc>::_Alval”: class“std::allocator<_Ty>”需要有 dll 接口由 class“std::_String_val<_Elem,_Alloc>”的客户端使用
+                 with
+                 [
+                     _Elem=char,
+                     _Alloc=std::allocator<char>
+                 ]
+                 and
+                 [
+                     _Ty=char
+                 ]
+                 and
+                 [
+                     _Elem=char,
+                     _Alloc=std::allocator<char>
+                 ]
+     1>d:\3rd_party\gdal1.11.2\include\gdal_priv.h(451): warning C4251: “GDALColorTable::aoEntries”: class“std::vector<_Ty>”需要有 dll 接口由 class“GDALColorTable”的客户端使用
+                 with
+                 [
+                     _Ty=GDALColorEntry
+                 ]
+     1>d:\3rd_party\gdal1.11.2\include\gdal_rat.h(294): warning C4251: “GDALDefaultRasterAttributeTable::aoFields”: class“std::vector<_Ty>”需要有 dll 接口由 class“GDALDefaultRasterAttributeTable”的客户端使用
+                 with
+                 [
+                     _Ty=GDALRasterAttributeField
+                 ]
+     1>e:\jacory\code\github\gr\grclassify\grisodataclassifier.cpp(563): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+     1>e:\jacory\code\github\gr\grclassify\grisodataclassifier.cpp(927): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdlib.h(867) : 参见“itoa”的声明
+     1>e:\jacory\code\github\gr\grclassify\grisodataclassifier.cpp(935): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdlib.h(867) : 参见“itoa”的声明
+     1>e:\jacory\code\github\gr\grclassify\grisodataclassifier.cpp(940): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 d:\program files\microsoft visual studio 10.0\vc\include\stdlib.h(867) : 参见“itoa”的声明
+     1>e:\jacory\code\github\gr\grclassify\grisodataclassifier.cpp(957): warning C4101: “ex”: 未引用的局部变量
+         正在生成代码...
        Link:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"\\psf\Home\Documents\Git\GR\Debug\GRClassify.dll" /NOLOGO /LIBPATH:D:\3rd_Party\GDAL1.11.2\lib /LIBPATH:\\psf\Home\Documents\Git\GR\Debug /LIBPATH:\\psf\Home\Documents\Git\GR\Debug /LIBPATH:C:\3rd_party\GDAL1.11.2\lib /LIBPATH:C:\3rd_Party\GDAL1.11.2\lib /LIBPATH:E:\Jacory\Code\Github\GR\Debug /LIBPATH:E:\Jacory\Code\Github\GR\Debug /LIBPATH:E:\Jacory\Code\Github\GR\Debug gdal_i.lib GRUtils.lib GRMath.lib GRCommons.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\GRClassify.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"\\psf\Home\Documents\Git\GR\Debug\GRClassify.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"\\psf\Home\Documents\Git\GR\Debug\GRClassify.lib" /MACHINE:X86 /DLL Debug\GRIsoDataClassifier.obj
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Jacory\Code\Github\GR\Debug\GRClassify.dll" /NOLOGO /LIBPATH:D:\3rd_Party\GDAL1.11.2\lib /LIBPATH:\\psf\Home\Documents\Git\GR\Debug /LIBPATH:\\psf\Home\Documents\Git\GR\Debug /LIBPATH:C:\3rd_party\GDAL1.11.2\lib /LIBPATH:D:\3rd_Party\GDAL1.11.2\lib /LIBPATH:E:\Jacory\Code\Github\GR\Debug /LIBPATH:E:\Jacory\Code\Github\GR\Debug /LIBPATH:E:\Jacory\Code\Github\GR\Debug gdal_i.lib GRUtils.lib GRMath.lib GRCommons.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\GRClassify.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Jacory\Code\Github\GR\Debug\GRClassify.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Jacory\Code\Github\GR\Debug\GRClassify.lib" /MACHINE:X86 /DLL Debug\GRIsoDataClassifier.obj
          Debug\GRSvmClassifier.obj
          Debug\svm.obj
-         LINK : 没有找到 \\psf\Home\Documents\Git\GR\Debug\GRClassify.dll 或上一个增量链接没有生成它；正在执行完全链接
-            正在创建库 \\psf\Home\Documents\Git\GR\Debug\GRClassify.lib 和对象 \\psf\Home\Documents\Git\GR\Debug\GRClassify.exp
-         GRClassify.vcxproj -> \\psf\Home\Documents\Git\GR\Debug\GRClassify.dll
+         LINK : 没有找到 E:\Jacory\Code\Github\GR\Debug\GRClassify.dll 或上一个增量链接没有生成它；正在执行完全链接
+            正在创建库 E:\Jacory\Code\Github\GR\Debug\GRClassify.lib 和对象 E:\Jacory\Code\Github\GR\Debug\GRClassify.exp
+         GRClassify.vcxproj -> E:\Jacory\Code\Github\GR\Debug\GRClassify.dll
        Manifest:
-         c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"\\psf\Home\Documents\Git\GR\Debug\GRClassify.dll;#2" /manifest Debug\GRClassify.dll.intermediate.manifest
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\Jacory\Code\Github\GR\Debug\GRClassify.dll;#2" /manifest Debug\GRClassify.dll.intermediate.manifest
        FinalizeBuildStatus:
          正在删除文件“Debug\GRClassify.unsuccessfulbuild”。
          正在对“Debug\GRClassify.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“\\psf\Home\Documents\Git\GR\GRClassify\GRClassify.vcxproj”(build 个目标)的操作。
+     1>已完成生成项目“E:\Jacory\Code\Github\GR\GRClassify\GRClassify.vcxproj”(build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:03.32
+已用时间 00:00:02.91

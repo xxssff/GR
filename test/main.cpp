@@ -50,8 +50,8 @@ int main()
 
 
     #pragma region test isodata classification
-    string inputFileName = "C:\\31954-106.jpg";
-    string outputFileName = "E:\\ISO_class.tif";
+    string inputFileName = "C:\\Users\\Jacory\\Pictures\\10811-t3c94h8m3i.jpg";
+    string outputFileName = "C:\\Users\\Jacory\\Pictures\\iso.tif";
     GR::classifier::GRIsoDataClassifier *isodata = new GR::classifier::GRIsoDataClassifier();
     isodata->setInputFilename( inputFileName );
     isodata->setOutputFilename( outputFileName );
